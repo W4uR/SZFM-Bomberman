@@ -1,3 +1,6 @@
+### **1. Jelenlegi helyzet leírása:**
+Már jelenleg is létezik több Bomberman nevű, webes felületen elérhető 2D-s játék. A játék lényege, hogy a játkosok robbanószereket helyeznek el a pályán, és ezzel kiejteni az ellenfelet. Ezzel a projekktel ezen játék egy klónját szeretnék elkészíteni. 
+
 ### **2.  Vágyálom rendszer leírása:**
 A játék célja egy izgalmas és szórakoztató offline multiplayer élmény nyújtása, ahol a játékosok robbanószereket helyezhetnek el a pályán, és megpróbálják kiejteni egymást. A játékot számítógép böngészőjében lehessen játszani.
 
@@ -59,6 +62,50 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
 #### 2.8. Projektmenedzsment:
 
 - 2.8.1. A projektmenedzsment során kövessünk egy átfogó ütemtervet, és tartsuk be a határidőket.
+
+### **3. A rendszerre vonatkozó pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása:**
+
+#### 3.1 Projekttervezés: 
+- Határozza meg a játék célját és funkcióit. Gondoljon arra, hogy milyen típusú Bomberman játékot szeretne létrehozni, és milyen egyedi elemeket szeretne hozzáadni.
+#### 3.3 Játékmechanika tervezése: 
+- Hozzon létre egy tervezést vagy tervrajzot a játék alapvető mechanizmusairól, például a játékos mozgásáról, bombák lerakásáról, robbanásokról stb.
+#### 3.4 Grafikai és hangtervezés: 
+- Tervezze meg a játék grafikáját és hangjait, vagy béreljen grafikust és hangtervezőt, ha szükséges.
+#### 3.5 Kódolás és fejlesztés: 
+- Kezdje el a játékfejlesztést a kiválasztott platformon, és hozzon létre az alapvető játékmechanizmusokat.
+#### 3.6 Pályakép és szintek készítése: 
+- Hozzon létre pályaképeket és játékszinteket a játékhoz.
+#### 3.7 Hálózati támogatás (opcionális): 
+- Ha multiplayer módú játékot tervez, készítse el a hálózati támogatást a játékhoz.
+#### 3.8 Tesztelés: 
+- Tesztelje a játékot, és javítsa ki az esetleges hibákat.
+#### 3.9 Engedélyek és jogi megfontolások: 
+- Ellenőrizze, hogy van-e szükség engedélyekre a játék terjesztéséhez, és tartsa be az összes vonatkozó jogszabályt, például szerzői jogi és adatvédelmi előírásokat.
+#### 3.10 Kiadvány: 
+- Adja ki a játékot a kiválasztott platformon.
+
+### **4 Jelenlegi üzleti folyamatok modellje:**
+
+- 4.1. Egy meccs lejátszása
+    - 4.1.1 Böngésző megnyitása, majd keresés a játékra.
+    - 4.1.2 Kívánt verzió kiválasztása.
+    - 4.1.3 Játékos(ok) nevének megadása.
+        - 4.1.3.1. 1-es játékos karakterének közelében lévő szövegdobozba kattintás.
+        - 4.1.3.2. Név megadása.
+        - 4.1.3.3. 2-es játékos karakterének közelében lévő szövegdobozba kattintás.
+        - 4.1.3.4. Név megadása.
+        Vagy
+        - 4.1.3.1. 1-es játékos karakterének közelében lévő szövegdobozba kattintás.
+        - 4.1.3.2. Név megadása.
+    - 4.1.4. Játék indítása "Játék" gombra kattintással. (Második játékos opcionális.)
+    - 4.1.5. A játékosok egy billentyűzettel játszva mozognak a pályán és helyeznek el bombákat, addig amíg valamelyik játékos karaktere fel nem robban. Míg egy játékos esetén a többi ellenfelet a számítógép irányítja.
+    - 4.1.6. Játék vége képernyő
+        - 4.1.6.1. "Új játék" gombra kattintva visszaugrunk az 4.1.4. pontra.
+        - 4.1.6.1. "Vissza a főmenűbe" gombra kattintva visszaugrunk az 4.1.3. pontra.
+- 4.2. Ranglista megtekintése.
+    - A jelenlegi játék nem rendelkezik ranglistával.
+- 4.2. Hibajelentés.
+    - A jelenlegi játék nem rendelkezik hibabejelentéssel.
 
 ### **5. Igényelt üzleti folyamatok modellje**
 
