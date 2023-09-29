@@ -34,18 +34,18 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
 
 #### 2.3. Multiplayer Funkciók:
 
--2.3.1. A játék lehetővé tesz offline többjátékos módot.
+- 2.3.1. A játék lehetővé tesz offline többjátékos módot.
 
 #### 2.4. Irányítás:
 
--2.4.1. Az irányítás legyen intuitív és könnyen megtanulható.
--2.4.2. Tudjon a 2 játékos egy billentyűzettel játszani.
+- 2.4.1. Az irányítás legyen intuitív és könnyen megtanulható.
+- 2.4.2. Tudjon a 2 játékos egy billentyűzettel játszani.
 
 #### 2.5. További Funkciók:
 
--2.5.1. Többféle karakter és pálya választás lehetősége.
--2.5.2. Ranglisták és eredmények megjelenítése.
--2.5.3. Power-up tárgyak, amelyek növelik a karakterek képességeit.
+- 2.5.1. Többféle karakter és pálya választás lehetősége.
+- 2.5.2. Ranglisták és eredmények megjelenítése.
+- 2.5.3. Power-up tárgyak, amelyek növelik a karakterek képességeit.
 
 #### 2.6. Tesztelés és Hibajavítás:
 
