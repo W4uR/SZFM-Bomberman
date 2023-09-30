@@ -107,7 +107,7 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
 - 4.2. Hibajelentés.
     - A jelenlegi játék nem rendelkezik hibabejelentéssel.
 
-### **5. Igényelt üzleti folyamatok modellje**
+### **5. Igényelt üzleti folyamatok modellje:**
 
 - 5.1. Egy meccs lejátszása.
     - 5.1.1. Weblap megynitása, üdvözlő képernyő.
@@ -135,3 +135,30 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
     - 5.3.3. Hibajelentő overlay megjelenik.
     - 5.3.4. Mezők kitöltése.
     - 5.3.5. "Küldés" gomb.
+
+### **6. Követelménylista:**
+- 6.1 Karakterek:
+    - 6.1.1 Két játékos karaketerinek létrehozása
+    - 6.1.2 Karakterek mozgása és irányítása (Beállítható? - WASD,Nyilak alapértelmezettként)
+- 6.2 Pályák és szintek
+    - 6.2.1 Egy játéktéren, a pálya magát generálja.
+- 6.3 Bombák és Robbanások 
+    - 6.3.1 A Bomba egy arra alkalmas helyre elhelyezhető.
+    - 6.3.2 Robbanásnak megfelelően a karakterek, és pálya sérülése.
+- 6.4 Power-up-ok:
+    - 6.4.1 A Bombák tulajdonságait képesek befolyásolni mint pl. hatósugár.
+    - 6.4.2 Képesek a karaktert is felerősíteni mint pl. gyorsabban halad.
+- 6.5 Célkitűzések
+    - 6.5.1 A játék céljának meghatározása (ellenfél legyőzése.)
+- 6.6 Pontszám
+    - 6.6.1 Pontszámítás a játék során. (Nyertes fix pont összeg. +Pont a lerombolt elemekért?)
+- 6.7 Grafika és animáció
+    - 6.7.1 A játéknak 2d-s térben kell készülnie, "pixel art" megjelenéssel.
+    - A Robbanás terjedésének és a karakterek mozgásának van animációja.
+    - Hang nem tartozik a játékhoz.
+- 6.8 Platformok
+    - 6.8.1 A játék WEB böngészőn keresztül lesz játszható. 
+    - 6.8.2 A játék FULL HD felbontást támogat.
+- 6.9 Tesztelés és hibajavítás
+    - 6.9.1 A játék tesztelése és hibák javítása a megjelnés előtt és után.
+    
