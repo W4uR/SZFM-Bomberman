@@ -103,5 +103,5 @@
 - Az így megjelenő átfedésen a játékosok egy rövid leírást írhatnak a problémáról.
 - A "Küldés" gombra kattintva a jelentés elküdésre kerül a fejleszetőknek.
 
-        Az ilyen jelentések segítenek a fejlesztőknek az esetleges hibák és problémák azonosításában és javításában.
+    *Az ilyen jelentések segítenek a fejlesztőknek az esetleges hibák és problémák azonosításában és javításában.*
 
