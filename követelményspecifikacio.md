@@ -155,7 +155,6 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
 - 6.7 Grafika és animáció
     - 6.7.1 A játéknak 2d-s térben kell készülnie, "pixel art" megjelenéssel.
     - A Robbanás terjedésének és a karakterek mozgásának van animációja.
-    - Hang nem tartozik a játékhoz.
 - 6.8 Platformok
     - 6.8.1 A játék WEB böngészőn keresztül lesz játszható. 
     - 6.8.2 A játék FULL HD felbontást támogat.
