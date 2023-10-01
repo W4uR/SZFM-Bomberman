@@ -23,6 +23,64 @@
 
 - **Bonyolult Számítógépes Intelligencia:** Az AI-ellenfelek fejlesztése nem tartozik a projekt céljai közé.
 
+### **2. Jelenlegi helyzet leírása:**
+#### 2.1 Játékmenet:
+- A jelenlegi Bomberman játék lehetővé teszi egy vagy több játékosnak, hogy egy adott pályán játszhasson.
+- A játékosok karaktereket irányíthatnak, mozoghatnak a pályán és bombákat helyezhetnek el.
+#### 2.2 Pályák:
+- A játék számos pályát tartalmaz különböző nehézségi szinteken.
+- A pályák közötti váltás lehetősége van a játékosoknak.
+#### 2.3 Ellenségek:
+- A pályákon ellenségek vannak, amelyek mozognak és a játékosokat üldözik.
+- A játékosok célja az ellenségek legyőzése vagy kerülése.
+#### 2.4 Power-up-ok:
+- A pályákon különböző erősítők és tárgyak találhatók, amelyek hatással vannak a játékosok karaktereire.
+- Ezek az erősítők növelhetik a játékosok sebességét, bombaszámát vagy más tulajdonságokat.
+#### 2.5 Felhasználói Interfész:
+- A játék jelenlegi felhasználói felülete egyszerű és könnyen kezelhető.
+#### 2.6 Játékmenet:
+- A jelenlegi játékmenet élvezetes.
+
+### **3. Vágyálom rendszer leírása:**
+#### 3.1 Multiplayer Támogatás:
+- A játékosoknak lehetőségük van barátaikkal játszani.
+
+#### 3.2 Adatok és Mentés:
+- A játékosoknak menthetik az eredményeiket.
+
+#### 3.3 Felhasználói Interfész:
+- Egy modern és intuitív felhasználói felület áll rendelkezésre, amely egyszerű és könnyen kezelhető.
+- A felület testre szabható, és lehetőséget biztosít a játékosoknak a kontrollok és egyéb dolgok testreszabására.
+
+#### 3.4 Játékmenet: 
+- A játékosok egymás ellen játszva bombákat helyznek el a térképen. A bombák robbanásával csökkenthető az ellenfél életereje és
+rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a játékos a karakterét vagy a bombája erejét.
+
+### **4. A rendszerre vonatkozó külső megszorítások: pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása.:**
+- HTML5 és CSS3 technológiák használata a modern és reszponzív felhasználói felület kialakításához.
+- JavaScript és annak P5 nevezetű kiegészítő könyvtárának használata.
+
+### **5. A jelenlegi üzleti folyamatok modellje:**
+- 5.1 Egy meccs lejátszása.
+    - 5.1.1 Webbögénsző megnyitása majd keresés a játékra.
+    - 5.1.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
+    - 5.1.3 Egy játékos esetén a karakter nevének megadása.
+    - 5.1.4 Több jétkos esetén az összes játkos karakterének.
+    - 5.1.5 Játék indítása a "Játék/Start" gombokra kattintással.
+    - 5.1.6. A játékosok egy billentyűzettel játszva mozognak a pályán és helyeznek el bombákat, addig amíg valamelyik játékos karaktere fel nem robban vagy az idő le nem jár.
+    - 5.1.7 Játvék vége képernyő
+        - 5.1.7.1 "Új játék" gombra kattintva visszaugrunk az 5.1.5-es pontra.
+        - 5.1.7.2 "Vissza a főmenübe" gombra kattintva visszaugrunk az 5.1.2 pont eredményére.
+
+- 5.2 Ranglista megtekintése.
+    - 5.2.1 Webbögénsző megnyitása majd keresés a játékra.
+    - 5.2.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
+    - 5.2.3 Kattintása a "Ranglista" gombra.
+    - 5.2.4 Ranglista képernyő megjelenik. 
+
+
+
+
 ### 8. Használati Esetek
 
     @startuml
