@@ -60,23 +60,9 @@ rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a ját
 - HTML5 és CSS3 technológiák használata a modern és reszponzív felhasználói felület kialakításához.
 - JavaScript és annak P5 nevezetű kiegészítő könyvtárának használata.
 
-### **5. A jelenlegi üzleti folyamatok modellje:**
-- 5.1 Egy meccs lejátszása.
-    - 5.1.1 Webbögénsző megnyitása majd keresés a játékra.
-    - 5.1.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
-    - 5.1.3 Egy játékos esetén a karakter nevének megadása.
-    - 5.1.4 Több jétkos esetén az összes játkos karakterének.
-    - 5.1.5 Játék indítása a "Játék/Start" gombokra kattintással.
-    - 5.1.6. A játékosok egy billentyűzettel játszva mozognak a pályán és helyeznek el bombákat, addig amíg valamelyik játékos karaktere fel nem robban vagy az idő le nem jár.
-    - 5.1.7 Játvék vége képernyő
-        - 5.1.7.1 "Új játék" gombra kattintva visszaugrunk az 5.1.5-es pontra.
-        - 5.1.7.2 "Vissza a főmenübe" gombra kattintva visszaugrunk az 5.1.2 pont eredményére.
+### **4 Jelenlegi üzleti folyamatok modellje:**
 
-- 5.2 Ranglista megtekintése.
-    - 5.2.1 Webbögénsző megnyitása majd keresés a játékra.
-    - 5.2.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
-    - 5.2.3 Kattintása a "Ranglista" gombra.
-    - 5.2.4 Ranglista képernyő megjelenik. 
+Lásd köv spec.
 
 
 
