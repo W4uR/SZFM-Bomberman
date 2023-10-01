@@ -65,3 +65,17 @@
 #### 4.5 Webtelepítés:
 - A játékot közvetlenül egy weboldalon vagy webalkalmazásként is elérhetővé tehetjük. Ehhez a játékot egy webes szerverre kell feltölteni, és gondoskodni kell a megfelelő webböngésző támogatásról.
 
+### **6. Szoftver architektúra:**
+#### 6.1 Felhasználói felület (UI):
+- A játékfelület, amely a játékosok interakcióját és a játékállapot megjelenítését teszi lehetővé.
+- Tartalmazza a játék kezelőfelületét, menürendszert és karakterek animációját.
+
+#### 6.1 Játéklogika:
+- Az alkalmazás központi komponense, amely irányítja a játékmenetet.
+- Tartalmazza a játék szabályainak végrehajtását, például a karakterek mozgását, bombák robbanását és pontszámok számítását.
+
+#### 6.1 Pályagenerátor:
+- A játékpályák generálásáért és kezeléséért felelős komponens. Segít létrehozni a játékteret, beleértve a falakat, az erősítőket.
+
+#### 6.1 Adatbáziskezelő:
+- A játékosokhoz tartozó pontszámok tárolásáért felelős.
