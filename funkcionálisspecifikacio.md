@@ -1,27 +1,27 @@
 ### 1. A rendszer céljai és nem céljai
 **Céljai:**
 
-- Offline Multiplayer Élmény Nyújtása: A projekt fő célja egy szórakoztató offline multiplayer játék létrehozása, amely lehetővé teszi két játékos számára, hogy egy gépen játszhasson együtt. A játéknak élvezetesnek és izgalmasnak kell lennie a játékosok számára.
+- **Offline Multiplayer Élmény Nyújtása:** A projekt fő célja egy szórakoztató offline multiplayer játék létrehozása, amely lehetővé teszi két játékos számára, hogy egy gépen játszhasson együtt. A játéknak élvezetesnek és izgalmasnak kell lennie a játékosok számára.
 
-- Klasszikus Bomberman Élmény Rekreálása: A játék célja egy klasszikus Bomberman élmény nyújtása, amelyben a játékosok robbanószereket helyezhetnek el a pályán és megpróbálják kiejteni egymást, miközben különböző akadályokkal és lehetőségekkel találkoznak.
+- **Klasszikus Bomberman Élmény Rekreálása:** A játék célja egy klasszikus Bomberman élmény nyújtása, amelyben a játékosok robbanószereket helyezhetnek el a pályán és megpróbálják kiejteni egymást, miközben különböző akadályokkal és lehetőségekkel találkoznak.
 
-- Böngészőből Való Játszhatóság: A játék böngészőből való játszhatósága fontos cél, hogy a játékosok könnyen és gyorsan hozzáférhessenek a játékhoz, anélkül, hogy különféle letöltéseket vagy telepítéseket kellene végrehajtaniuk.
+- **Böngészőből Való Játszhatóság:** A játék böngészőből való játszhatósága fontos cél, hogy a játékosok könnyen és gyorsan hozzáférhessenek a játékhoz, anélkül, hogy különféle letöltéseket vagy telepítéseket kellene végrehajtaniuk.
 
-- Grafikai és Hangminőség: A játék megjelenése és hangzásvilága fontos szempont. A pixel art stílusú grafika és a hangok segítenek a játék hangulatának megteremtésében és javításában.
+- **Grafikai és Hangminőség:** A játék megjelenése és hangzásvilága fontos szempont. A pixel art stílusú grafika és a hangok segítenek a játék hangulatának megteremtésében és javításában.
 
-- Egyszerű Irányítás: Az irányításnak intuitívnak és könnyen megtanulhatónak kell lennie, hogy a játékosok gyorsan be tudjanak kapcsolódni a játékba és élvezhessék azt.
+- **Egyszerű Irányítás:** Az irányításnak intuitívnak és könnyen megtanulhatónak kell lennie, hogy a játékosok gyorsan be tudjanak kapcsolódni a játékba és élvezhessék azt.
 
-- További Funkciók: A játék célja további funkciók bevezetése, például karakterválasztás és ranglisták, hogy további mélységet és visszatérő játékélményt nyújtson.
+- **További Funkciók:** A játék célja további funkciók bevezetése, például karakterválasztás és ranglisták, hogy további mélységet és visszatérő játékélményt nyújtson.
 
-- Tesztelés és Hibajavítás: A projekt célja az alapos tesztelés és a játékban felfedezett hibák gyors és hatékony javítása a kiadások előtt és után.
+- **Tesztelés és Hibajavítás:** A projekt célja az alapos tesztelés és a játékban felfedezett hibák gyors és hatékony javítása a kiadások előtt és után.
 
 **Nem Céljai:**
 
-- Online Multiplayer Mód: A projekt nem tervezi online multiplayer mód bevezetését. A fő hangsúly az offline multiplayer élményen van.
+- **Online Multiplayer Mód:** A projekt nem tervezi online multiplayer mód bevezetését. A fő hangsúly az offline multiplayer élményen van.
 
-- Mobil Platformok Támogatása: A játék nem tervezi mobil platformok támogatását. A fő platform a webböngésző lesz.
+- **Mobil Platformok Támogatása:** A játék nem tervezi mobil platformok támogatását. A fő platform a webböngésző lesz.
 
-- Bonyolult Számítógépes Intelligencia: Az AI-ellenfelek fejlesztése nem tartozik a projekt céljai közé.
+- **Bonyolult Számítógépes Intelligencia:** Az AI-ellenfelek fejlesztése nem tartozik a projekt céljai közé.
 
 ### 8. Használati Esetek
 
