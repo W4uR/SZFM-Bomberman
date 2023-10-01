@@ -98,6 +98,7 @@ Lásd köv spec.
     (Irányít) -right-> :c1:#line:red;
     (Irányít) -left-> :c2:#line:green;
     @enduml
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/063b5c0a-c1b8-433a-8e88-b43b09f98398)
 
 ### 10. Képernyőtervek
 
