@@ -50,7 +50,8 @@
 - **#7** - Pálya előnézete.
 - **#8** - Pálya választó nyilak.
 - **#9** - Dobókocka ikon. Kattintásra véletlen választ egy pályát.
-![Karakterválasztó](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/21bcee20-5300-4563-a827-86f5d8436611)
+![Karakterválasztó](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/1f8263ed-ef4b-4fea-8889-a1e86621ef12)
+
 
 
 #### 10.3.1. Játéktér
