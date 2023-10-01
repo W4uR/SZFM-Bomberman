@@ -69,6 +69,36 @@ Lásd köv spec.
 
 ### 8. Használati Esetek
 
+    @startuml
+    title "Játékosok"
+    package Játékosok{
+    actor "Játékos 1"as p1#line:red;line.bold
+    actor "Játékos 2" as p2#line:green;line.bold
+    }
+    actor "Adatbázis" as db
+    actor "Ranglista" as rl
+    actor "Karakter 1" as c1#line:red;
+    actor "Karakter 2" as c2#line:green;
+    actor "Hiba" as bug
+
+
+    :Játékosok: -right-> (Megtekint)
+    (Megtekint) -right-> :rl:
+    :rl: -right-> (Lekérdez) 
+    (Lekérdez) -right-> :db:
+
+    :Játékosok: -down-> (Játékot indít)
+    :Játékosok: -right-> (Jelent)
+    (Jelent) -right-> :bug:
+    :bug: --> (Tárol)
+    (Tárol) --> :db:
+
+    :p1: --> (Irányít)#line:red;
+    :p2: --> (Irányít)#line:green;
+    (Irányít) -right-> :c1:#line:red;
+    (Irányít) -left-> :c2:#line:green;
+    @enduml
+
 ### 10. Képernyőtervek
 
 #### 10.1.1 Főmenü
