@@ -73,3 +73,31 @@
 ![Ranglista](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/cc312958-bc7f-4a1d-b565-79734bb78051)
 
 
+### 11. Forgatókönyvek
+##### 11.1. Játék lejátszása:
+
+- A játékosok a főmenüben indíthatnak új játékot.
+- Ha új játékot indítanak, lehetőségük van kiválasztani a karakterüket és a pályát.
+- A játék során a játékosok irányíthatják a karakterüket, bombákat helyezhetnek, és megpróbálhatják kiejteni az ellenfelüket.
+- A játék véget ér, ha az egyik játékos kiesik. A játék értesítést küld erről.
+
+##### 11.2.Új játék indítása (játék végén):
+
+- Amikor a játék véget ér, a játékosoknak lehetőségük van új játékot indítani vagy visszatérni a főmenübe.
+- Az új játék indítása esetén a játékosok ismét kiválaszthatják karakterüket és a pályát.
+
+##### 11.3. Ranglista megtekintése:
+
+- A ranglistát megjelenítheti a főmenüben a "Ranglista" gombra kattintva.
+- A ranglista táblán a legjobb játékosok neveik és pontszámaik láthatóak.
+- A játékosok megtekinthetik a saját pontszámukat és helyezésüket a táblán.
+- Lehetőség van névre szűrésre.
+
+##### 11.4. Hibák jelentése:
+
+- A főmenüben lehetőség van hibák vagy problémák jelentésére a "Bogár" ikonú gombra kattintva.
+- Az így megjelenő átfedésen a játékosok egy rövid leírást írhatnak a problémáról.
+- A "Küldés" gombra kattintva a jelentés elküdésre kerül a fejleszetőknek.
+
+        Az ilyen jelentések segítenek a fejlesztőknek az esetleges hibák és problémák azonosításában és javításában.
+
