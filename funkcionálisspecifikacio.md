@@ -47,6 +47,9 @@
 - **#4** - Itt jelenik meg a 2-es játkos karaktere.
 - **#5** - Karakterválasztó nyilak.
 - **#6** - Erre a gombra kattintva indul a játék. Megnyílik a Játéktér.
+- **#7** - Pálya előnézete.
+- **#8** - Pálya választó nyilak.
+- **#9** - Dobókocka ikon. Kattintásra véletlen választ egy pályát.
 ![Karakterválasztó](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/21bcee20-5300-4563-a827-86f5d8436611)
 
 
