@@ -161,4 +161,19 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
     - 6.8.2 A játék FULL HD felbontást támogat.
 - 6.9 Tesztelés és hibajavítás
     - 6.9.1 A játék tesztelése és hibák javítása a megjelnés előtt és után.
+
+### **8. Fogalomszótár:**
+- **Bomberman**: Egy 2D-s akció-játék sorozat, amelyben a játékosok robbanószereket helyeznek el a pályán, és megpróbálják kiejteni egymást.
+- **Klón**: Egy olyan játék vagy alkalmazás, amely az eredeti játék alapján készül, de általában tartalmaz saját egyedi elemeket vagy változtatásokat.
+- **Offline Multiplayer**: A játék módja, amely lehetővé teszi két játékos számára, hogy ugyanazon a gépen játszhasson, anélkül, hogy internetkapcsolatot igényelne.
+- **Robbanószer**: Olyan virtuális tárgy a játékban, amelyet a játékosok elhelyezhetnek a pályán, és amely időzített robbanással rendelkezik.
+- **Pixelart**: Egy grafikai stílus, amelyben a képek vagy karakterek kis pixel méretű részletekből állnak össze, és a retró játékokra emlékeztető vizuális hatást hoz létre.
+- **Power-up**: Speciális tárgyak a játékban, amelyek ideiglenesen növelik a karakterek képességeit, például sebességet vagy bomba hatósugárát.
+- **Ranglista**: Egy lista vagy táblázat, amelyen a játékosok pontszámait vagy eredményeit rögzítik, hogy versengjenek egymással.
+- **Dokumentáció**: Az alkalmazás vagy projekt részletes leírása és útmutatója, amely tartalmazza a játékmenetet, az irányítást és egyéb alapvető információkat.
+- **Projektmenedzsment**: A projekt szervezése és irányítása, beleértve az ütemterv készítését és a határidők betartását.
+- **Engedélyek és jogi megfontolások**: Azok a szabályok és előírások, amelyeket be kell tartani a játék terjesztése során, beleértve a szerzői jogi és adatvédelmi előírásokat.
+- **Hibajelentés**: A felhasználóknak biztosított mechanizmus vagy folyamat a játékban lévő hibák vagy problémák bejelentésére a fejlesztők számára.
+- **Tesztelés és hibajavítás**: A játék alapos ellenőrzése és tesztelése a hibák felderítése és javítása érdekében.
+- **Ütemterv**: Egy időszakos tervezet vagy terv, amely meghatározza, mikor és milyen feladatokat kell végrehajtani a projektben.
     
