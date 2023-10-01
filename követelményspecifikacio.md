@@ -162,6 +162,46 @@ A játék célja egy izgalmas és szórakoztató offline multiplayer élmény ny
 - 6.9 Tesztelés és hibajavítás
     - 6.9.1 A játék tesztelése és hibák javítása a megjelnés előtt és után.
 
+### **7. Irányított és szabad szöveges riportok szövege:**
+#### 7.1. Milyen projektet tervezel létrehozni?
+A tervezett projekt egy Bomberman nevű 2D-s játékklón kifejlesztése, amelyet böngészőből lehet játszani. A játék alapötlete az lesz, hogy két játékos helyezhet el robbanószereket a pályán, miközben megpróbálják kiejteni egymást. A játék egy offline multiplayer élményt fog nyújtani, tehát két játékos egy gépen játszhat együtt.
+
+#### 7.2. Mi a projekt célja és célközönsége?
+A projekt célja egy szórakoztató és izgalmas offline multiplayer játék létrehozása, amelyet könnyedén lehet elérni a böngészőből. A célközönség a játékosok, akik szeretnek együtt játszani barátaikkal vagy családtagjaikkal, és élvezik a klasszikus Bomberman játékélményt.
+
+#### 7.3. Milyen játékmechanikákat és funkciókat tervezel bevezetni a játékba?
+A tervezett játék alapvető játékmechanikái a következők lesznek:
+
+Játékosok képesek lesznek robbanószereket helyezni a pályán.
+    A robbanószerek időzített robbanással rendelkeznek, amely után károsodást okoznak.
+    A játékosok célja egymás karaktereit kiejteni a robbanószerek segítségével.
+    A pályán lesznek akadályok, amelyek felrobbanhatnak, hogy új területek és tárgyak legyenek elérhetőek.
+    Hogyan fog kinézni a játék grafikai és hang terén?
+    A játék grafikája pixel art stílusú lesz, amely 2D-s megjelenítést biztosít. A karakterek és a pálya is ebben a stílusban jelenik majd meg. Hangokat fogunk használni a robbanások és a karakterek mozgásának szimulálásához, valamint zenei aláfestést is tervezünk a játékhoz.
+
+#### 7.4. Milyen multiplayer funkciókat tervezel a játékba?
+A játék offline multiplayer módot fog támogatni, amely lehetővé teszi két játékosnak, hogy egy gépen játszhasson. Mindkét játékos ugyanazon a gépen fogja irányítani a saját karakterét.
+
+#### 7.5. Hogyan fog működni a játék irányítása?
+Az irányításnak intuitívnak és könnyen megtanulhatónak kell lennie. Mindkét játékos egy billentyűzettel játszhat majd, és a karakterek mozgatásához és a robbanószerek elhelyezéséhez használhatják a billentyűzetüket.
+
+#### 7.6. Milyen további funkciókat tervezel bevezetni, például karakterválasztás vagy ranglisták?
+További funkciók közé tartozik a karakterválasztás lehetősége, ahol a játékosok különböző karakterek közül választhatnak. Emellett tervezünk ranglistákat és eredményeket is, hogy a játékosok versenghessenek egymással.
+
+#### 7.7. Hogyan fog zajlani a tesztelés és a hibajavítás folyamata?
+A játék alaposan tesztelésre kerül majd, hogy az összes funkcionalitás jól működjön. A tesztek során felderített hibákat gyorsan javítani fogjuk, hogy a játék minősége megfelelő legyen.
+
+#### 7.8. Hogyan készülsz a projekt dokumentációjára?
+A projekt dokumentációja tartalmazni fogja a játékmenet részletes leírását, az irányítás magyarázatát és egyéb alapvető információkat a játékkal kapcsolatban. Ez a dokumentáció segíteni fogja a játékosokat a játék megértésében és használatában.
+
+#### 7.9. Milyen projektmenedzsment módszertanokat alkalmazol a projekt során?
+A projekt során egy átfogó ütemtervet követünk majd, hogy biztosítsuk a határidők betartását, és a fejlesztési folyamat zökkenőmentes legyen.
+
+#### 7.10. Milyen jogi és engedélyezési szempontokra kell figyelned a játék terjesztése során?
+A projekt során figyelemmel kell lenni az esetleges szerzői jogi és adatvédelmi előírásokra, és szükség esetén engedélyeket kell szerezni a játék terjesztéséhez.
+
+Ezek a tervek és célok alapján fogunk nekivágni a játék fejlesztésének, és reméljük, hogy egy szórakoztató és sikeres játékot hozunk létre a játékosok számára.
+
 ### **8. Fogalomszótár:**
 - **Bomberman**: Egy 2D-s akció-játék sorozat, amelyben a játékosok robbanószereket helyeznek el a pályán, és megpróbálják kiejteni egymást.
 - **Klón**: Egy olyan játék vagy alkalmazás, amely az eredeti játék alapján készül, de általában tartalmaz saját egyedi elemeket vagy változtatásokat.
