@@ -45,6 +45,6 @@
 - **#2** - Név szerinti szűrés bemeneti bezője.
 - **#3** - Nagyító ikonnal ellátott szűrést/keresést végrehajtó gomb.
 - **Főmenü** - Erre a gombra kattintva visszanavigálhatunk a főmenübe.
-- ![Ranglista](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/cc312958-bc7f-4a1d-b565-79734bb78051)
+![Ranglista](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/cc312958-bc7f-4a1d-b565-79734bb78051)
 
 
