@@ -153,7 +153,7 @@ Lásd köv spec.
 ![Ranglista](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/cc312958-bc7f-4a1d-b565-79734bb78051)
 
 
-### 11. Forgatókönyvek
+### 11. Forgatókönyvek (User Story)
 ##### 11.1. Játék lejátszása:
 
 - A játékosok a főmenüben indíthatnak új játékot.
