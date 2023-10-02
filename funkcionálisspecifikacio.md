@@ -57,10 +57,11 @@
 rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a játékos a karakterét vagy a bombája erejét.
 
 ### **4. A rendszerre vonatkozó külső megszorítások: pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása.:**
-- HTML5 és CSS3 technológiák használata a modern és reszponzív felhasználói felület kialakításához.
+- HTML5 és CSS3 technológiák használata a modern felhasználói felület kialakításához.
 - JavaScript és annak P5 nevezetű kiegészítő könyvtárának használata.
+- A szerveroldali kódok futtatásához PHP használata.
 
-### **4 Jelenlegi üzleti folyamatok modellje:**
+### **5 Jelenlegi üzleti folyamatok modellje:**
 
 Lásd köv spec.
 
