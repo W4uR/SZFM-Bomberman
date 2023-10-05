@@ -57,26 +57,13 @@
 rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a játékos a karakterét vagy a bombája erejét.
 
 ### **4. A rendszerre vonatkozó külső megszorítások: pályázat, törvények, rendeletek, szabványok és ajánlások felsorolása.:**
-- HTML5 és CSS3 technológiák használata a modern és reszponzív felhasználói felület kialakításához.
+- HTML5 és CSS3 technológiák használata a modern felhasználói felület kialakításához.
 - JavaScript és annak P5 nevezetű kiegészítő könyvtárának használata.
+- A szerveroldali kódok futtatásához PHP használata.
 
-### **5. A jelenlegi üzleti folyamatok modellje:**
-- 5.1 Egy meccs lejátszása.
-    - 5.1.1 Webbögénsző megnyitása majd keresés a játékra.
-    - 5.1.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
-    - 5.1.3 Egy játékos esetén a karakter nevének megadása.
-    - 5.1.4 Több jétkos esetén az összes játkos karakterének.
-    - 5.1.5 Játék indítása a "Játék/Start" gombokra kattintással.
-    - 5.1.6. A játékosok egy billentyűzettel játszva mozognak a pályán és helyeznek el bombákat, addig amíg valamelyik játékos karaktere fel nem robban vagy az idő le nem jár.
-    - 5.1.7 Játvék vége képernyő
-        - 5.1.7.1 "Új játék" gombra kattintva visszaugrunk az 5.1.5-es pontra.
-        - 5.1.7.2 "Vissza a főmenübe" gombra kattintva visszaugrunk az 5.1.2 pont eredményére.
+### **5 Jelenlegi üzleti folyamatok modellje:**
 
-- 5.2 Ranglista megtekintése.
-    - 5.2.1 Webbögénsző megnyitása majd keresés a játékra.
-    - 5.2.2 Kívánt verzió kiválasztása majd belépés a játék főmenüjébe.
-    - 5.2.3 Kattintása a "Ranglista" gombra.
-    - 5.2.4 Ranglista képernyő megjelenik. 
+Lásd köv spec.
 
 
 
@@ -112,6 +99,7 @@ rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a ját
     (Irányít) -right-> :c1:#line:red;
     (Irányít) -left-> :c2:#line:green;
     @enduml
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/063b5c0a-c1b8-433a-8e88-b43b09f98398)
 
 ### 10. Képernyőtervek
 
@@ -165,7 +153,7 @@ rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a ját
 ![Ranglista](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/cc312958-bc7f-4a1d-b565-79734bb78051)
 
 
-### 11. Forgatókönyvek
+### 11. Forgatókönyvek (User Story)
 ##### 11.1. Játék lejátszása:
 
 - A játékosok a főmenüben indíthatnak új játékot.
