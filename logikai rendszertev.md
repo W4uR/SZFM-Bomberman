@@ -11,13 +11,13 @@
 
 - **I/O és felhasználói interfész:** A menüben a navigálás számítógépegérrel történik. A karakterek irányítása (mozgás és akció) pedig billentyűzettel. Fontos, hogy egy billentyű, egy feladatot lásson el, ne legyen átfedés. 
 
-            Alapértelmezett irányítás:
-                - Játékos 1:
-                    - Mozgás: W, A, S, D (FEL, BALRA, LE, JOBBRA)
-                    - Akció: SPACE (BOMBA LERAKÁSA)
-                - Játékos 2:
-                    - Mozgás: Kurzorbillentyűk (A NYILAKNAK MEGFELEŐ IRÁNY)
-                    - Akció: ENTER (BOMBA LERAKÁSA)
+    **Alapértelmezett irányítás:**
+    - Játékos 1:
+        - Mozgás: W, A, S, D (FEL, BALRA, LE, JOBBRA)
+        - Akció: SPACE (BOMBA LERAKÁSA)
+    - Játékos 2:
+        - Mozgás: Kurzorbillentyűk (A NYILAKNAK MEGFELEŐ IRÁNY)
+        - Akció: ENTER (BOMBA LERAKÁSA)
 
 - **Mozgás és ütközések:** A játéktér ugyan rácshoz kötött, de a karakterek szabadon mozoghatnak. Egymással és bombákkal nem ütköznek, csak falakkal és akadályokkal.
 
@@ -59,3 +59,44 @@
 
 ### Feldolgozási Folyamatok:
 
+ - **Használati Esetek:** TODO
+
+- **Aktivitási Diagramok:** TODO
+- **Állapotgépek:** TODO
+
+- **Szekvencia Diagramok:**
+
+        @startuml
+        title Placing bombs
+        actor       Player as p
+        participant Bombplacer as bp
+        participant Bomb as b
+        participant Explosion as e
+        collections "Cell's children" as cc
+        p -> bp : Indicate will
+        bp -> bp : Check for validity
+        bp -> p : Request position
+        p -> bp : Return position
+        bp -> b : Create at position \n(Convert to grid coords)
+        b -> cc : Append self
+        b -> b : Delay
+        b -> cc : Append explosion
+        b -> cc : Remove self
+        e -> cc : Recursive expansion \nand appending
+        e -> e : Delay
+        e -> cc : Remove self
+        @enduml
+
+
+
+### Funkcionális Felépítés:
+
+- **Komponensek:** TODO
+
+- **Adatszótár és Logikai Adatmodell:** TODO
+
+- **Adatszótár:**  TODO
+
+- **Logikai Adatmodell:**  TODO
+
+- **Adatfolyam Diagramok:** TODO
