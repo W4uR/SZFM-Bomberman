@@ -1,38 +1,5 @@
 ### **1. Osztálytervek:**
-#### 1.1 Player (Játékos) osztály:
-- Felelősség: A játékos karakterének kezelése.
-- Tulajdonságok:
-    - PlayerID: A játékos azonosítója.
-    - Name: A játékos neve.
-    - Hp: A játékos életereje.
-    - Score: A játékos pontszáma.
-- Metódusok:
-    - Move(): A játékos mozgatása a pályán.
-    - PlaceBomb(): Bomba lerakása.
 
-#### 1.2 Bomb (Bomba) osztály:
-- Felelősség: A bombák működésének kezelése.
-- Tulajdonságok:
-    - Timer: A bomba robbanásig hátralévő idő.
-    - BlastRadius: A bomba robbanásának hatósugara.
-    - Place: A bomba helyzete a pályán.
-- Metódusok:
-    - Explode(): A bomba robbanása és hatásai.
-
-#### 1.3 Map (Pálya) osztály:
-- Felelősség: A játék pályájának kezelése.
-- Tulajdonságok:
-    - Grid: A pálya rácsa, amelyen a játékosok és a bombák elhelyezkednek.
-    - Elements: A pályaelemek, például falak, power-up-ok, ajtók stb.
-- Metódusok:
-    - GenerateMap(): A pálya generálása véletlenszerűen vagy előre definiált módon.
-
-#### 1.4 PowerUp (Erősítő) osztály (opcionális):
-- Felelősség: Az erősítők kezelése, amelyeket a játékosok felvehetnek.
-- Tulajdonságok:
-    - Type: Az erősítő típusa, például sebesség növelése, bombaszám növelése.
-- Metódusok:
-    - ApplyEffect(): Az erősítő hatásának alkalmazása a játékosra.
 
 ### **2. Teszttervek:**
 #### 2.1 Funkcionális tesztek:

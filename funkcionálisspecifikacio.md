@@ -62,13 +62,32 @@ rombolhatóak a tereptárgyak. A power-up-ok segítségével fejlesztheti a ját
 - A szerveroldali kódok futtatásához PHP használata.
 
 ### **5 Jelenlegi üzleti folyamatok modellje:**
+- Lásd köv spec.
 
-Lásd köv spec.
+### **6 Igényelt üzleti folyamatok modellje:**
+- 5.1. Egy meccs lejátszása.
+    - 5.1.1 Játék elindítása.
+    - 5.1.2 Játékosok nevének megadása. 
+        - 5.1.2.1. Név megadása.
+        - 5.1.2.2. Név megadása.
+    - 5.1.3. Játék indítása "Játék" gombra kattintással. 
+    - 5.1.4. A játékosok egy billentyűzettel játszva mozognak a pályán és helyeznek el bombákat, addig amíg valamelyik játékos karaktere fel nem robban.
+    - 5.1.5. Játék vége képernyő
+        - 5.1.5.1. "Új játék" gombra kattintva visszaugrunk az 5.1.1. pontra.
+        - 5.1.5.1. "Vissza a főmenűbe" gombra kattintva visszaugrunk az 5.1.1. pontra.
+- 5.2. Ranglista megtekintése.
+    - 5.2.1. Játék elindítása.
+    - 5.2.3. Ranglista képernyő.
+    - 5.2.4. Szűrés név szerint.
+        - 5.2.4.1. Kitöltés a keresett névvel.
+
+### **7. Követelménylisa:**
+Lásd kövspec.
 
 
 
 
-### 8. Használati Esetek
+### **8. Használati Esetek**
 
     @startuml
     title "Játékosok"
