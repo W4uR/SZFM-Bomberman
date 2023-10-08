@@ -1,7 +1,8 @@
 ### **1. Osztálytervek:**
 
 
-![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/da898bc0-5d48-423c-9969-22a2bab0c4c4)
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/5cf21715-db6c-42e5-818a-5e63517c5c99)
+
 
 ### **2. Teszttervek:**
 #### 2.1 Funkcionális tesztek:
