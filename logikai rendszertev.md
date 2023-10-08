@@ -62,6 +62,7 @@ Mivel a játéklogikáért JavaScript felel így könnyen elhetséges csalni a j
 ### Feldolgozási Folyamatok:
 
  - **Használati Esetek:**
+ 
         @startuml
         title "Játékosok"
         package Játékosok{
