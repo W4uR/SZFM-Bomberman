@@ -38,7 +38,7 @@ class Player{
             this.velocity.x = 0; // Megáll
         }
         
-        
+        //TODO: Bomba letétel
     }
 
     move(){
@@ -49,9 +49,18 @@ class Player{
         }
         const xMove = this.velocity.x * deltaTime;
         const yMove = this.velocity.y * deltaTime;
+
+        // Megnézzük hogy a mozgás hatására falba kerül-e a karakter,
+        // ha igen visszacsináljuk a mozgást
+        // TODO: Lehetne finomítani, túl könnyű a falba beleakadni
         this.x += xMove;
+        if(this.checkWallCollisions()){
+            this.x -= xMove;
+        }
         this.y += yMove;
-        //TODO: Ütközés a falakkal detektálása, mozgás korlátozás
+        if(this.checkWallCollisions()){
+            this.y -= yMove;
+        }
     }
 
     checkExplosion(){
@@ -61,6 +70,29 @@ class Player{
     checkPowerUp(){
         //TODO
     }
+
+    checkWallCollisions(){
+        // Talán hatékonyabb lenne csak a közvetlen környezetünkben lévő cellákat vizsgálni,
+        // de nem a világ vége. Nem őskövületle fejlesztünk...
+		for(var i = 0; i<cols; i++){
+			for(var j = 0; j<rows;j++){
+				if(grid[i][j].isWall()){
+					let wall = grid[i][j];
+					if(this.collidesWith(wall)) return true;
+				}
+			}
+		}
+		return false;
+    }
+
+    collidesWith(other){
+        return (this.x + this.width > other.x &&
+            other.y + other.width > this.y &&
+            other.y < this.y + this.width &&
+            other.x + other.width > this.x
+        )
+    }
+
 
     show(){
         //TODO: Sprite megjelenítése és animálása
