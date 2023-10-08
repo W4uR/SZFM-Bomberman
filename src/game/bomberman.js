@@ -4,6 +4,10 @@ var grid;
 var cols;
 var rows;
 
+
+var player1;
+var player2;
+
 function setup() {
     createCanvas(600, 600);
     cols = floor(width/SCALE);
@@ -24,6 +28,10 @@ function setup() {
             grid[i][j] = new Cell(i,j,wall);
         }
     }
+
+    // Játékosok inicializálása
+    player1 = new Player(1,1,0.75*SCALE,3,2*SCALE,new InputModule(87,65, 83, 68, 32))
+    player2 = new Player(9,9,0.75*SCALE,3,2*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13))
 }
   
 function draw() {
@@ -39,7 +47,8 @@ function renderScene(){
     //Erősítések renderelése
 
     //Játékosok renderelése
-
+    player1.show();
+    player2.show();
     //Pálya rednerelése
     for(var i = 0; i<cols; i++){
         for(var j = 0; j<rows;j++){
