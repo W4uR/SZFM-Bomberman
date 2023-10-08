@@ -39,6 +39,7 @@
     - **Fal**: Rombolható mozgást korlátozó pályaelem. Felrobbantásuk felfedhet egy "Power-Up"-ot.
     - **Akadály**: Statikus mozgást korlátozó pályaelem.
 - **Bomba**: A pálya-rács egy cellájában elhelyezve késleltetés után felrobban. A négy irányba (fel, le, balra, jobbra) terjed a robbanása egy adott távolságot.
+- **Robbanás**: Játékosoknak és falaktak sebzést okozó objektum.
 - **Power-Up**: Karakterek által felvehető átmeneti, vagy a meccs végéig tartós erősítéstsel ruházik fel a felvevő karaktert.
 
 ### Követelmények:
@@ -59,33 +60,77 @@
 
 ### Feldolgozási Folyamatok:
 
- - **Használati Esetek:** TODO
+ - **Használati Esetek:**
+        @startuml
+        title "Játékosok"
+        package Játékosok{
+        actor "Játékos 1"as p1#line:red;line.bold
+        actor "Játékos 2" as p2#line:green;line.bold
+        }
+        actor "Adatbázis" as db
+        actor "Ranglista" as rl
+        actor "Karakter 1" as c1#line:red;
+        actor "Karakter 2" as c2#line:green;
+        actor "Hiba" as bug
+        :Játékosok: -right-> (Megtekint)
+        (Megtekint) -right-> :rl:
+        :rl: -right-> (Lekérdez) 
+        (Lekérdez) -right-> :db:
+        :Játékosok: -down-> (Játékot indít)
+        :Játékosok: -right-> (Jelent)
+        (Jelent) -right-> :bug:
+        :bug: --> (Tárol)
+        (Tárol) --> :db:
+        :p1: --> (Irányít)#line:red;
+        :p2: --> (Irányít)#line:green;
+        (Irányít) -right-> :c1:#line:red;
+        (Irányít) -left-> :c2:#line:green;
+        @enduml
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/063b5c0a-c1b8-433a-8e88-b43b09f98398)
 
-- **Aktivitási Diagramok:** TODO
-- **Állapotgépek:** TODO
 
-- **Szekvencia Diagramok:**
+- **Diagramok:**
 
         @startuml
-        title Placing bombs
-        actor       Player as p
-        participant Bombplacer as bp
-        participant Bomb as b
-        participant Explosion as e
-        collections "Cell's children" as cc
-        p -> bp : Indicate will
-        bp -> bp : Check for validity
-        bp -> p : Request position
-        p -> bp : Return position
-        bp -> b : Create at position \n(Convert to grid coords)
-        b -> cc : Append self
-        b -> b : Delay
-        b -> cc : Append explosion
-        b -> cc : Remove self
-        e -> cc : Recursive expansion \nand appending
-        e -> e : Delay
-        e -> cc : Remove self
+        title Renderelési sorrend
+        participant Bombák as b
+        participant Erősítések as pu
+        actor       Játékosok as p
+        participant "Falak és Akadályok" as w
+        participant Robbanások as e
+        participant Megjelenítő as c #99FF99
+        b -> c : Render
+        pu -> c : Render
+        p -> c : Render
+        w -> c : Render
+        e -> c : Render
         @enduml
+
+
+        @startuml
+        title Erősítések felvétele
+        actor       Játékos as p
+        participant Erősítés as pu
+        p -> pu : Mozgás
+        p -> pu : Közelség detektálása
+        p -> pu: Effekt igénylése
+        pu -> p: Effekt alkalmazása
+        @enduml
+
+
+        @startuml
+        title Játékos egy "tick"-je
+        start
+        :Input kezelése;
+        :Mozgás;
+        :Érintett robbanások észlelése;
+        :Érintett erősítések észlelése;
+        end
+        @enduml
+        
+
+    *Minden sor egy meghívott metódus a **Player.update()** metódusában.*
+
 
 
 
