@@ -23,9 +23,10 @@
 
 - **Multiplayer támogatás:** Csak lokálisan egy böngészőben.
 
-- **Mentés és betöltés:** Ha egy meccs megszakításra kerül, akkor egyik játékosnak se fog változni a pontszáma a ranglistán. Egy megszakított meccs NEM menthető és tölthető be később.
+- **Mentés és betöltés:** Ha egy meccs megszakításra kerül, akkor egyik játékosnak se fog változni a pontszáma a ranglistán. Egy megszakított meccs **NEM** menthető és tölthető be később.
 
 - **Hibakezelés és biztonság:** A rendszer "hibája", hogy nincs authentikáció. Így bárki játszhat bárki nevében. Ezáltal a ranglista nem feltétlen tükrözi a játékosok valódi teljesítményét. Ha továbbfejelsztésre kerülne a játék és lenne online többjátékos támogatás. Akkor implementálható lenne egy bejelentkező felület és a ranglista csak az online meccseket venné figyelembe.
+Mivel a játéklogikáért JavaScript felel így könnyen elhetséges csalni a játékban.
 
 - **Teljesítmény és optimalizáció:** A játék grafikai megvalósításának és egyszerűségének köszönhetően könynedén, szaggatás nélkül játszható a legtöbb mai számítógépen futtatott modern böngészőben.
 
