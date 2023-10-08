@@ -17,14 +17,14 @@ class Cell{
         //TODO: Render sprites
         switch (this.wall) {
             case WallType.BARRIER:
-              fill(255,30,30);
+                fill(255,30,30);
               break;
             case WallType.WALL:
-              fill(120,70,30);
+                fill(120,70,30);
               break;
             case WallType.EMPTY:
             default:  
-              noFill();
+                noFill();
           }
         rect(this.x,this.y,this.width,this.width);
     }
