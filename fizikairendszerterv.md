@@ -80,7 +80,7 @@
 - explode() - <<a>void> - A bomba felrobbantásáért felelős metódus.
 - show() - <<a>void> - A bomba megjelenítéséért felelős metódus.
 
-#### 1.5 Cell
+#### 1.6 Cell
 ##### Variables
 - x - <<a>int> - Egy cella X koordinátája.
 - y - <<a>int> - Egy cella Y koordinátája.
@@ -91,13 +91,13 @@
 - destoryWall() - <<a>void> - Robbanás hatására, lerombolja a falat.
 - show() - <<a>void> - Egy cella megjelnítéséért felelős.
 
-#### 1.5 WallType
+#### 1.7 WallType
 ##### Variables
 - empty - <<a>string> - Az adott cellán nincs fal.
 - wall - <<a>string> - A lerombolható falat jelzi.
 - barrier - <<a>string> - A nem lerombolható falat jelzi.
 
-#### 1.5 Explosion
+#### 1.8 Explosion
 ##### Variables
 - x - <<a>int> - Egy robbanás objektum X koordinátája.
 - y - <<a>int> - Egy robbanás objektum Y koordinátája.
