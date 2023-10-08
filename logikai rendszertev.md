@@ -105,7 +105,7 @@
         w -> c : Render
         e -> c : Render
         @enduml
-
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/e1d8f9c7-0b95-47ce-8f78-eb359534e24a)
 
         @startuml
         title Erősítések felvétele
@@ -116,7 +116,7 @@
         p -> pu: Effekt igénylése
         pu -> p: Effekt alkalmazása
         @enduml
-
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/4524a455-5383-4da7-8c69-4802bd3f3ded)
 
         @startuml
         title Játékos egy "tick"-je
@@ -127,9 +127,9 @@
         :Érintett erősítések észlelése;
         end
         @enduml
-        
+   ![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/8cf63cee-4093-4334-bcf1-cbce19177fe5)
 
-    *Minden sor egy meghívott metódus a **Player.update()** metódusában.*
+ *Minden sor egy meghívott metódus a **Player.update()** metódusában.*
 
 
 
