@@ -1,6 +1,8 @@
 ### **1. Osztálytervek:**
 
 
+![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/da898bc0-5d48-423c-9969-22a2bab0c4c4)
+
 ### **2. Teszttervek:**
 #### 2.1 Funkcionális tesztek:
 - Játékkezdeti teszt: Ellenőrizzük, hogy a játék elindul-e          megfelelően, és a főmenüből elérhetők-e a különböző játékmenük.
