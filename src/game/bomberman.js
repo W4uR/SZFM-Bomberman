@@ -1,5 +1,7 @@
 const SCALE = 50;
+let previousTime;
 
+var deltaTime;
 var grid;
 var cols;
 var rows;
@@ -9,6 +11,8 @@ var player1;
 var player2;
 
 function setup() {
+    previousTime = millis();
+    noStroke();
     createCanvas(600, 600);
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
@@ -35,13 +39,16 @@ function setup() {
 }
   
 function draw() {
-    background(255);
     //Játék logika
+    calcDeltaTime();
+    player1.update();
+    player2.update();
 
     //Megjelenés
     renderScene();
 }
 function renderScene(){
+    background(255);
     //Bombák rednerelése
 
     //Erősítések renderelése
@@ -56,6 +63,12 @@ function renderScene(){
         }
     }
     //Robbanások renderelése
+}
+
+function calcDeltaTime(){
+    let currentTime = millis();
+    deltaTime = (currentTime - previousTime)/1000;
+    previousTime = currentTime;
 }
 
 function make2DArray(cols,rows){
