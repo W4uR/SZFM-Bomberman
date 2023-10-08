@@ -2,53 +2,6 @@
 
 ![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/da898bc0-5d48-423c-9969-22a2bab0c4c4)
 
-#### 1.1 Global variables
-##### Variables
-- SCALE - <<a>int> - Grid koordináta és pixel koordináta közti váltásokat megkönnyítse.
-- player1 - <<a>Player> - Player1 reprezentációja.
-- player2 - <<a>Player> - Player2 reprezentációja.
-- rows - <<a>int> - Egy sor reprezentációja.
-- cols - <<a>int> - Egy oszlop reprezentációja.
-- grid - <<a>Cell[][]> - A játéktér reprezentációja.
-- powerUps - <<a>PowerUp[..]> - A karakter erősítései.
-- deltaTime - <<a>float> - Eltelt idő másodpercben, kettő frame renderelése között.
-
-#### 1.2 PowerUP
-##### Variables
-- x - <<a>int> - A powerUP helyzetének X koordinátája.
-- y - <<a>int> - A powerUP helyzetének Y koordinátája.
-- width - <<a>int> - A megjelenő objektum szélessége.
-- duration - <<a>float> - A powerUP hátásának időtartama.
-- isCollected - <<a>boolean> - Arra szólgál, hogy eldöntse a powerUP felvételre került-e már.
-- sprite - <<a>Image> - A képernyőn megjelnő grafikák.
-##### Methods
-- applyEffect(player : Player) - <<a>void> - A powerUP alkalmazása a játékosra.
-- show() - PowerUp megjelnítésa a pályán.
-##### PowerUPs
-- BiggerExplosion - Növeli a bomba robbanásának hatósugarát.
-- MoreBombs - A játékosonkénti egyideűleg lerakható bombák számát növeli.
-- Heal - Játékos életerejét növeli.
-- SpeedBoost - Játékos karakterének mozgási sebességét növeli.
-- Shield - Játékosra alkalmazott sebzést csökkenti. 
-- MoreDamage - A bomba által okozott sebzést növeli.
-- InverseMovement(of enemy) - Megfordítja az ellenfél mozgását.
-
-#### 1.3 Player
-##### Variables
-- x - <<a>int> - A játékos helyzetének X koordinátája.
-- y - <<a>int> - A játékos helyzetének Y koordinátája.
-- width - <<a>int> - A megjelenő objektum szélessége.
-- health - <<a>int> - A játékos életereje.
-- bombTemplate - <<a>Bomb> - Alapján inicializál egy új bombát amikor lerak egy bombát. Ha egy erősítés módosít valamit ami a játékos által letett bombához köthető (pl hatósugár növelése) akkora  bomb templatet fogja módosítani
-- bombs - <<a>Bomb[..]> - A lerakott bomba a bombs listába kerül
-- maxBombs - <<a>int> - A játékos által maximálisan lerakható bombák száma.
-- inputModule - <<a>InputModule> - A jétkos mozgatásához szükséges input információkat egy példánya az adott jétékoshoz.
-#### Methods
-- handleInput() - <<a>void> - Az input információk kezelése.
-
-
-
-
 ### **2. Teszttervek:**
 #### 2.1 Funkcionális tesztek:
 - Játékkezdeti teszt: Ellenőrizzük, hogy a játék elindul-e          megfelelően, és a főmenüből elérhetők-e a különböző játékmenük.
