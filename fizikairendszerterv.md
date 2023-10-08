@@ -4,13 +4,13 @@
 
 #### 1.1 Global variables
 ##### Variables
-- SCALE - <<a>int> - Grid koordináta és pixel koordináta közti váltásokat megkönnyítse.
+- SCALE - <<a>int> - Grid koordináta és pixel koordináta közti váltásoknál használatos skálázó faktor.
 - player1 - <<a>Player> - Player1 reprezentációja.
 - player2 - <<a>Player> - Player2 reprezentációja.
-- rows - <<a>int> - Egy sor reprezentációja.
-- cols - <<a>int> - Egy oszlop reprezentációja.
+- rows - <<a>int> - Sorok száma.
+- cols - <<a>int> - Oszlopok száma.
 - grid - <<a>Cell[][]> - A játéktér reprezentációja.
-- powerUps - <<a>PowerUp[..]> - A karakter erősítései.
+- powerUps - <<a>PowerUp[..]> - A pályán lévő erősítések.
 - deltaTime - <<a>float> - Eltelt idő másodpercben, kettő frame renderelése között.
 
 #### 1.2 PowerUP
@@ -18,16 +18,17 @@
 - x - <<a>int> - A powerUP helyzetének X koordinátája.
 - y - <<a>int> - A powerUP helyzetének Y koordinátája.
 - width - <<a>int> - A megjelenő objektum szélessége.
-- duration - <<a>float> - A powerUP hátásának időtartama.
-- isCollected - <<a>boolean> - Arra szólgál, hogy eldöntse a powerUP felvételre került-e már.
+- duration - <<a>float> - A powerUP hátásának időtartama. (0, ha permanens)
+- collectedBy - <<a>Player> - Tárlja, hogy melyik játékos vette fel a powerUp-ot.
+- isCollected - <<a>boolean> - Arra szolgál, hogy eldöntse a powerUP felvételre került-e már.
 - sprite - <<a>Image> - A képernyőn megjelnő grafikák.
 ##### Methods
 - applyEffect(player : Player) - <<a>void> - A powerUP alkalmazása a játékosra.
-- show() - PowerUp megjelnítésa a pályán.
+- show() - PowerUp megjelnítése a pályán.
 ##### PowerUPs
 - BiggerExplosion - Növeli a bomba robbanásának hatósugarát.
 - MoreBombs - A játékosonkénti egyideűleg lerakható bombák számát növeli.
-- Heal - Játékos életerejét növeli.
+- Heal - Játékost gyógyítja.
 - SpeedBoost - Játékos karakterének mozgási sebességét növeli.
 - Shield - Játékosra alkalmazott sebzést csökkenti. 
 - MoreDamage - A bomba által okozott sebzést növeli.
@@ -38,20 +39,22 @@
 - x - <<a>int> - A játékos helyzetének X koordinátája.
 - y - <<a>int> - A játékos helyzetének Y koordinátája.
 - width - <<a>int> - A megjelenő objektum szélessége.
+- maxHealth - <<a>int> - A játékos maximum életereje.
 - health - <<a>int> - A játékos életereje.
-- velocity - <<a>2dvector> - A játékos sebessége.
-- bombTemplate - <<a>Bomb> - Alapján inicializál egy új bombát amikor lerak egy bombát. Ha egy erősítés módosít valamit ami a játékos által letett bombához köthető (pl hatósugár növelése) akkora  bomb templatet fogja módosítani
-- bombs - <<a>Bomb[..]> - A lerakott bomba a bombs listába kerül
+- speed - <<a>float> - A játékos sebessége.
+- velocity - <<a>2dvector> - A játékos mozgásának iránya.
+- bombTemplate - <<a>Bomb> - Ez alapján inicializálódik egy -a játékos által- lerakott bomba. Ha egy erősítés módosít valamit, ami a játékos által letett bombához köthető (pl.: hatósugár növelése) akkor a  bombTemplate-t fogja módosítani
+- bombs - <<a>Bomb[..]> - A lerakott bomba a bombs listába kerül.
 - maxBombs - <<a>int> - A játékos által maximálisan lerakható bombák száma.
-- inputModule - <<a>InputModule> - A jétkoshoz tartozó input tárolása.
-- sprite - <<a>Image> - A képernyőn megjelnő grafikák.
+- inputModule - <<a>InputModule> - A jétkoshoz tartozó írányítást tárolja.
+- sprite - <<a>Image> - A képernyőn megjelnő grafika.
 ##### Methods
 - handleInput() - <<a>void> - Az input információk kezelése.
 - move() - <<a>void> - A játékos mozgását vezérli.
 - placeBomb() -  <<a>void> - A bomba lerakásáért felelős.
-- collidesWith(other) - <<a>boolean> - Találkozik e a két karakter
-- takeDamage(amount : int) - <<a>void> - Azért felel, hogy a játékost ért sebzes változtasson az életerején.
-- update() - Frissíti a karaktert pl egy powerUP után.
+- collidesWith(other) - <<a>boolean> - Ütközik-e a karakter egy adott objektummal.
+- takeDamage(amount : int) - <<a>void> - Azért felel, hogy a játékost ért sebzés változtasson az életerején.
+- update() - Framenként meghívásra kerül.
 - show() - Megjeleníti a karaktert az adott pozíción.
 
 #### 1.4 InputModule
@@ -64,7 +67,7 @@
 - Azért int mert az írányításnál a (W,A,S,D) karaktereket számokkal reprezentáljuk.
 ##### Methods
 - inverse() - <<a>void> - Megfordítja az irányítást.
-- reset() - <<a>void> - Ha az 'inverse' lejárt vissza állítja az irányítást az eredetire.
+- reset() - <<a>void> - Visszaállítja az irányítást az eredetire.
 
 #### 1.5 Bomb
 ##### Variables
