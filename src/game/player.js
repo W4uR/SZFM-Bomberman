@@ -20,11 +20,38 @@ class Player{
     }
 
     handleInput(){
-        //TODO
+        //Vertikális mozgás
+        if (keyIsDown(this.inputModule.upKey)) {
+            this.velocity.y = -1 // Fel
+        } else if (keyIsDown(this.inputModule.downKey)) {
+            this.velocity.y = 1; // Le
+        } else {
+            this.velocity.y  = 0; // Megáll
+        }
+      
+        //Horizontális mozgás
+        if (keyIsDown(this.inputModule.leftKey)) {
+            this.velocity.x = -1; // Bal
+        } else if (keyIsDown(this.inputModule.rightKey)) {
+            this.velocity.x = 1; // Jobb
+        } else {
+            this.velocity.x = 0; // Megáll
+        }
+        
+        
     }
 
     move(){
-        //TODO
+        //Irányvektor normaliálása
+        if(this.velocity.mag() > 0){
+            this.velocity.normalize();
+            this.velocity.mult(this.speed);
+        }
+        const xMove = this.velocity.x * deltaTime;
+        const yMove = this.velocity.y * deltaTime;
+        this.x += xMove;
+        this.y += yMove;
+        //TODO: Ütközés a falakkal detektálása, mozgás korlátozás
     }
 
     checkExplosion(){
