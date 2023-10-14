@@ -111,8 +111,39 @@
 ##### Methods
 - show() - <<a>void> - A robbanás megjelnítéséért felelős.
 
-### **2. Teszttervek:**
-#### 2.1 Funkcionális tesztek:
+### **3. Adatbázis terv:**
+    @startuml
+    !define Table1 class
+    !define Table2 class
+    !define Table3 class
+    !define Table4 class
+    !define PK_FIELD <u>PK</u>
+    !define FK_FIELD <b>FK</b>
+    Table1 Player {
+    PlayerName: VARCHAR(20) PK_FIELD
+    --
+    SkinID: INT UNSIGNED FK_FIELD
+    Points: INT
+    }
+    Table2 Resource {
+    ResourceID: INT UNSIGNED PK_FIELD
+    destPath: VARCHAR(40)
+    }
+    Table3 Map {
+    MapID: INT AUTO_INCREMENT PK_FIELD
+    --
+    MapData: JSON
+    }
+    Table4 BugReport {
+    BugID: INT UNSIGNED AUTO_INCREMENT PK_FIELD
+    BugDescription: VARCHAR(150)
+    }
+    Player "1" -- "1" Resource : SkinID - ResourceID
+    @enduml
+![Alt text](image-1.png)
+
+### **3. Teszttervek:**
+#### 3.1 Funkcionális tesztek:
 - Játékkezdeti teszt: Ellenőrizzük, hogy a játék elindul-e          megfelelően, és a főmenüből elérhetők-e a különböző játékmenük.
 
 - Karakter mozgatás: Ellenőrizzük, hogy a játékos karaktereket lehessen-e mozgatni a pályán, és hogy ne tudjanak átmenni falakon vagy más akadályokon.
@@ -123,7 +154,7 @@
 
 - Játék befejezése: Ellenőrizzük, hogy a játék megfelelően fejeződik-e be, például ha minden ellenfél legyőzésre került vagy egy meghatározott cél elérésre került.
 
-#### 2.2 Grafikai tesztek:
+#### 3.2 Grafikai tesztek:
 - Grafikus elemek rendben: Ellenőrizzük, hogy a játék grafikai elemei (karakterek, pályaelemek, bombák) megfelelően jelennek-e meg a képernyőn.
 
 ### **4. Telepítési terv:**
