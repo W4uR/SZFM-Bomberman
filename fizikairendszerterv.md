@@ -140,7 +140,7 @@
     }
     Player "1" -- "1" Resource : SkinID - ResourceID
     @enduml
-![Alt text](image-1.png)
+
 
 ### **3. Teszttervek:**
 #### 3.1 Funkcionális tesztek:
