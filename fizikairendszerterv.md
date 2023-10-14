@@ -141,6 +141,7 @@
     Player "1" -- "1" Resource : SkinID - ResourceID
     @enduml
 
+![kép](https://github.com/W4uR/SZFM-Bomberman/assets/70896019/7f0f4b86-6fb1-49ab-9a58-6505a9232f8b)
 
 ### **3. Teszttervek:**
 #### 3.1 Funkcionális tesztek:
