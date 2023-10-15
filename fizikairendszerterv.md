@@ -174,6 +174,9 @@
 #### 4.5 Webtelepítés:
 - A játékot közvetlenül egy weboldalon vagy webalkalmazásként is elérhetővé tehetjük. Ehhez a játékot egy webes szerverre kell feltölteni, és gondoskodni kell a megfelelő webböngésző támogatásról.
 
+### **5. Rendszerspecifikációk:**
+-Legalább 8.2.4 XAMPP, HTML5, CSS3 illetve JS és annak p5 neveztű könyvtárának használata, szükség esetén PHP-val. 
+
 ### **6. Szoftver architektúra:**
 #### 6.1 Felhasználói felület (UI):
 - A játékfelület, amely a játékosok interakcióját és a játékállapot megjelenítését teszi lehetővé.
@@ -188,3 +191,284 @@
 
 #### 6.1 Adatbáziskezelő:
 - A játékosokhoz tartozó pontszámok tárolásáért felelős.
+
+### **7. Alkalmazás rétegei:**
+Különválaszthatók a modell, a nézet és a vezérlő rétegek.
+
+### **8. Adatspecifikációk/objektumspecifikációk (környezetfüggő adattervek):**
+#### 8.1 Adatspecifikációk:
+- Player (Játékos) Tábla Adatspecifikációja:
+    - Mezők:
+        - PlayerName (Játékos név): A játékos neve.
+        - Points (Pontok): A játékos aktuális pontszáma.
+        - SkinID (Erőforrás azonosító): Azonosító az erőforráshoz (skin).
+
+- Resource (Erőforrás) Tábla Adatspecifikációja:
+    - Mezők:
+        - ResourceID (Erőforrás azonosító): Egyedi azonosító az erőforráshoz.
+        - destPath (Célútvonal): Az erőforrás fájl elérési útvonala (pl., kép).
+
+- Map (Pálya) Tábla Adatspecifikációja:
+    - Mezők:
+        - MapID (Pálya azonosító): Egyedi azonosító a pályához.
+        - MapData (Pályadata): A pálya adata JSON formátumban, ami tartalmazza a pálya felépítését (falak, üres cellák stb.).
+
+- BugReport (Hibajelentés) Tábla Adatspecifikációja:
+    - Mezők:
+        - BugID (Bug azonosító): Egyedi azonosító a hibajelentéshez.
+        - BugDescription (Hibajelentés szövege): A hibajelentéshez tartozó szöveges leírás.
+
+#### 8.2 Objektumspecifikációk:
+##### 8.2.1 PowerUP
+Változók
+- x
+    - Típus: int
+    - Leírás: A PowerUP helyzetének X koordinátája.
+- y
+    - Típus: int
+    - Leírás: A PowerUP helyzetének Y koordinátája.
+- width
+    - Típus: int
+    - Leírás: A megjelenő objektum szélessége.
+- duration
+    - Típus: float
+    - Leírás: A PowerUP hatásának időtartama. (0, ha állandó)
+- collectedBy
+    - Típus: Player
+    - Leírás: Tárolja, hogy melyik játékos vette fel a PowerUp-ot.
+- isCollected
+    - Típus: boolean
+    - Leírás: Az eldöntésére szolgál, hogy a PowerUP felvételre került-e már.
+- sprite
+    - Típus: Image
+    - Leírás: A képernyőn megjelenő grafikák.
+
+Metódusok
+- applyEffect(player: Player)
+    - Visszatérési típus: void
+    - Leírás: A PowerUP alkalmazása a játékosra.
+- show()
+    - Visszatérési típus: void
+    - Leírás: A PowerUp megjelenítése a pályán.
+
+##### 8.2.2 Player
+Változók
+- x
+    - Típus: int
+    - Leírás: A játékos helyzetének X koordinátája.
+- y
+    - Típus: int
+    - Leírás: A játékos helyzetének Y koordinátája.
+- width
+    - Típus: int
+    - Leírás: A megjelenő objektum szélessége.
+- maxHealth
+    - Típus: int
+    - Leírás: A játékos maximális életereje.
+- health
+    - Típus: int
+    - Leírás: A játékos jelenlegi életereje.
+- speed
+    - Típus: float
+    - Leírás: A játékos sebessége.
+- velocity
+    - Típus: 2D vektor
+    - Leírás: A játékos mozgásának iránya.
+- bombTemplate
+    - Típus: Bomb
+    - Leírás: Ez alapján inicializálódik egy - a játékos által - lerakott bomba. Ha egy erősítés módosít valamit, ami a játékos által letett bombához kapcsolódik (pl.: hatósugár növelése), akkor a bombTemplate-t módosítja.
+- bombs
+    - Típus: Bomb[..]
+    - Leírás: A lerakott bombák a bombs listába kerülnek.
+- maxBombs
+    - Típus: int
+    - Leírás: A játékos által maximálisan lerakható bombák száma.
+- inputModule
+    - Típus: InputModule
+    - Leírás: A játékhoz tartozó irányítást tárolja.
+- sprite
+    - Típus: Image
+    - Leírás: A képernyőn megjelenő grafika.
+
+Metódusok
+- handleInput()
+    - Visszatérési típus: void
+    - Leírás: Az input információk kezelése.
+- move()
+    - Visszatérési típus: void
+    - Leírás: A játékos mozgását vezérli.
+- placeBomb()
+    - Visszatérési típus: void
+    - Leírás: A bomba lerakásáért felelős.
+- collidesWith(other)
+    - Visszatérési típus: boolean
+    - Leírás: Ellenőrzi, hogy a karakter ütközik-e egy adott objektummal.
+- takeDamage(amount: int)
+    - Visszatérési típus: void
+    - Leírás: Azért felel, hogy a játékos életét érő sebzés változtasson az életerején.
+- update()
+    - Visszatérési típus: void
+    - Leírás: Minden képkocka frissítésekor meghívódik.
+- show()
+    - Visszatérési típus: void
+    - Leírás: Megjeleníti a karaktert az adott pozíción.
+
+##### 8.2.3 InputModule
+Változók
+- up
+    - Típus: int
+    - Leírás: Az "fel" irányítás reprezentációja.
+- left
+    - Típus: int
+    - Leírás: Az "balra" irányítás reprezentációja.
+- down
+    - Típus: int
+    - Leírás: Az "le" irányítás reprezentációja.
+- right
+    - Típus: int
+    - Leírás: Az "jobbra" irányítás reprezentációja.
+- action
+    - Típus: int
+    - Leírás: Az "akció" reprezentációja. Például egy bomba lerakása.
+
+Metódusok
+- inverse()
+    - Visszatérési típus: void
+    - Leírás: Megfordítja az irányítást.
+- reset()
+    - Visszatérési típus: void
+    - Leírás: Visszaállítja az irányítást az eredeti állapotra.
+
+##### 8.2.4 Bomb
+Változók
+- x
+    - Típus: int
+    - Leírás: A bomba X koordinátája.
+- y
+    - Típus: int
+    - Leírás: A bomba Y koordinátája.
+- width
+    - Típus: int
+    - Leírás: Egy megjelenő objektum szélessége.
+- owner
+    - Típus: Player
+    - Leírás: A bomba tulajdonosát tárolja.
+- delay
+    - Típus: float
+    - Leírás: A bomba letételtől a robbanásig eltelt idő.
+- radius
+    - Típus: int
+    - Leírás: A bomba robbanási hatósugara.
+- damage
+    - Típus: int
+    - Leírás: A bomba sebzése.
+- sprite
+    - Típus: Image
+    - Leírás: A megjelenő grafika.
+
+Metódusok
+- explode()
+    - Visszatérési típus: void
+    - Leírás: A bomba felrobbantásáért felelős metódus.
+- show()
+    - Visszatérési típus: void
+    - Leírás: A bomba megjelenítéséért felelős metódus.
+
+##### 8.2.5 Cell
+Változók
+- x
+    - Típus: int
+    - Leírás: Egy cella X koordinátája.
+
+- y
+    - Típus: int
+    - Leírás: Egy cella Y koordinátája.
+
+- width
+    - Típus: int
+    - Leírás: Egy megjelenő objektum szélessége.
+
+- wall
+    - Típus: WallType
+    - Leírás: A fal típusa (rombolható, nem rombolható).
+
+Metódusok
+- isWall()
+    - Visszatérési típus: void
+    - Leírás: Eldönti, hogy az adott cellán található-e bármilyen fal.
+
+- destroyWall()
+    - Visszatérési típus: void
+    - Leírás: Robbanás hatására lerombolja a falat.
+
+- show()
+    - Visszatérési típus: void
+    - Leírás: Egy cella megjelenítéséért felelős metódus.
+
+
+##### 8.2.6 WallType
+Változók
+- empty
+    - Típus: string
+    - Leírás: Az adott cellán nincs fal.
+
+- wall
+    - Típus: string
+    - Leírás: A lerombolható falat jelzi.
+
+- barrier
+    - Típus: string
+    - Leírás: A nem lerombolható falat jelzi.
+
+##### 8.2.7 Explosion
+Változók
+- x
+    - Típus: int
+    - Leírás: Egy robbanás objektum X koordinátája.
+- y
+    - Típus: int
+    - Leírás: Egy robbanás objektum Y koordinátája.
+- width
+    - Típus: int
+    - Leírás: Egy megjelenő objektum szélessége.
+- lifetime
+    - Típus: float
+    - Leírás: Az időtartam, ameddig a robbanás látható.
+- damage
+    - Típus: int
+    - Leírás: A robbanás által okozott sebzés.
+- sprite
+    - Típus: Image
+    - Leírás: A megjelenő grafika.
+
+Metódusok
+- show()
+    - Visszatérési típus: void
+    - Leírás: A robbanás megjelenítéséért felelős metódus.
+
+### **Programspecifikációk:**
+Felhasználói Interfész (UI) Specifikáció:
+
+    A játék felhasználói felülete tartalmaz egy kezdőképernyőt (menü), amelyen a játékosok kiválaszthatják, hogy tovább haladnak a játék indítása felé vagy pedig a Ranglistát tekintik meg.
+    A játékban találhatóak gombok és vezérlőelemek, amelyek lehetővé teszik a játékosoknak a mozgást, bombák lerakását és egyéb interakciókat.
+    A ranglistát a játékosok nevével és pontjaival jelenítjük meg a képernyőn.
+
+Játékmenet Specifikáció:
+
+    A játékosok célja a másik ellenfél felrobbantása.
+    A játékban vannak power-up-ok, amelyek segíthetik vagy akadályozhatják a játékosokat.
+    A játék fő mechanikái közé tartozik a bombák lerakása, a bombák robbanásának hatósugara és sebzése, valamint a játékosok életereje.
+
+Multiplayer Funkcionalitás Specifikáció:
+
+    A többjátékos mód lehetővé teszi a játékosok számára, egy számítógép előtt együtt játszhassanak egymás ellen.
+
+Grafikai és Hang Specifikáció:
+
+    A játékban találhatók animált karakterek és pályaelemek.
+    A játék hanghatásokat tartalmaz, például bombák robbanását és játékos mozgását kísérő hangokat.
+
+Adatbázis és Ranglista Specifikáció:
+
+    Az adatbázisban tároljuk a játékosok nevét és pontszámát, valamint a játékoshoz tartozó skin-eket.
+    A ranglistát a játékosok pontszámai alapján rangsoroljuk és jelenítjük meg.
