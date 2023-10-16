@@ -10,6 +10,9 @@ var rows;
 var player1;
 var player2;
 
+
+
+
 function setup() {
     previousTime = millis();
     noStroke();
@@ -17,6 +20,7 @@ function setup() {
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
     grid = make2DArray(cols,rows);
+    
 
     //Grid feltöltése
     //TODO: Itt kéne a pályát definiálni úgymond...
