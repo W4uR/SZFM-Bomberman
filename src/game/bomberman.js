@@ -1,17 +1,20 @@
 const SCALE = 40;
 let previousTime;
 
-var deltaTime;
-var grid;
-var cols;
-var rows;
+let deltaTime;
+let grid;
+let cols;
+let rows;
+
+let sprites = []; 
 
 
-var player1;
-var player2;
+let player1;
+let player2;
 
-
-
+function preload(){
+    loadSprites();
+}
 
 function setup() {
     previousTime = millis();
@@ -20,7 +23,7 @@ function setup() {
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
     grid = make2DArray(cols,rows);
-    
+    initializePlayers();
 
     //Grid feltöltése
     //TODO: Itt kéne a pályát definiálni úgymond...
@@ -36,10 +39,6 @@ function setup() {
             grid[i][j] = new Cell(i,j,wall);
         }
     }
-    print(grid)
-    // Játékosok inicializálása
-    player1 = new Player(1,1,0.75*SCALE,3,4*SCALE,new InputModule(87,65, 83, 68, 32),'green')
-    player2 = new Player(9,9,0.75*SCALE,3,4*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),'blue')
 }
   
 function draw() {
@@ -48,9 +47,10 @@ function draw() {
     player1.update();
     player2.update();
 
-    //Megjelenés
+    //Megjelnés
     renderScene();
 }
+
 function renderScene(){
     background(255);
     //Bombák rednerelése
@@ -82,3 +82,25 @@ function make2DArray(cols,rows){
     }
     return arr;
 }
+
+function initializePlayers(){
+    player1 = new Player(1,1,0.75*SCALE,3,4*SCALE,new InputModule(87,65, 83, 68, 32),0);
+    player2 = new Player(9,9,0.75*SCALE,3,4*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),1);
+}
+
+function loadSprites() {
+    $.ajax({
+        url: '../php/retrive.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            for (let i = 0; i < data.length; i++) {
+                sprites.push(loadImage("data:image/png;base64,"+ data[i].imgData));
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error:', errorThrown);
+        }
+        });  
+    
+  }

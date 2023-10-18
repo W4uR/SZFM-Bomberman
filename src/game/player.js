@@ -1,5 +1,5 @@
 class Player{
-    constructor(i,j,width,maxHealth,speed,inputModule,color){
+    constructor(i,j,width,maxHealth,speed,inputModule,spriteIndex){
         this.x = i*SCALE;
 		this.y = j*SCALE;
 		this.width = width;
@@ -10,7 +10,7 @@ class Player{
 		this.velocity = createVector(0,0);
 		this.bombs= [];
 		this.maxBombs = 1;
-        this.color = color;
+        this.spriteIndex = spriteIndex;
     }
 
     update(){
@@ -41,7 +41,7 @@ class Player{
         
         //TODO: Bomba letétel
         if(keyIsDown(this.inputModule.actionKey)){
-            print("asd " + this.color)
+            print("Place bomb.");
         }
     }
 
@@ -100,8 +100,9 @@ class Player{
 
     show(){
         //TODO: Sprite megjelenítése és animálása
-        fill(this.color);
-		rect(this.x,this.y,this.width,this.width);
+        if(sprites[this.spriteIndex]){
+            image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
+        }
     }
 }
 
