@@ -8,8 +8,7 @@ class Player{
 		this.speed = speed;
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);
-		this.bombs= [];
-		this.maxBombs = 1;
+		this.maxBombs = 5;
         this.spriteIndex = spriteIndex;
     }
 
@@ -41,7 +40,32 @@ class Player{
         
         //TODO: Bomba letétel
         if(keyIsDown(this.inputModule.actionKey)){
-            print("Place bomb.");
+            this.placeBomb();
+        }
+    }
+    
+    checkBombValidity(){
+        let count = 0;
+        
+        for (let index = 0; index < bombs.length; index++) {
+            const b = bombs[index];
+            if(b.owner == this){
+                count++;
+                if(count >= this.maxBombs){
+                    return false //A játékos már lettet annyi bombát amennyit elhetett neki.
+                }
+            }
+            if(b.x == snapToGrid(this.center().x) && b.y == snapToGrid(this.center().y)){
+                return false //A célmezőn már van egy bomba
+            }
+        }
+        return true;
+    }
+
+    placeBomb(){
+        if(this.checkBombValidity()){
+            print("Placing bomb...");
+            bombs.push(new Bomb(this,1,1,10,2));
         }
     }
 
@@ -98,11 +122,14 @@ class Player{
     }
 
 
-    show(){
-        //TODO: Sprite megjelenítése és animálása
+    show(){ 
         if(sprites[this.spriteIndex]){
             image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
         }
+    }
+
+    center(){
+        return createVector(this.x+this.width/2,this.y+this.width/2);
     }
 }
 

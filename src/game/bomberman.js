@@ -7,7 +7,7 @@ let cols;
 let rows;
 
 let sprites = []; 
-
+let bombs = [];
 
 let player1;
 let player2;
@@ -54,7 +54,10 @@ function draw() {
 function renderScene(){
     background(255);
     //Bombák rednerelése
-
+    
+    bombs.forEach(b => {
+        b.show();
+    });
     //Erősítések renderelése
 
     //Játékosok renderelése
@@ -84,8 +87,8 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,4*SCALE,new InputModule(87,65, 83, 68, 32),0);
-    player2 = new Player(9,9,0.75*SCALE,3,4*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),1);
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),0);
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),1);
 }
 
 function loadSprites() {
@@ -104,3 +107,8 @@ function loadSprites() {
         });  
     
   }
+
+function snapToGrid(value){
+    return floor(value/SCALE)*SCALE;
+}
+
