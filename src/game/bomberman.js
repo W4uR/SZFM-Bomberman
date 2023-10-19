@@ -59,9 +59,10 @@ function draw() {
 }
 
 function renderScene(){
+    // Háttér renderelése
     background(255);
-    //Bombák rednerelése
     
+    //Bombák renderelése
     bombs.forEach(b => {
         b.show();
     });

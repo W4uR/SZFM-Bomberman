@@ -7,6 +7,8 @@ class Bomb{
         this.radius = radius;
         this.damage = damage;
         this.spriteIndex = spriteIndex;
+        // Ez valszeg nem így lesz megoldva, ha animálni is akarjuk a bombát, hanem a delay->lifetime-ra lesz cserélve, amiből vonjuk le a deltaTime-ot minden frameben,
+        // és a lifetime függvénye lesz a megjelenítendő sprite
         if(delay > 0){
             setTimeout(() => {
                 this.explode();
@@ -29,12 +31,14 @@ class Bomb{
             const newRow = startRow + rowChange*step;
             const newCol = startCol + colChange*step;
     
-            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && grid[newCol][newRow].isWall() == false) {
+            if (newRow >= 0 && newRow < rows 
+                && newCol >= 0 && newCol < cols 
+                && grid[newCol][newRow].isBarrier() == false) {
                 const [explosionX,explosionY] = toPixelCoords(newCol,newRow);
                 
                 //TODO: a 3-as elég varázslatos szám, jelenleg a 3-as a robbanás indexe a robbanásnak a sprites tömbben. Jobb lenne valami id alapján, vagy konkrétan a képet tárolni? :/
                 explosions.push(new Explosion(explosionX,explosionY,this.width,0.6,this.damage,3)) 
-                if(grid[newCol][newRow].isBarrier()){
+                if(grid[newCol][newRow].isWall()){
                     grid[newCol][newRow].wall = WallType.EMPTY;
                 }
             }else{

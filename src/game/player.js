@@ -1,7 +1,6 @@
 class Player{
     constructor(i,j,width,maxHealth,speed,inputModule,spriteIndex){
-        this.x = i*SCALE;
-		this.y = j*SCALE;
+        [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
         this.health = maxHealth;
@@ -70,7 +69,7 @@ class Player{
     }
 
     move(){
-        //Irányvektor normaliálása
+        //Irányvektor normalizálása
         if(this.velocity.mag() > 0){
             this.velocity.normalize();
             this.velocity.mult(this.speed);
@@ -101,10 +100,10 @@ class Player{
 
     checkWallCollisions(){
         // Talán hatékonyabb lenne csak a közvetlen környezetünkben lévő cellákat vizsgálni,
-        // de nem a világ vége. Nem őskövületle fejlesztünk...
+        // de nem a világ vége. Nem őskövületre fejlesztünk...
 		for(var i = 0; i<cols; i++){
 			for(var j = 0; j<rows;j++){
-				if(grid[i][j].isWall()){
+				if(!grid[i][j].isEmpty()){
 					let wall = grid[i][j];
 					if(this.collidesWith(wall)) return true;
 				}

@@ -13,6 +13,10 @@ class Cell{
     isBarrier(){
         return this.wall == WallType.BARRIER;
     }
+    
+    isEmpty(){
+        return this.wall == WallType.EMPTY;
+    }
 
     show(){
         //TODO: Render sprites
