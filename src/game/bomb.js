@@ -1,12 +1,12 @@
 class Bomb{
-    constructor(owner,radius,damage,delay,spriteIndex){
+    constructor(owner,radius,damage,delay,sprite){
         this.x = snapToGrid(owner.center().x);
         this.y = snapToGrid(owner.center().y);
         this.width = SCALE;
         this.owner = owner;
         this.radius = radius;
         this.damage = damage;
-        this.spriteIndex = spriteIndex;
+        this.sprite = sprite;
         // Ez valszeg nem így lesz megoldva, ha animálni is akarjuk a bombát, hanem a delay->lifetime-ra lesz cserélve, amiből vonjuk le a deltaTime-ot minden frameben,
         // és a lifetime függvénye lesz a megjelenítendő sprite
         if(delay > 0){
@@ -16,9 +16,9 @@ class Bomb{
         }
     }
 
-    show(){
-        if(sprites[this.spriteIndex]){
-            image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
+    show(){ 
+        if(sprites.size > 0){
+            image(sprites.get(this.sprite), this.x,this.y,this.width,this.width);
         }
     }
 

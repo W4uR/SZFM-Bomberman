@@ -1,5 +1,5 @@
 class Player{
-    constructor(i,j,width,maxHealth,speed,inputModule,spriteIndex){
+    constructor(i,j,width,maxHealth,speed,inputModule,sprite){
         [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
@@ -8,9 +8,9 @@ class Player{
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);
 		this.maxBombs = 1;
-        this.spriteIndex = spriteIndex;
-        this.bombTemplate = new Bomb();
+        this.sprite = sprite;
         this.isShielded = false;
+        print(sprites)
     }
 
     update(){
@@ -66,7 +66,7 @@ class Player{
         if(this.checkBombValidity()){
             print("Placing bomb...");
             //TODO: Itt egy template alapján kéne létrehozni egy bombát
-            bombs.push(new Bomb(this,1,1,3,2));
+            bombs.push(new Bomb(this,1,1,3,'bomba'));
         }
     }
 
@@ -128,8 +128,8 @@ class Player{
 
 
     show(){ 
-        if(sprites[this.spriteIndex]){
-            image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
+        if(sprites.size > 0){
+            image(sprites.get(this.sprite), this.x,this.y,this.width,this.width);
         }
     }
 

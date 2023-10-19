@@ -12,10 +12,11 @@ let grid;
 let cols;
 let rows;
 
-let sprites = []; 
+
 let bombs = [];
 let explosions = [];
 let powerUps = [];
+let sprites = new Map();
 
 let player1;
 let player2;
@@ -101,14 +102,14 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),0);
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),1);
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),'player1');
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),'player2');
 }
 
 function initializePowerUps(){
-    powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false,4));
+    powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false,'moreBomb'));
 }
-
+//TODO: loadSprite(MinlyenFajtaSprite) és azt meghívni amilyed e felett.
 function loadSprites() {
     $.ajax({
         url: '../php/retrive.php',
@@ -116,15 +117,17 @@ function loadSprites() {
         dataType: 'json',
         success: function(data) {
             for (let i = 0; i < data.length; i++) {
-                sprites.push(loadImage("data:image/png;base64,"+ data[i].imgData));
+                sprites.set(data[i].resID,loadImage("data:image/png;base64," + data[i].imgData));
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
         }
-        });  
-    
-  }
+    });
+}
+
+
+
 
 function snapToGrid(value){
     return floor(value/SCALE)*SCALE;
