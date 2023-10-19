@@ -9,7 +9,7 @@ class Player{
 		this.velocity = createVector(0,0);
 		this.maxBombs = 1;
         this.spriteIndex = spriteIndex;
-        this.bombTemplate = new Bomb();
+        this.bombTemplate = new Bomb(this,2,1,2);
         this.isShielded = false;
     }
 
@@ -66,7 +66,7 @@ class Player{
         if(this.checkBombValidity()){
             print("Placing bomb...");
             //TODO: Itt egy template alapján kéne létrehozni egy bombát
-            bombs.push(new Bomb(this,1,1,3,2));
+            bombs.push(new Bomb(this,this.bombTemplate.radius,this.bombTemplate.damage,2,3));
         }
     }
 

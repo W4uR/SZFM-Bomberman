@@ -54,6 +54,9 @@ function draw() {
     calcDeltaTime();
     player1.update();
     player2.update();
+    bombs.forEach(b => { 
+        b.update();
+    });
 
     //Megjelnés
     renderScene();
