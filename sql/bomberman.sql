@@ -1,10 +1,10 @@
 CREATE TABLE Player (
   PlayerName VARCHAR(20) PRIMARY KEY,
-  SkinID INT UNSIGNED,
+  SkinID VARCHAR(20) NOT NULL,
   Points INT
 );
 CREATE TABLE Resource (
-  ResourceID VARCHAR(20) PRIMARY KEY,
+  ResourceID VARCHAR(20) NOT NULL PRIMARY KEY,
   immage longblob NOT NULL
 );
 CREATE TABLE Map (
