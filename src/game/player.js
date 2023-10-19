@@ -7,8 +7,10 @@ class Player{
 		this.speed = speed;
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);
-		this.maxBombs = 5;
+		this.maxBombs = 1;
         this.spriteIndex = spriteIndex;
+        this.bombTemplate = new Bomb();
+        this.isShielded = false;
     }
 
     update(){
@@ -64,7 +66,7 @@ class Player{
         if(this.checkBombValidity()){
             print("Placing bomb...");
             //TODO: Itt egy template alapján kéne létrehozni egy bombát
-            bombs.push(new Bomb(this,4,1,3,2));
+            bombs.push(new Bomb(this,1,1,3,2));
         }
     }
 
@@ -95,7 +97,11 @@ class Player{
     }
 
     checkPowerUp(){
-        //TODO
+        powerUps.forEach(element => {
+            if(this.collidesWith(element) && !element.isCollected){
+                element.applyEffect(this);
+            }
+        });
     }
 
     checkWallCollisions(){

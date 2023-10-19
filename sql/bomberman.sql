@@ -4,7 +4,7 @@ CREATE TABLE Player (
   Points INT
 );
 CREATE TABLE Resource (
-  ResourceID INT UNSIGNED PRIMARY KEY,
+  ResourceID VARCHAR(20) PRIMARY KEY,
   immage longblob NOT NULL
 );
 CREATE TABLE Map (

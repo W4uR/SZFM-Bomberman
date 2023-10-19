@@ -15,6 +15,7 @@ let rows;
 let sprites = []; 
 let bombs = [];
 let explosions = [];
+let powerUps = [];
 
 let player1;
 let player2;
@@ -31,7 +32,7 @@ function setup() {
     rows = floor(height/SCALE);
     grid = make2DArray(cols,rows);
     initializePlayers();
-
+    initializePowerUps();
     //Grid feltöltése
     //TODO: Itt kéne a pályát definiálni úgymond...
     for(var i = 0; i<cols; i++){
@@ -67,7 +68,9 @@ function renderScene(){
         b.show();
     });
     //Erősítések renderelése
-    
+    powerUps.forEach(p => {
+        p.show();
+    })
     //Játékosok renderelése
     player1.show();
     player2.show();
@@ -100,6 +103,10 @@ function make2DArray(cols,rows){
 function initializePlayers(){
     player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),0);
     player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),1);
+}
+
+function initializePowerUps(){
+    powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false,4));
 }
 
 function loadSprites() {
