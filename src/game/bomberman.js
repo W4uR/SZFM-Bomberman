@@ -1,4 +1,10 @@
 const SCALE = 40;
+const directions = [
+    [-1, 0], // Fel
+    [1, 0],  // Le
+    [0, -1], // Balra
+    [0, 1]   // Jobbra
+  ];
 let previousTime;
 
 let deltaTime;
@@ -8,6 +14,7 @@ let rows;
 
 let sprites = []; 
 let bombs = [];
+let explosions = [];
 
 let player1;
 let player2;
@@ -59,17 +66,20 @@ function renderScene(){
         b.show();
     });
     //Erősítések renderelése
-
+    
     //Játékosok renderelése
     player1.show();
     player2.show();
-    //Pálya rednerelése
+    //Pálya renderelése
     for(var i = 0; i<cols; i++){
         for(var j = 0; j<rows;j++){
             grid[i][j].show();
         }
     }
     //Robbanások renderelése
+    explosions.forEach(e => { 
+        e.show();
+    });
 }
 
 function calcDeltaTime(){
@@ -112,3 +122,10 @@ function snapToGrid(value){
     return floor(value/SCALE)*SCALE;
 }
 
+function toGridCoords(x,y){
+    return [floor(x/SCALE),floor(y/SCALE)];
+}
+
+function toPixelCoords(i,j){
+    return [i*SCALE,j*SCALE];
+}

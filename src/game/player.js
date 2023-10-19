@@ -38,7 +38,6 @@ class Player{
             this.velocity.x = 0; // Megáll
         }
         
-        //TODO: Bomba letétel
         if(keyIsDown(this.inputModule.actionKey)){
             this.placeBomb();
         }
@@ -52,7 +51,7 @@ class Player{
             if(b.owner == this){
                 count++;
                 if(count >= this.maxBombs){
-                    return false //A játékos már lettet annyi bombát amennyit elhetett neki.
+                    return false //A játékos már letett annyi bombát amennyit lehetett neki.
                 }
             }
             if(b.x == snapToGrid(this.center().x) && b.y == snapToGrid(this.center().y)){
@@ -65,7 +64,8 @@ class Player{
     placeBomb(){
         if(this.checkBombValidity()){
             print("Placing bomb...");
-            bombs.push(new Bomb(this,1,1,10,2));
+            //TODO: Itt egy template alapján kéne létrehozni egy bombát
+            bombs.push(new Bomb(this,4,1,3,2));
         }
     }
 

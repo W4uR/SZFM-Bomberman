@@ -1,19 +1,20 @@
 class Cell{
 
     constructor(i,j,wallType){
-        this.x = i*SCALE;
-        this.y = j*SCALE;
+        [this.x,this.y] = toPixelCoords(i,j);
         this.width = SCALE;
         this.wall = wallType;
     }
 
     isWall(){
-        return this.wall != WallType.EMPTY;
+        return this.wall == WallType.WALL;
+    }
+
+    isBarrier(){
+        return this.wall == WallType.BARRIER;
     }
 
     show(){
-
-        //Rendering walls
         //TODO: Render sprites
         switch (this.wall) {
             case WallType.BARRIER:
@@ -32,7 +33,7 @@ class Cell{
 
 class WallType {
     static EMPTY = 'empty';
-    static WALL = 'wall';
-    static BARRIER = 'barrier';
+    static WALL = 'wall'; // Rombolható
+    static BARRIER = 'barrier'; // Nem rombolható
 }
 
