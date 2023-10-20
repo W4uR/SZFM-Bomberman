@@ -1,13 +1,13 @@
 body{
-    background-image: url(background-pixelicious.png);
-    background-size: cover;
+    background: linear-gradient(yellow, #00a4ff);
+    background-attachment: fixed;
 }
 .gametitle{
     text-align: center;
     margin-top: 5rem;
     font-size: 3rem;
-    -webkit-text-stroke: 1px rgb(93, 25, 120);
-    color: rgb(144, 67, 158);
+    -webkit-text-stroke: 1px rgb(193, 125, 42);
+    color: rgb(202, 182, 28);
     text-shadow: 4px 4px 4px black;
     user-select: none;
 }
@@ -16,29 +16,37 @@ body{
     margin-top: 4rem;
     font-size: 2rem;
     border-radius: 1rem;
-    border: 1px rgb(203, 113, 188) solid;
-    width: 20rem;
+    border: 1px rgb(225, 236, 72) solid;
+    color: rgb(202, 182, 28);
+    width: 25rem;
+    height: 9rem;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(101, 52, 101);
+    background-color: #cdc8467d;
     transition: all 0.3s;
     user-select: none;
 }
 .scoreboard{
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 2rem;
     border-radius: 1rem;
-    border: 1px rgb(203, 113, 188) solid;
-    width: 20rem;
+    border: 1px rgb(68, 247, 178) solid;
+    color: rgb(24, 123, 123);
+    width: 25rem;
+    height: 9rem;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(101, 52, 101); 
+    background-color: #359f917d;
+    transition: all 0.3s;
     user-select: none;
 }
 .game:hover,.scoreboard:hover{
     position: relative;
     top: -4px;
     left: -4px;
-    text-shadow: 4px 4px 4px rgb(109, 30, 123);
+    text-shadow: 4px 4px 4px rgb(177, 204, 57);
+}
+h1,h2{
+    font-family: "Pixel-Art Regular";                                                
 }
