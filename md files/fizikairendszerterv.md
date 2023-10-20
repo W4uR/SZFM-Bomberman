@@ -1,5 +1,4 @@
 ### **1. Osztálytervek:**
-
 ![image](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/bb596182-a443-4e79-aff2-2ccb6a52b0e5)
 
 #### 1.1 Global variables
@@ -11,6 +10,8 @@
 - cols - <<a>int> - Oszlopok száma.
 - grid - <<a>Cell[][]> - A játéktér reprezentációja.
 - powerUps - <<a>PowerUp[..]> - A pályán lévő erősítések.
+- bombs - <<a>Bomb[..]> - A pályán lévő bombák.
+- explosions - <<a>Explosion[..]> - A pályán lévő robbanások.
 - deltaTime - <<a>float> - Eltelt idő másodpercben, kettő frame renderelése között.
 
 #### 1.2 PowerUP
@@ -111,7 +112,7 @@
 ##### Methods
 - show() - <<a>void> - A robbanás megjelnítéséért felelős.
 
-### **3. Adatbázis terv:**
+### **2. Adatbázis terv:**
     @startuml
     !define Table1 class
     !define Table2 class
@@ -126,8 +127,9 @@
     Points: INT
     }
     Table2 Resource {
-    ResourceID: INT UNSIGNED PK_FIELD
-    destPath: VARCHAR(40)
+    ResourceID: VARCHAR(20) NOT NULL PK_FIELD
+    --
+    Sprite: LONGBLOB
     }
     Table3 Map {
     MapID: INT AUTO_INCREMENT PK_FIELD
@@ -141,7 +143,23 @@
     Player "1" -- "1" Resource : SkinID - ResourceID
     @enduml
 
-![kép](https://github.com/W4uR/SZFM-Bomberman/assets/70896019/7f0f4b86-6fb1-49ab-9a58-6505a9232f8b)
+![Adatbázis UML](image.png)
+
+- **ResourceID megnevezési konvenciók:**
+    - Minden erősítés:
+        PU_ prefix-et követi a az erősítés osztályneve.
+        pl.: PU_OneMoreBomb
+    - Minden játékos kinézet:
+        SKIN_ prefixet követi egy szám vagy fantázia név.
+        pl.: SKIN_0 vagy SKIN_Rambo
+    - Falak:
+        WALL_Destructable vagy WALL_NonDestructable
+    - Háttér:
+        BACKGROUND
+    - Bomba:
+        BOMB
+    - Robbanás:
+        EXPLOSION
 
 ### **3. Teszttervek:**
 #### 3.1 Funkcionális tesztek:
