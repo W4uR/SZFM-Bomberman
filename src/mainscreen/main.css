@@ -22,14 +22,14 @@ body{
     margin-top: 0.2rem;
 }
 .scoreboardButton{
-    background-color: #38a8aa;
+    background: transparent;
     width: 35rem;
     height: 7rem;
     cursor: pointer;
     border-radius: 1rem;
 }
 .gameButton{
-    background-color: #aeff00;
+    background: transparent;
     width: 35rem;
     height: 7rem;
     cursor: pointer;
