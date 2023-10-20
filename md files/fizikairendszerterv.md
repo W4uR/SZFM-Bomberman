@@ -143,7 +143,8 @@
     Player "1" -- "1" Resource : SkinID - ResourceID
     @enduml
 
-![Adatbázis UML](image.png)
+![Adatbázis UML](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/8a57037b-6169-4508-9a1d-846642a31953)
+
 
 - **ResourceID megnevezési konvenciók:**
     - Minden erősítés:
