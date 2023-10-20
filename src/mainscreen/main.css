@@ -1,0 +1,44 @@
+body{
+    background-image: url(background-pixelicious.png);
+    background-size: cover;
+}
+.gametitle{
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px rgb(93, 25, 120);
+    color: rgb(144, 67, 158);
+    text-shadow: 4px 4px 4px black;
+    user-select: none;
+}
+.game{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 1px rgb(203, 113, 188) solid;
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(101, 52, 101);
+    transition: all 0.3s;
+    user-select: none;
+}
+.scoreboard{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    border: 1px rgb(203, 113, 188) solid;
+    width: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(101, 52, 101); 
+    user-select: none;
+}
+.game:hover,.scoreboard:hover{
+    position: relative;
+    top: -4px;
+    left: -4px;
+    text-shadow: 4px 4px 4px rgb(109, 30, 123);
+}
