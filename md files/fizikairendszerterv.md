@@ -154,7 +154,7 @@
         SKIN_ prefixet követi egy szám vagy fantázia név.
         pl.: SKIN_0 vagy SKIN_Rambo
     - Falak:
-        WALL_Destructable vagy WALL_NonDestructable
+        CELL_wall vagy CELL_barrier
     - Háttér:
         BACKGROUND
     - Bomba:
