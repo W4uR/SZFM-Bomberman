@@ -11,12 +11,11 @@ let deltaTime;
 let grid;
 let cols;
 let rows;
-
+const sprites = new Map();
 
 let bombs = [];
 let explosions = [];
 let powerUps = [];
-let sprites = new Map();
 
 let player1;
 let player2;
@@ -34,20 +33,7 @@ function setup() {
     grid = make2DArray(cols,rows);
     initializePlayers();
     initializePowerUps();
-    //Grid feltöltése
-    //TODO: Itt kéne a pályát definiálni úgymond...
-    for(var i = 0; i<cols; i++){
-        for(var j = 0; j<rows;j++){
-            let wall = WallType.EMPTY;
-            if(i==0|| i==cols-1){
-                wall = WallType.BARRIER;
-            }
-            if(j==0 || j==rows-1 || i%2 == 0 && j%2==0){
-                wall = WallType.WALL;
-            }
-            grid[i][j] = new Cell(i,j,wall);
-        }
-    }
+    initializeMap();
 }
   
 function draw() {
@@ -105,31 +91,66 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),'player1');
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),'player2');
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),"User_1");
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),"User_2");
 }
 
 function initializePowerUps(){
-    powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false,'moreBomb'));
+   powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false));
 }
-//TODO: loadSprite(MinlyenFajtaSprite) és azt meghívni amilyed e felett.
-function loadSprites() {
+
+function initializeMap(){
+    //TODO: Betöltés adatbázisból
+    for(var i = 0; i<cols; i++){
+        for(var j = 0; j<rows;j++){
+            let wall = WallType.EMPTY;
+            if(i==0|| i==cols-1){
+                wall = WallType.BARRIER;
+            }
+            if(j==0 || j==rows-1 || i%2 == 0 && j%2==0){
+                wall = WallType.WALL;
+            }
+            grid[i][j] = new Cell(i,j,wall);
+        }
+    }
+}
+
+function loadSprites(){
     $.ajax({
-        url: '../php/retrive.php',
+        url: '../php/loadAllSprites.php',
         method: 'GET',
         dataType: 'json',
-        success: function(data) {
-            for (let i = 0; i < data.length; i++) {
-                sprites.set(data[i].resID,loadImage("data:image/png;base64," + data[i].imgData));
-            }
+        success: function(response) {
+            response.forEach(d => { 
+                sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite));
+            });
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
         }
-    });
+    })
+    
 }
 
 
+function loadPlayerSprite(playerName){
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: '../php/spriteByPlayerName.php',
+            method: 'GET',
+            dataType: 'text',
+            data: {
+                PlayerName: playerName
+            },
+            success: function(response) {
+                resolve(loadImage("data:image/png;base64," + response));
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error:', errorThrown);
+            }
+        })
+    });
+}
 
 
 function snapToGrid(value){

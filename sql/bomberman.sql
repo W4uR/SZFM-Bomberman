@@ -5,7 +5,7 @@ CREATE TABLE Player (
 );
 CREATE TABLE Resource (
   ResourceID VARCHAR(20) NOT NULL PRIMARY KEY,
-  immage longblob NOT NULL
+  Sprite longblob NOT NULL
 );
 CREATE TABLE Map (
   MapID INT AUTO_INCREMENT PRIMARY KEY,

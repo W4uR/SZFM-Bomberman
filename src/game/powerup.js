@@ -1,20 +1,25 @@
 class PowerUp{
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
+    constructor(i,j,width,duartion,collectedBy,isCollected){
         [this.x,this.y] = toPixelCoords(i,j);
         this.width = width;
         this.duartion = duartion;
         this.collectedBy = collectedBy;
         this.isCollected = isCollected;
-        this.spriteIndex = spriteIndex;
     }
 
     applyEffect(player){}
 
+    getSpriteKey(){
+        return "PU_"+this.constructor.name;
+    }
+
     show(){
-        if(sprites[this.spriteIndex] && !this.isCollected){
-            image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
+        if(sprites.has(this.getSpriteKey()) && !this.isCollected){
+            image(sprites.get(this.getSpriteKey()),this.x,this.y,this.width,this.width);
         }
     }
+    
+
 }
 
 class BiggerExplosion extends PowerUp {

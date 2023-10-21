@@ -1,12 +1,11 @@
 class Bomb{
-    constructor(owner,radius,damage,sprite,lifetime){
+    constructor(owner,radius,damage,lifetime){
         this.x = snapToGrid(owner.center().x);
         this.y = snapToGrid(owner.center().y);
         this.width = SCALE;
         this.owner = owner;
         this.radius = radius;
         this.damage = damage;
-        this.sprite = sprite;
         this.lifetime = lifetime;
     }
 
@@ -18,9 +17,13 @@ class Bomb{
         }
     }
 
+    getSpriteKey(){
+        return this.constructor.name.toUpperCase();
+    }
+
     show(){ 
-        if(sprites.size > 0){
-            image(sprites.get(this.sprite), this.x,this.y,this.width,this.width);
+        if(sprites.has(this.getSpriteKey())){
+            image(sprites.get(this.getSpriteKey()),this.x,this.y,this.width,this.width);
         }
     }
 
@@ -28,7 +31,6 @@ class Bomb{
     explode(){
         explosions.push(new Explosion(this.x,this.y,this.width,0.6,1,3));
         const [startCol,startRow] = toGridCoords(this.x,this.y);
-        print(this.radius);
         for (const [rowChange, colChange] of directions) {
         for (let step = 0; step <= this.radius; step++) {
             const newRow = startRow + rowChange*step;
@@ -54,19 +56,22 @@ class Bomb{
 }
 
 class Explosion{
-    constructor(x,y,width,lifetime,damage,spriteIndex){
+    constructor(x,y,width,lifetime,damage){
         this.x = x;
         this.y = y;
         this.width = width;
         this.damage = damage;
-        this.spriteIndex = spriteIndex;
         setTimeout(() => {
             explosions.shift();
           }, lifetime * 1000);
     }
-    show(){
-        if(sprites[this.spriteIndex]){
-            image(sprites[this.spriteIndex], this.x,this.y,this.width,this.width);
+    getSpriteKey(){
+        return this.constructor.name.toUpperCase();
+    }
+
+    show(){ 
+        if(sprites.has(this.getSpriteKey())){
+            image(sprites.get(this.getSpriteKey()),this.x,this.y,this.width,this.width);
         }
     }
 }
