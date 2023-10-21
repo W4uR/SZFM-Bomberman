@@ -1,44 +1,55 @@
 body{
-    background-image: url(background-pixelicious.png);
-    background-size: cover;
+    background: linear-gradient(yellow, #00a4ff);
+    background-attachment: fixed;
 }
 .gametitle{
     text-align: center;
     margin-top: 5rem;
     font-size: 3rem;
-    -webkit-text-stroke: 1px rgb(93, 25, 120);
-    color: rgb(144, 67, 158);
+    -webkit-text-stroke: 1px rgb(193, 125, 42);
+    color: rgb(178, 190, 21);
     text-shadow: 4px 4px 4px black;
     user-select: none;
+    font-family: "Pixel-Art Regular";   
 }
-.game{
-    text-align: center;
-    margin-top: 4rem;
-    font-size: 2rem;
-    border-radius: 1rem;
-    border: 1px rgb(203, 113, 188) solid;
-    width: 20rem;
-    margin-left: auto;
+.game,.scoreboard{
+    width: fit-content;
     margin-right: auto;
-    background-color: rgb(101, 52, 101);
-    transition: all 0.3s;
-    user-select: none;
+    margin-left: auto;
+    user-select: none;   
 }
 .scoreboard{
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 2rem;
+    margin-top: 0.2rem;
+}
+.scoreboardButton{
+    background: transparent;
+    width: 35rem;
+    height: 7rem;
+    cursor: pointer;
     border-radius: 1rem;
-    border: 1px rgb(203, 113, 188) solid;
-    width: 20rem;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(101, 52, 101); 
-    user-select: none;
+}
+.gameButton{
+    background: transparent;
+    width: 35rem;
+    height: 7rem;
+    cursor: pointer;
+    border-radius: 1rem;
 }
 .game:hover,.scoreboard:hover{
     position: relative;
     top: -4px;
     left: -4px;
-    text-shadow: 4px 4px 4px rgb(109, 30, 123);
+    text-shadow: 4px 4px 4px rgb(177, 204, 57);
+}
+button{
+    font-family: "Pixel-Art Regular";   
+    font-size: 4rem;                                  
+}
+
+img{
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
