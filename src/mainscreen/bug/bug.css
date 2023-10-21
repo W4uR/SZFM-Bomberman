@@ -1,0 +1,25 @@
+.actualTextArea{
+    resize: none;
+}
+.sendButton{
+    user-select: none;
+    height: 4rem;
+    width: 9rem;
+}
+.textAreaContainer{
+    text-align: center;
+}
+.sendReport{
+    display: flex;
+    justify-content: center;
+}
+.closeBugPage{
+    display: flex;
+    justify-content: right;
+    margin-right: 5rem;
+}
+.cancelButton{
+    user-select: none;
+    height: 2rem;
+    width: 4rem;
+}

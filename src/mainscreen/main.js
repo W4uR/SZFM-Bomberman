@@ -10,7 +10,7 @@ function redirectToScoreboard(){
 document.getElementById('goToScoreboard').addEventListener('click',redirectToScoreboard);
 
 function openBugReport(){
-    var url = "bug.html";
+    var url = "./bug/bug.html";
     var screenWidth = window.screen.width;
     var screenHeight = window.screen.height;
     var windowWidth = 800;
