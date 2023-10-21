@@ -151,8 +151,6 @@ class Player{
         if(this.sprite){
             if(this.invincible > 0){
                 tint(255,60,60);
-            }else{
-                noTint();
             }
             image(this.sprite,this.x,this.y,this.width,this.width);
         }
@@ -165,7 +163,8 @@ class Player{
             }else{
                 element.style.display = "none"
             }
-        }     
+        }   
+        noTint();  
     }
 
     center(){
