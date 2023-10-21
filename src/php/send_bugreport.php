@@ -20,7 +20,7 @@ $stmt->execute();
 $stmt->close();
 $db->close();
 
-// Redirect the user to a success page
-header('Location: success.html');
+$alert_message = 'Data sent to database successfully.';
+echo '<script>alert("' . $alert_message . '");</script>';
 
 ?>
