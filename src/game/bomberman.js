@@ -65,7 +65,14 @@ function draw() {
 
 function renderScene(){
     // Háttér renderelése
-    background(255);
+    if(sprites.has("BACKGROUND")){
+        let bg = sprites.get("BACKGROUND");
+        for (let x = 0; x < width; x += bg.width) {
+            for (let y = 0; y < height; y += bg.height) {
+              image(bg, x, y);
+            }
+        }
+    }
     
     //Bombák renderelése
     bombs.forEach(b => {

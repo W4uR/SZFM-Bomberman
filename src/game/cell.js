@@ -19,19 +19,10 @@ class Cell{
     }
 
     show(){
-        //TODO: Render sprites
-        switch (this.wall) {
-            case WallType.BARRIER:
-                fill(255,30,30);
-              break;
-            case WallType.WALL:
-                fill(120,70,30);
-              break;
-            case WallType.EMPTY:
-            default:  
-                noFill();
-          }
-        rect(this.x,this.y,this.width,this.width);
+        if(this.wall == WallType.EMPTY) return;
+        if(sprites.has("CELL_"+this.wall)){
+            image(sprites.get("CELL_"+this.wall),this.x,this.y,this.width,this.width)
+        }
     }
 }
 
