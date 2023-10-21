@@ -1,0 +1,31 @@
+body{
+    background-color: #252525;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#P1_container, #P2_container{
+    width: 10%;
+}
+
+.health{
+    width: 100%;
+    display: flex;
+}
+.hp{
+    background-color: red;
+    aspect-ratio: 1;
+    height: 1rem;
+    border: 1px solid #252525;
+}
+
+.powers{
+    display: flex;
+}
+.powers img{
+    aspect-ratio: 1;
+    width: 20%;
+}

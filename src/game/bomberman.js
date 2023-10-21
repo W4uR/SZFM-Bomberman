@@ -26,8 +26,8 @@ function preload(){
 
 function setup() {
     previousTime = millis();
+    createCanvas(600, 600, document.getElementById("canvas"));
     noStroke();
-    createCanvas(600, 600);
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
     grid = make2DArray(cols,rows);
@@ -39,12 +39,26 @@ function setup() {
 function draw() {
     //Játék logika
     calcDeltaTime();
+    //Update bombs
+    for (let index = bombs.length-1; index >= 0 ; index--) {
+        const element = bombs[index];
+        element.update();       
+    }
+    //Update explosions
+    for (let index = explosions.length-1; index >= 0 ; index--) {
+        const element = explosions[index];
+        element.update();       
+    }
+
     player1.update();
     player2.update();
-    bombs.forEach(b => { 
-        b.update();
-    });
-
+    
+    
+    // Gameover
+    if(player1.health <= 0 || player2.health <=0){
+        tint(120,70,70);
+        noLoop();
+    }
     //Megjelnés
     renderScene();
 }
@@ -76,6 +90,7 @@ function renderScene(){
     });
 }
 
+
 function calcDeltaTime(){
     let currentTime = millis();
     deltaTime = (currentTime - previousTime)/1000;
@@ -91,12 +106,14 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),"User_1");
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),"User_2");
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),"User_1",document.getElementById("P1_container"));
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),"User_2",document.getElementById("P2_container"));
 }
 
 function initializePowerUps(){
    powerUps.push(new OneMoreBomb(1,4,SCALE,0,null,false));
+   powerUps.push(new OneMoreBomb(3,4,SCALE,0,null,false));
+   powerUps.push(new Heal(5,4,SCALE,0,null,false));
 }
 
 function initializeMap(){

@@ -1,13 +1,18 @@
 class PowerUp{
-    constructor(i,j,width,duartion,collectedBy,isCollected){
+    constructor(i,j,width,duartion){
         [this.x,this.y] = toPixelCoords(i,j);
         this.width = width;
         this.duartion = duartion;
-        this.collectedBy = collectedBy;
-        this.isCollected = isCollected;
+        this.collectedBy = undefined;
+        this.isCollected = false;
     }
 
-    applyEffect(player){}
+    // Ezt akkor kell meghívni, ha szeretnénk, hogy a felvett erősítés megjelenjen a játékos statjainál (Pl.L Healnál talán elhagyható)
+    applyEffect(player){
+        let imgElement = document.createElement("img");
+        imgElement.src = sprites.get(this.getSpriteKey()).canvas.toDataURL();
+        player.powerUpsDisplay.appendChild(imgElement);
+    }
 
     getSpriteKey(){
         return "PU_"+this.constructor.name;
@@ -29,6 +34,8 @@ class BiggerExplosion extends PowerUp {
     applyEffect(player){
         player.bombTemlate.radius += 1;
         this.isCollected = true;
+        this.collectedBy = player;
+        super.applyEffect(player);
     }
 }
 
@@ -39,6 +46,8 @@ class OneMoreBomb extends PowerUp {
     applyEffect(player){
         player.maxBombs += 1;
         this.isCollected = true;
+        this.collectedBy = player;
+        super.applyEffect(player);
     }
 }
 
@@ -50,6 +59,8 @@ class Heal extends PowerUp {
         if(player.health < player.maxHealth){
             player.health += 1;
             this.isCollected = true;
+            this.collectedBy = player;
+            super.applyEffect(player);
         }
     }
 }
@@ -61,6 +72,8 @@ class SpeedBoost extends PowerUp {
     applyEffect(player){
         player.speed += 0.25;
         this.isCollected = true;
+        this.collectedBy = player;
+        super.applyEffect(player);
     }
 }
 
@@ -71,6 +84,8 @@ class Shield extends PowerUp {
     applyEffect(player){
         player.isShielded = true;
         this.isCollected = true;
+        this.collectedBy = player;
+        super.applyEffect(player);
     }
 }
 
@@ -81,6 +96,8 @@ class MoreDamage extends PowerUp {
     applyEffect(player){
         player.bombTemlate.damage += 1;
         this.isCollected = true;
+        this.collectedBy = player;
+        super.applyEffect(player);
     }
 }
 
