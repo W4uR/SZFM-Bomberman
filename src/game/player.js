@@ -101,10 +101,12 @@ class Player{
     }
 
     checkExplosion(){
-        if(this.isShielded == true || this.invincible > 0) return;
+        
         explosions.forEach(e => {
-            this.invincible = e.lifetime;
-            this.takeDamage(e.damage);
+            if(this.collidesWith(e) && this.isShielded == false && this.invincible <= 0){
+                this.invincible = e.lifetime;
+                this.takeDamage(e.damage);
+            }
         });
     }
 
