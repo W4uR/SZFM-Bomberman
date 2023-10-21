@@ -29,10 +29,10 @@ class Bomb{
 
 
     explode(){
-        explosions.push(new Explosion(this.x,this.y,this.width,0.6,1,3));
+        explosions.push(new Explosion(this.x,this.y,this.width,0.6,this.damage)) 
         const [startCol,startRow] = toGridCoords(this.x,this.y);
         for (const [rowChange, colChange] of directions) {
-        for (let step = 0; step <= this.radius; step++) {
+        for (let step = 1; step <= this.radius; step++) {
             const newRow = startRow + rowChange*step;
             const newCol = startCol + colChange*step;
     
@@ -42,7 +42,7 @@ class Bomb{
                 const [explosionX,explosionY] = toPixelCoords(newCol,newRow);
                 
                 //TODO: a 3-as elég varázslatos szám, jelenleg a 3-as a robbanás indexe a robbanásnak a sprites tömbben. Jobb lenne valami id alapján, vagy konkrétan a képet tárolni? :/
-                explosions.push(new Explosion(explosionX,explosionY,this.width,0.6,this.damage,3)) 
+                explosions.push(new Explosion(explosionX,explosionY,this.width,0.6,this.damage)) 
                 if(grid[newCol][newRow].isWall()){
                     grid[newCol][newRow].wall = WallType.EMPTY;
                 }
@@ -61,10 +61,15 @@ class Explosion{
         this.y = y;
         this.width = width;
         this.damage = damage;
-        setTimeout(() => {
-            explosions.shift();
-          }, lifetime * 1000);
+        this.lifetime = lifetime;
     }
+    update(){
+        this.lifetime-=deltaTime;
+        if(this.lifetime <= 0){
+          explosions.splice(explosions.indexOf(this),1);
+        }
+    }
+
     getSpriteKey(){
         return this.constructor.name.toUpperCase();
     }

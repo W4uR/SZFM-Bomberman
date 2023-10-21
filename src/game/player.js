@@ -1,5 +1,5 @@
 class Player{
-    constructor(i,j,width,maxHealth,speed,inputModule,playerName){
+    constructor(i,j,width,maxHealth,speed,inputModule,playerName,display){
         [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
@@ -8,14 +8,21 @@ class Player{
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);
 		this.maxBombs = 1;
-        this.bombTemplate = new Bomb(this,2,1,2);
+        this.bombTemplate = new Bomb(this,1,1,2);
         this.isShielded = false;
         this.playerName = playerName;
         this.sprite = undefined
+        this.healthDisplay = display.getElementsByClassName("health")[0]
+        this.powerUpsDisplay = display.getElementsByClassName("powers")[0];
+        this.invincible = 0;
         loadPlayerSprite(playerName).then((sprite)=>{this.sprite = sprite});
     }
 
     update(){
+        if(this.invincible > 0){
+            this.invincible -= deltaTime;
+        }
+        
         this.handleInput();
         this.move();
         this.checkExplosion();
@@ -94,7 +101,17 @@ class Player{
     }
 
     checkExplosion(){
-        //TODO
+        
+        explosions.forEach(e => {
+            if(this.collidesWith(e) && this.isShielded == false && this.invincible <= 0){
+                this.invincible = e.lifetime;
+                this.takeDamage(e.damage);
+            }
+        });
+    }
+
+    takeDamage(damage){
+        this.health -= damage;
     }
 
     checkPowerUp(){
@@ -129,9 +146,26 @@ class Player{
 
 
     show(){ 
+        // Játékos
+        // TODO: isShielded-nek megfelelő megjelenés
         if(this.sprite){
+            if(this.invincible > 0){
+                tint(255,60,60);
+            }else{
+                noTint();
+            }
             image(this.sprite,this.x,this.y,this.width,this.width);
         }
+
+        //Életerő
+        for (let index = 0; index < this.healthDisplay.children.length; index++) {
+            const element = this.healthDisplay.children[index];
+            if(index < this.health){
+                element.style.display = "block"
+            }else{
+                element.style.display = "none"
+            }
+        }     
     }
 
     center(){
