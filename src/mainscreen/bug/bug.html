@@ -2,12 +2,17 @@
 <html>
 <head>
   <title>Bug Report</title>
+  <link href="https://db.onlinewebfonts.com/c/5766327dd1b3e158a9e2942da70d2ebf?family=Pixel-Art+Regular" rel="stylesheet"> 
+  <link rel="stylesheet" type="text/css" href="bug.css">
+  <script src="bug.js"></script>
 </head>
 <body>
-  <h1>Bug Report</h1>
-  <form class="sendingForm" action="../../php/send_bugreport.php" method="post">
-    <textarea class="textArea" name="bug_description" rows="20" cols="105"></textarea>
-    <input type="submit" value="Submit">
+  <form class="textAreaContainer" action="../../php/send_bugreport.php" method="post" onsubmit="return validateForm()">
+    <textarea id="textArea" class="textArea" name="bug_description" rows="25" cols="105"></textarea>
+    <div class="buttonContainer">
+        <input class="sendButton" type="submit" id="submit_button" value="Kuldes">
+        <input class="closeButton" type="button" id="close_button" value="Megse" onclick="closeWindow()">
+    </div>
   </form>
 </body>
 </html>

@@ -1,25 +1,24 @@
-.textArea{
-    resize: none;
-}
-.sendButton{
-    user-select: none;
-    height: 4rem;
-    width: 9rem;
-}
 .textAreaContainer{
     text-align: center;
 }
-.sendReport{
-    display: flex;
-    justify-content: center;
+.buttonContainer{
+    text-align: right;
 }
-.closeBugPage{
-    display: flex;
-    justify-content: right;
+.buttonContainer .sendButton{
+    margin-right: 9rem;
+    height: 4rem;
+    width: 10rem;
+    margin-top: 1.3rem;
+}
+.buttonContainer .closeButton{
     margin-right: 5rem;
-}
-.cancelButton{
-    user-select: none;
     height: 2rem;
-    width: 4rem;
+    width: 5rem;
+}
+.textArea{
+    resize: none;
+}
+.sendButton, .closeButton{
+    font-family: "Pixel-Art Regular";   
+    user-select: none;
 }

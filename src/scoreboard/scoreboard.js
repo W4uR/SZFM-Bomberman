@@ -6,7 +6,7 @@ loadPlayerNames();
 
 function loadPlayerNames() {
     $.ajax({
-        url: '../php/fillScoreboard.php', // Replace with the actual URL of your PHP script
+        url: '../php/fillScoreboard.php', 
         method: 'GET',
         dataType: 'json',
         success: function(data) {
