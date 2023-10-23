@@ -21,13 +21,28 @@ let powerUps = [];
 let player1;
 let player2;
 
+let imagesLoaded = 0;
+let totalImages = -1;
+
 function preload(){
     loadSprites();
+}
+// Akkor indul a játék ha az összes sprite betöltött
+function imageLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+      loop();
+    }
 }
 
 function setup() {
     previousTime = millis();
     createCanvas(600, 600, document.getElementById("canvas"));
+    background(20)
+    textAlign(CENTER, TOP);
+    textSize(24);
+    fill(255);
+    text('Loading...', width / 2, height / 2);
     noStroke();
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
@@ -35,6 +50,7 @@ function setup() {
     initializePlayers();
     initializePowerUps();
     initializeMap();
+    noLoop();
 }
   
 function draw() {
@@ -114,7 +130,6 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    print(playerDatas);
     player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),playerDatas.player1_name,document.getElementById("P1_container"),playerDatas.player1_skindData);
     player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),playerDatas.player2_name,document.getElementById("P2_container"),playerDatas.player2_skindData);
 }
@@ -147,15 +162,15 @@ function loadSprites(){
         method: 'GET',
         dataType: 'json',
         success: function(response) {
+            totalImages = response.length;
             response.forEach(d => { 
-                sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite));
+                sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite,imageLoaded));
             });
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
         }
     })
-    
 }
 
 
