@@ -3,7 +3,7 @@
 require_once 'dbConfig.php';
 
 // Get ResourceID and image data from the database
-$result = $db->query("SELECT ResourceID, Sprite FROM Resource");
+$result = $db->query("SELECT ResourceID, Sprite FROM Resource WHERE ResourceID NOT LIKE 'SKIN_%'");
 
 if (!$result) {
     die("Query failed: " . $conn->error);
