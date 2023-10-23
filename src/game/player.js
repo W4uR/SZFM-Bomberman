@@ -1,5 +1,5 @@
 class Player{
-    constructor(i,j,width,maxHealth,speed,inputModule,playerName,display){
+    constructor(i,j,width,maxHealth,speed,inputModule,playerName,display,spriteData){
         [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
@@ -11,11 +11,10 @@ class Player{
         this.bombTemplate = new Bomb(this,1,1,2);
         this.isShielded = false;
         this.playerName = playerName;
-        this.sprite = undefined
+        this.sprite = loadImage(spriteData);
         this.healthDisplay = display.getElementsByClassName("health")[0]
         this.powerUpsDisplay = display.getElementsByClassName("powers")[0];
         this.invincible = 0;
-        loadPlayerSprite(playerName).then((sprite)=>{this.sprite = sprite});
     }
 
     update(){

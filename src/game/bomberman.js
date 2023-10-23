@@ -5,6 +5,7 @@ const directions = [
     [0, -1], // Balra
     [0, 1]   // Jobbra
   ];
+const playerDatas = JSON.parse(sessionStorage.getItem("playerDatas"));
 let previousTime;
 
 let deltaTime;
@@ -113,8 +114,9 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),"User_1",document.getElementById("P1_container"));
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),"User_2",document.getElementById("P2_container"));
+    print(playerDatas);
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),playerDatas.player1_name,document.getElementById("P1_container"),playerDatas.player1_skindData);
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),playerDatas.player2_name,document.getElementById("P2_container"),playerDatas.player2_skindData);
 }
 
 function initializePowerUps(){
@@ -154,26 +156,6 @@ function loadSprites(){
         }
     })
     
-}
-
-
-function loadPlayerSprite(playerName){
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url: '../php/spriteByPlayerName.php',
-            method: 'GET',
-            dataType: 'text',
-            data: {
-                PlayerName: playerName
-            },
-            success: function(response) {
-                resolve(loadImage("data:image/png;base64," + response));
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error('Error:', errorThrown);
-            }
-        })
-    });
 }
 
 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Előkészületek</title>
+</head>
+<body>
+    <input type="text" class="player1" onchange="onNameChanged(this)">
+    <input type="text" class="player2" onchange="onNameChanged(this)">
+    <br>
+    <button class="player1 left skin">-</button>
+    <img class="player1 skin" alt="Az egyes játékos kinézete.">
+    <button class="player1 right skin">+</button>
+    <button class="player2 left skin">-</button>
+    <img class="player2 skin" alt="Az kettes játékos kinézete.">
+    <button class="player2 right skin">+</button>
+    <br>
+    <button id="go">Rajta!</button>
+    <script src="character_selection.js"></script>
+</body>
+</html>
