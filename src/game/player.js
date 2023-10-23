@@ -15,6 +15,8 @@ class Player{
         this.healthDisplay = display.getElementsByClassName("health")[0]
         this.powerUpsDisplay = display.getElementsByClassName("powers")[0];
         this.invincible = 0;
+
+        display.getElementsByClassName("name")[0].innerText = playerName;
     }
 
     update(){
