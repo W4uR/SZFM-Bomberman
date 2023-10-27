@@ -8,20 +8,31 @@
     <title>Előkészületek</title>
 </head>
 <body>
-    <input type="text" class="player1" onchange="onNameChanged(this)">
-    <input type="text" class="player2" onchange="onNameChanged(this)">
-    <br>
-    <button class="player1 left skin">-</button>
-    <img class="player1 skin" alt="Az egyes játékos kinézete.">
-    <button class="player1 right skin">+</button>
-    <button class="player2 left skin">-</button>
-    <img class="player2 skin" alt="Az kettes játékos kinézete.">
-    <button class="player2 right skin">+</button>
-    <br>    
-    <img class="map" alt="A map kinézete.">
-    <button class="map right">+</button>
-    <button class="map left">-</button>
-    <br>
+    <div>
+        <input type="text" class="player1" onchange="onNameChanged(this)">
+        <div>
+            <button class="player1 left skin">-</button>
+            <img class="player1 skin" alt="Az egyes játékos kinézete.">
+            <button class="player1 right skin">+</button>
+        </div>
+
+    </div>
+    <div>
+        <div>
+            <button class="map left">-</button>
+            <img class="map" alt="A map kinézete.">
+            <button class="map right">+</button>
+        </div>
+    </div>
+    <div>
+        <input type="text" class="player2" onchange="onNameChanged(this)">
+        <div>
+            <button class="player2 left skin">-</button>
+            <img class="player2 skin" alt="Az kettes játékos kinézete.">
+            <button class="player2 right skin">+</button>
+        </div>
+    </div>
+    
     <button id="go">Rajta!</button>
     <script src="character_selection.js"></script>
 </body>
