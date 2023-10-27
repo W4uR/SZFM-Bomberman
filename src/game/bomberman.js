@@ -28,7 +28,9 @@ let totalImages = -1;
 
 function preload(){
     loadSprites();
+    mapImage = loadImage(gameDatas.mapData);
 }
+
 // Akkor indul a játék ha az összes sprite betöltött
 function imageLoaded() {
     imagesLoaded++;
@@ -49,11 +51,8 @@ function setup() {
     cols = floor(width/SCALE);
     rows = floor(height/SCALE);
     grid = make2DArray(cols,rows);
-    initializePlayers();
     initializeMap();
     initializePowerUps();
-    mapImage = loadImage("data:image/png;base64," + gameDatas.mapData,imageLoaded);
-    initializeMap();
     noLoop();
 }
   
@@ -133,11 +132,6 @@ function make2DArray(cols,rows){
     return arr;
 }
 
-function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),gameDatas.player2_name,document.getElementById("P2_container"),gameDatas.player2_skindData);
-}
-
 function initializePowerUps(){
     // Spawnolható erősítések súlyozott valószínűséggel
     const options = [
@@ -193,20 +187,26 @@ function initializePowerUps(){
 }
 
 function initializeMap(){
-    //TODO: Betöltés adatbázisból
     for (let i = 0; i < mapImage.width; i++) {
         for (let j = 0; j < mapImage.height; j++) {
-            loadPixels();
-            let color = mapImage.get(i,j);
+            let color = mapImage.get(i,j).toString();
             let wall;
             switch(color){
-                case "rgb(0, 0, 0)":
-                    wall = WallType.WALL;
-                    break;
-                case "rgb(255, 0, 0)":
+                case "0,0,0,255":
                     wall = WallType.BARRIER;
+                break;
+                case "255,0,0,255":
+                        wall = WallType.WALL;
                     break;
-                case "rgb(255, 255, 255)": 
+                case "0,255,0,255":
+                    wall = WallType.EMPTY;
+                    player1 = new Player(i,j,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
+                    break;
+                case "0,0,255,255":
+                    wall = WallType.EMPTY;
+                    player2 = new Player(i,j,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),gameDatas.player2_name,document.getElementById("P2_container"),gameDatas.player2_skindData);
+                    break;
+                case "255,255,255,255": 
                     wall = WallType.EMPTY;
                     break;
             }
@@ -221,7 +221,7 @@ function loadSprites(){
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-            totalImages = response.length+1;
+            totalImages = response.length;
             response.forEach(d => { 
                 sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite,imageLoaded));
             });
