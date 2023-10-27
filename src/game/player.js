@@ -3,7 +3,7 @@ class Player{
         [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
-        this.health = maxHealth;
+        this.health = 1;//need back to maxHealth
 		this.speed = speed;
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);

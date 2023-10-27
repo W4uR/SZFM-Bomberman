@@ -32,3 +32,18 @@ body{
 .name{
     color: aliceblue;
 }
+
+.newGame, .mainMenu {
+    font-family: "Pixel-Art Regular";   
+    width: 9rem;
+    height: 4rem;
+}
+.mainMenu{
+    margin-top: 1rem;
+}
+.endGame{
+    background-color: rgba(218, 93, 232, 0.7);
+    height: 400px;
+    width: 400px;
+    position: absolute;
+}

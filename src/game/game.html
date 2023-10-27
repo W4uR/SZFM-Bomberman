@@ -11,7 +11,9 @@
     <script src="cell.js"></script>
     <script src="bomberman.js"></script>
     <script src="powerup.js"></script>
+    <script src="endgame.js"></script>
     <link rel="stylesheet" href="game.css">
+    <link href="https://db.onlinewebfonts.com/c/5766327dd1b3e158a9e2942da70d2ebf?family=Pixel-Art+Regular" rel="stylesheet"> 
 </head>
 <body>
     <div id="P1_container">
@@ -36,6 +38,10 @@
         <div class="powers">
             
         </div>
+    </div>
+    <div id="endGameContainer" class="endGame" hidden>
+        <button class="newGame" onclick="redirectToCharacterSelector(this)">UJ JATEK</button>
+        <button class="mainMenu" onclick="redirectToMainScreen(this)">FO MENU</button>
     </div>
 </body>
 </html>

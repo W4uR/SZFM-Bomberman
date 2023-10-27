@@ -1,6 +1,6 @@
 function redirectToGame(){ 
     //TODO: needs to bring the person the character picker screen
-    window.location.href = "../charater_selection/character_selection.html";
+    window.location.href = "../character_selection/character_selection.html";
 }
 document.getElementById('goToGame').addEventListener('click',redirectToGame);
 

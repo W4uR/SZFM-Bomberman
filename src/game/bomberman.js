@@ -78,6 +78,7 @@ function draw() {
     // Gameover
     if(player1.health <= 0 || player2.health <=0){
         tint(120,70,70);
+        document.getElementById("endGameContainer").removeAttribute("hidden");
         noLoop();
     }
     //Megjelnés
@@ -175,8 +176,10 @@ function initializePowerUps(){
 }
 
 function initializeMap(){
+    let counter = 0;
     for (let i = 0; i < mapImage.width; i++) {
         for (let j = 0; j < mapImage.height; j++) {
+            counter += 1;
             let color = mapImage.get(i,j).toString();
             let wall;
             switch(color){
@@ -184,7 +187,7 @@ function initializeMap(){
                     wall = WallType.BARRIER;
                 break;
                 case "255,0,0,255":
-                        wall = WallType.WALL;
+                    wall = WallType.WALL;
                     break;
                 case "0,255,0,255":
                     wall = WallType.EMPTY;
