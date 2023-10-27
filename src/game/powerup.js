@@ -1,8 +1,7 @@
 class PowerUp{
-    constructor(i,j,width,duartion){
+    constructor(i,j,width){
         [this.x,this.y] = toPixelCoords(i,j);
         this.width = width;
-        this.duartion = duartion;
         this.collectedBy = undefined;
         this.isCollected = false;
     }
@@ -28,8 +27,8 @@ class PowerUp{
 }
 
 class BiggerExplosion extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         player.bombTemlate.radius += 1;
@@ -40,8 +39,8 @@ class BiggerExplosion extends PowerUp {
 }
 
 class OneMoreBomb extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         player.maxBombs += 1;
@@ -52,8 +51,8 @@ class OneMoreBomb extends PowerUp {
 }
 
 class Heal extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         if(player.health < player.maxHealth){
@@ -66,8 +65,8 @@ class Heal extends PowerUp {
 }
 
 class SpeedBoost extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         player.speed += 0.25;
@@ -78,8 +77,8 @@ class SpeedBoost extends PowerUp {
 }
 
 class Shield extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         player.isShielded = true;
@@ -90,14 +89,23 @@ class Shield extends PowerUp {
 }
 
 class MoreDamage extends PowerUp {
-    constructor(i,j,width,duartion,collectedBy,isCollected,spriteIndex){
-        super(i,j,width,duartion,collectedBy,isCollected,spriteIndex);
+    constructor(i,j,width){
+        super(i,j,width);
     }
     applyEffect(player){
         player.bombTemlate.damage += 1;
         this.isCollected = true;
         this.collectedBy = player;
         super.applyEffect(player);
+    }
+}
+
+class InverseMovement extends PowerUp{
+    constructor(i,j,width){
+        super(i,j,width);
+    }
+    applyEffect(player){
+        // TODO:
     }
 }
 
