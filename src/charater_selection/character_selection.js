@@ -13,7 +13,8 @@ let map_index = 0;
 function onNameChanged(caller){
     getSpriteByName(caller.value).then((skinData)=>{
         if(skinData != undefined)
-        document.querySelector("img."+caller.classList[0]).src = skinData;
+        document.querySelector("img."+caller.classList[0]).src = skinData; 
+        //TODO: change player index to reflect the selected skin
     });
 } 
 
