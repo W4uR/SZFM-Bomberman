@@ -163,9 +163,12 @@
         EXPLOSION
 
 - **Map készítés tudnivalók:**
-    - rgb(0,0,0)-val jelölje a WallType.WALL elemeket.
-    - rgb(255, 255, 255)-val jelölje azokat a mezőket ahol WallType.EMPTY.
+    - rgb(255,255,255)-val jelölje a WallType.WALL elemeket.
+    - rgb(0, 0, 0)-val jelölje azokat a mezőket ahol WallType.EMPTY.
     - rgb(255, 0, 0)-val jelölje azon elemeket ahol WallType.BARRIER helyezkedik el
+    - rgb(0,255,0)-val az 1-es Játékos helyét jelöli a map-en.
+    - rgb(0,0,255)-vel a 2-es Játékos helyét jelöli a map-en.
+    - A map készítésehez egy annyi pixel szélességű és magasságű kép kell mely osztja a 600-at. 
 ### **3. Teszttervek:**
 #### 3.1 Funkcionális tesztek:
 - Játékkezdeti teszt: Ellenőrizzük, hogy a játék elindul-e          megfelelően, és a főmenüből elérhetők-e a különböző játékmenük.
