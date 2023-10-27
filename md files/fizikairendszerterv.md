@@ -162,6 +162,10 @@
     - Robbanás:
         EXPLOSION
 
+- **Map készítés tudnivalók:**
+    - rgb(0,0,0)-val jelölje a WallType.WALL elemeket.
+    - rgb(255, 255, 255)-val jelölje azokat a mezőket ahol WallType.EMPTY.
+    - rgb(255, 0, 0)-val jelölje azon elemeket ahol WallType.BARRIER helyezkedik el
 ### **3. Teszttervek:**
 #### 3.1 Funkcionális tesztek:
 - Játékkezdeti teszt: Ellenőrizzük, hogy a játék elindul-e          megfelelően, és a főmenüből elérhetők-e a különböző játékmenük.
