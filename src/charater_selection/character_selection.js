@@ -121,7 +121,7 @@ function start(){
         return;
     }
 
-    sessionStorage.setItem("playerDatas", JSON.stringify(toGame));
+    sessionStorage.setItem("gameDatas", JSON.stringify(toGame));
     sendPlayerDataToDatabase();
     
 }
