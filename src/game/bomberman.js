@@ -1,4 +1,4 @@
-const SCALE = 40;
+let SCALE;
 const directions = [
     [-1, 0], // Fel
     [1, 0],  // Le
@@ -48,8 +48,9 @@ function setup() {
     fill(255);
     text('Loading...', width / 2, height / 2);
     noStroke();
-    cols = floor(width/SCALE);
-    rows = floor(height/SCALE);
+    cols = mapImage.width;
+    rows = mapImage.height;
+    SCALE = width/cols;
     grid = make2DArray(cols,rows);
     initializeMap();
     initializePowerUps();
@@ -134,56 +135,43 @@ function make2DArray(cols,rows){
 
 function initializePowerUps(){
     // Spawnolható erősítések súlyozott valószínűséggel
-    const options = [
-        { option: undefined, weight: 0.3 },  // 20% probability
-        { option: BiggerExplosion, weight: 0.1 },  // 50% probability
-        { option: OneMoreBomb, weight: 0.1 },  // 30% probability
-        { option: Heal, weight: 0.1 },  // 30% probability
-        { option: SpeedBoost, weight: 0.1 },  // 30% probability
-        { option: Shield, weight: 0.1 },  // 30% probability
-        { option: MoreDamage, weight: 0.1 },  // 30% probability
-        { option: InverseMovement, weight: 0.1 },  // 30% probability
+    const powerUpOptions = [
+        { option: undefined, weight: 0.3 },  
+        { option: BiggerExplosion, weight: 0.1 }, 
+        { option: OneMoreBomb, weight: 0.1 },  
+        { option: Heal, weight: 0.1 },  
+        { option: SpeedBoost, weight: 0.1 },  
+        { option: Shield, weight: 0.1 },  
+        { option: MoreDamage, weight: 0.1 },  
+        { option: InverseMovement, weight: 0.1 }
     ];
-    let i = 3
-    options.forEach(o =>{
-        if(o.option){
-            powerUps.push(new o.option(i++,1,SCALE));
-        }
-    })
-
-    /*
-    // Calculate the total weight
-    const totalWeight = options.reduce((sum, option) => sum + option.weight, 0);
     
-    let wallCount = 0;
+    // Calculate the total weight
+    const totalWeight = powerUpOptions.reduce((sum, option) => sum + option.weight, 0);
     for(var i = 0; i<cols; i++){
         for(var j = 0; j<rows;j++){
             if(grid[i][j].wall == WallType.WALL){
-                wallCount++;
                 // Generate a random number between 0 and the total weight
                 const randomValue = Math.random() * totalWeight;
                     
                 // Choose the option based on the random value and weights
-                let selectedOption;
+                let selectedPowerUp;
                 let currentWeight = 0;
 
-                for (const option of options) {
+                for (const option of powerUpOptions) {
                     currentWeight += option.weight;
                     if (randomValue <= currentWeight) {
-                    selectedOption = option.option;
+                    selectedPowerUp = option.option;
                     break;
                     }
                 }
-                if(selectedOption === undefined){
-                console.log("No power up.")
-                }else{
-                    powerUps.push( new selectedOption(i,j,SCALE))
+                if(selectedPowerUp != undefined){
+                    powerUps.push( new selectedPowerUp(i,j,SCALE))
                 }
             }
         }
     }
-    console.log(wallCount);
-    */
+    
 }
 
 function initializeMap(){

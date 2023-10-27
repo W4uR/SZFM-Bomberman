@@ -31,7 +31,7 @@ class BiggerExplosion extends PowerUp {
         super(i,j,width);
     }
     applyEffect(player){
-        player.bombTemlate.radius += 1;
+        player.bombTemplate.radius += 1;
         this.isCollected = true;
         this.collectedBy = player;
         super.applyEffect(player);
@@ -93,7 +93,7 @@ class MoreDamage extends PowerUp {
         super(i,j,width);
     }
     applyEffect(player){
-        player.bombTemlate.damage += 1;
+        player.bombTemplate.damage += 1;
         this.isCollected = true;
         this.collectedBy = player;
         super.applyEffect(player);
