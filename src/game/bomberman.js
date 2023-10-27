@@ -144,14 +144,7 @@ function initializePowerUps(){
         { option: MoreDamage, weight: 0.1 },  // 30% probability
         { option: InverseMovement, weight: 0.1 },  // 30% probability
     ];
-    let i = 3
-    options.forEach(o =>{
-        if(o.option){
-            powerUps.push(new o.option(i++,1,SCALE));
-        }
-    })
-
-    /*
+ 
     // Calculate the total weight
     const totalWeight = options.reduce((sum, option) => sum + option.weight, 0);
     
@@ -182,8 +175,6 @@ function initializePowerUps(){
             }
         }
     }
-    console.log(wallCount);
-    */
 }
 
 function initializeMap(){
