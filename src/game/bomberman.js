@@ -5,14 +5,16 @@ const directions = [
     [0, -1], // Balra
     [0, 1]   // Jobbra
   ];
-const playerDatas = JSON.parse(sessionStorage.getItem("playerDatas"));
+const gameDatas = JSON.parse(sessionStorage.getItem("gameDatas"));
 let previousTime;
 
 let deltaTime;
 let grid;
 let cols;
 let rows;
+let mapImage;
 const sprites = new Map();
+const maps = new Map();
 
 let bombs = [];
 let explosions = [];
@@ -50,6 +52,8 @@ function setup() {
     initializePlayers();
     initializeMap();
     initializePowerUps();
+    mapImage = loadImage("data:image/png;base64," + gameDatas.mapData,imageLoaded);
+    initializeMap();
     noLoop();
 }
   
@@ -130,8 +134,8 @@ function make2DArray(cols,rows){
 }
 
 function initializePlayers(){
-    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),playerDatas.player1_name,document.getElementById("P1_container"),playerDatas.player1_skindData);
-    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),playerDatas.player2_name,document.getElementById("P2_container"),playerDatas.player2_skindData);
+    player1 = new Player(1,1,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
+    player2 = new Player(9,9,0.75*SCALE,3,2.8*SCALE,new InputModule(UP_ARROW,LEFT_ARROW,DOWN_ARROW,RIGHT_ARROW,13),gameDatas.player2_name,document.getElementById("P2_container"),gameDatas.player2_skindData);
 }
 
 function initializePowerUps(){
@@ -190,14 +194,21 @@ function initializePowerUps(){
 
 function initializeMap(){
     //TODO: Betöltés adatbázisból
-    for(var i = 0; i<cols; i++){
-        for(var j = 0; j<rows;j++){
-            let wall = WallType.EMPTY;
-            if(i==0|| i==cols-1){
-                wall = WallType.BARRIER;
-            }
-            if(j==0 || j==rows-1 || i%2 == 0 && j%2==0){
-                wall = WallType.WALL;
+    for (let i = 0; i < mapImage.width; i++) {
+        for (let j = 0; j < mapImage.height; j++) {
+            loadPixels();
+            let color = mapImage.get(i,j);
+            let wall;
+            switch(color){
+                case "rgb(0, 0, 0)":
+                    wall = WallType.WALL;
+                    break;
+                case "rgb(255, 0, 0)":
+                    wall = WallType.BARRIER;
+                    break;
+                case "rgb(255, 255, 255)": 
+                    wall = WallType.EMPTY;
+                    break;
             }
             grid[i][j] = new Cell(i,j,wall);
         }
@@ -210,7 +221,7 @@ function loadSprites(){
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-            totalImages = response.length;
+            totalImages = response.length+1;
             response.forEach(d => { 
                 sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite,imageLoaded));
             });
@@ -220,7 +231,6 @@ function loadSprites(){
         }
     })
 }
-
 
 function snapToGrid(value){
     return floor(value/SCALE)*SCALE;

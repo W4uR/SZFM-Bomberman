@@ -1,10 +1,13 @@
 let skins = new Map();
 let numbericSkins = [];
+let maps = new Map();
+let numbericMaps = [];
 loadAllSkins()
+loadAllMaps()
 
 let player1_index = 0;
 let player2_index = 0;
-
+let map_index = 0;
 
 
 function onNameChanged(caller){
@@ -35,6 +38,18 @@ function changeSkin(event){
 
 }
 
+// Mapválasztó gombok megnyomásakor aktiválódik
+document.querySelectorAll("button.map").forEach((b)=>b.addEventListener("click",changeMap));
+function changeMap(event){
+    if(event.target.classList.contains("left")){
+        map_index = (--map_index+numbericMaps.length)%numbericMaps.length
+    }else{
+        map_index = (++map_index+numbericMaps.length)%numbericMaps.length
+    }
+    document.querySelector("img.map").src = maps.get(numbericMaps[map_index]);
+}
+
+
 function loadAllSkins(){
     $.ajax({
         url: '../php/loadAllSkins.php',
@@ -46,6 +61,24 @@ function loadAllSkins(){
                 numbericSkins.push(d.ResourceID);
             });
             document.querySelectorAll("img.skin").forEach(e =>{e.src = skins.get(numbericSkins[0])});
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error:', errorThrown);
+        }
+    })
+}
+
+function loadAllMaps(){
+    $.ajax({
+        url: '../php/loadAllMaps.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            response.forEach(d => { 
+                maps.set(d.MapID,"data:image/png;base64," + d.Sprite);
+                numbericMaps.push(d.MapID);
+            });
+            document.querySelectorAll("img.map").forEach(e =>{e.src = maps.get(numbericMaps[0])});
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
@@ -77,7 +110,8 @@ function start(){
         player1_name: document.querySelector("input.player1").value,
         player1_skindData: skins.get(numbericSkins[player1_index]),
         player2_name: document.querySelector("input.player2").value,
-        player2_skindData:  skins.get(numbericSkins[player2_index])
+        player2_skindData:  skins.get(numbericSkins[player2_index]),
+        mapData: maps.get(numbericMaps[map_index])
     }
     if(/^\s*$/.test(toGame.player1_name) || /^\s*$/.test(toGame.player2_name)){
         alert("A név megadása kötelező!");
