@@ -13,6 +13,7 @@ let grid;
 let cols;
 let rows;
 let mapImage;
+let winner;
 const sprites = new Map();
 const maps = new Map();
 
@@ -76,13 +77,42 @@ function draw() {
     
     
     // Gameover
+    checkGameOver();
+
+    //Megjelnés
+    renderScene();
+}
+
+
+function checkGameOver(){
     if(player1.health <= 0 || player2.health <=0){
         tint(120,70,70);
+        determineWinner();
         document.getElementById("endGameContainer").removeAttribute("hidden");
         noLoop();
     }
-    //Megjelnés
-    renderScene();
+}
+
+function determineWinner(){
+    if(player1.health === 0){
+        winner = player2;
+    }else{
+        winner = player1;
+    }
+}
+
+function getWinner(){
+    fetch("../php/updatePoints.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+        },
+        body: "username=" + encodeURIComponent(winner.playerName) // Encode the string value
+    }).then(function(response) {
+        return response.text();
+    }).then(function(data) {
+        console.log(data);
+    });
 }
 
 function renderScene(){
