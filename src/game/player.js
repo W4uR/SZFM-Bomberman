@@ -111,6 +111,7 @@ class Player{
         });
     }
 
+    //BUG: If a player has at least 1 shield picked up the player is invincible for every incoming attack
     takeDamage(damage){
         this.health -= damage;
     }

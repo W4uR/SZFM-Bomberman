@@ -62,15 +62,9 @@ function draw() {
     //Játék logika
     calcDeltaTime();
     //Update bombs
-    for (let index = bombs.length-1; index >= 0 ; index--) {
-        const element = bombs[index];
-        element.update();       
-    }
+    updateBombs();
     //Update explosions
-    for (let index = explosions.length-1; index >= 0 ; index--) {
-        const element = explosions[index];
-        element.update();       
-    }
+    updateExplosions();
 
     player1.update();
     player2.update();
@@ -83,6 +77,19 @@ function draw() {
     renderScene();
 }
 
+function updateBombs(){
+    for (let index = bombs.length-1; index >= 0 ; index--) {
+        const element = bombs[index];
+        element.update();       
+    }
+}
+
+function updateExplosions(){
+    for (let index = explosions.length-1; index >= 0 ; index--) {
+        const element = explosions[index];
+        element.update();       
+    }
+}
 
 function checkGameOver(){
     if(player1.health <= 0 || player2.health <=0){

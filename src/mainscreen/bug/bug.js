@@ -19,3 +19,4 @@ function validateForm() {
 function closeWindow(){
     window.close();
 }
+

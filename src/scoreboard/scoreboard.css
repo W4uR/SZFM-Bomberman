@@ -1,0 +1,14 @@
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+    pointer-events: none;
+  }
+span {
+    pointer-events: none;
+}
+input {
+    width: 10rem;
+}
