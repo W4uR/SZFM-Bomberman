@@ -111,8 +111,8 @@ function sendWinnerToPHP(){
         body: "username=" + encodeURIComponent(winner.playerName) // Encode the string value
     }).then(function(response) {
         return response.text();
-    }).then(function(data) {
-        console.log(data);
+    }).then(function(response) {
+        console.log("Points UPDATED successfully.");
     });
 }
 
