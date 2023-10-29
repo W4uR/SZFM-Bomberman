@@ -1,3 +1,5 @@
+const maxDisplay = 10;
+
 function myFunction() {
     // Declare variables
     var input, filter, ul, li, a, span, i, txtValue;
@@ -5,9 +7,10 @@ function myFunction() {
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName('li');
+    let currentlyDisplayed = 0;
 
     // Loop through all list items
-    for (i = 0; i < li.length; i++) {
+    for (i = 0; i < li.length && currentlyDisplayed < maxDisplay; i++) {
         a = li[i].getElementsByTagName("a")[0];
         span = li[i].getElementsByTagName("span")[0];
 
@@ -17,6 +20,7 @@ function myFunction() {
         // Check if the search query matches the text value
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
+            currentlyDisplayed++;
         } else {
             li[i].style.display = "none";
         }
