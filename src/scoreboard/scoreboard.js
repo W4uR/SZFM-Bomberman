@@ -1,4 +1,4 @@
-function myFunction() {
+function filterUsersOrPoints() {
     // Declare variables
     var input, filter, ul, li, a, span, i, txtValue;
     input = document.getElementById('myInput');
