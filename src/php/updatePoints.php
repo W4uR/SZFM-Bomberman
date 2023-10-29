@@ -1,9 +1,16 @@
 <?php
 require_once 'dbConfig.php';
 
-// Get the player name from the POST data
-if (isset($_POST['username'])) {
-  $user = $_POST['username'];
-  echo $user;
+$user = $_POST['username'];
+
+$sql = "UPDATE player SET Points = Points + 1 WHERE PlayerName = '$user'";
+$stmt = $db->prepare($sql);
+
+if ($stmt->execute()) {
+    $stmt->close();
+    $db->close();
+    exit();
+} else {
+    echo "Error updating points: " . $stmt->error;
 }
 ?>

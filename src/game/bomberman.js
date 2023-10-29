@@ -88,6 +88,7 @@ function checkGameOver(){
     if(player1.health <= 0 || player2.health <=0){
         tint(120,70,70);
         determineWinner();
+        sendWinnerToPHP();
         document.getElementById("endGameContainer").removeAttribute("hidden");
         noLoop();
     }
@@ -101,7 +102,7 @@ function determineWinner(){
     }
 }
 
-function getWinner(){
+function sendWinnerToPHP(){
     fetch("../php/updatePoints.php", {
         method: "POST",
         headers: {
@@ -252,6 +253,7 @@ function loadSprites(){
         }
     })
 }
+
 
 function snapToGrid(value){
     return floor(value/SCALE)*SCALE;
