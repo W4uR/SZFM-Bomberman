@@ -9,20 +9,16 @@ function filterUsersOrPoints() {
     li = ul.getElementsByTagName('li');
     let currentlyDisplayed = 0;
 
+    for (i = 0; i < li.length; i++) {
+        li[i].style.display = "none";
+    }
+
     // Loop through all list items
     for (i = 0; i < li.length && currentlyDisplayed < maxDisplay; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        span = li[i].getElementsByTagName("span")[0];
-
-        // Get the text value of both the `a` and `span` tags
-        txtValue = a.textContent + " - " + span.textContent;
-
         // Check if the search query matches the text value
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        if (li[i].textContent.toUpperCase().inexOf(filter) > -1) {
             li[i].style.display = "";
             currentlyDisplayed++;
-        } else {
-            li[i].style.display = "none";
         }
     }
 }
@@ -34,7 +30,7 @@ function showTopPlayers() {
     var li = ul.getElementsByTagName('li');
 
     for (var i = 0; i < li.length; i++) {
-        if (i < 10) {
+        if (i < maxDisplay) {
             li[i].style.display = "";
         } else {
             li[i].style.display = "none";
