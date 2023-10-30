@@ -16,7 +16,7 @@ function filterUsersOrPoints() {
     // Loop through all list items
     for (i = 0; i < li.length && currentlyDisplayed < maxDisplay; i++) {
         // Check if the search query matches the text value
-        if (li[i].textContent.toUpperCase().inexOf(filter) > -1) {
+        if (li[i].textContent.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
             currentlyDisplayed++;
         }
