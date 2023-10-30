@@ -23,7 +23,7 @@ $html .= '<ul id="myUL">';
 // Iterate over the dataArray and add each row to the list
 foreach ($dataArray as $row) {
     $html .= '<li>';
-    $html .= '<a href="#">' . $row['nameID'] . '</a>' . ' - ' .  '<span href="#">' . $row['point'] . '</span>';
+    $html .= '<span class="playerName">' . $row['nameID'] . '</span>' . ' - ' .  '<span class="playerPoint">' . $row['point'] . '</span>';
     $html .= '</li>';
 }
 
