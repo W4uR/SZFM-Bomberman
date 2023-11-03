@@ -104,9 +104,14 @@ class Player{
     checkExplosion(){
         
         explosions.forEach(e => {
-            if(this.collidesWith(e) && this.isShielded == false && this.invincible <= 0){
+            if(this.collidesWith(e) && this.invincible <= 0){
+                if(this.isShielded){
+                    // Pajzs "eltörése"
+                    this.isShielded = false
+                }else{
+                    this.takeDamage(e.damage);
+                }
                 this.invincible = e.lifetime;
-                this.takeDamage(e.damage);
             }
         });
     }
@@ -149,12 +154,15 @@ class Player{
 
     show(){ 
         // Játékos
-        // TODO: isShielded-nek megfelelő megjelenés
         if(this.sprite){
             if(this.invincible > 0){
                 tint(255,60,60);
             }
             image(this.sprite,this.x,this.y,this.width,this.width);
+            if(this.isShielded){
+                let size = this.width/2;
+                image(sprites.get("PU_Shield"),this.x+size,this.y+size,size*1.2,size*1.2);
+            }
         }
 
         //Életerő
