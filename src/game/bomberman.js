@@ -209,8 +209,7 @@ function initializePowerUps(){
                 }
             }
         }
-    }
-    
+    }    
 }
 
 function initializeMap(){

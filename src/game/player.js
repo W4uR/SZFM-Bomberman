@@ -185,10 +185,12 @@ class InputModule{
     }
 
     invert(){
-        this.upKey = downKey;
-        this.leftKey = rightKey;
-        this.downKey = upKey;
-        this.rightKey = leftKey;
+        let temp = this.upKey;
+        this.upKey = this.downKey;
+        this.downKey = temp;
+        temp = this.leftKey;
+        this.leftKey = this.rightKey;
+        this.rightKey = temp;
         this.inverted = !this.inverted;
     }
 }

@@ -105,7 +105,15 @@ class InverseMovement extends PowerUp{
         super(i,j,width);
     }
     applyEffect(player){
-        // TODO:
+        this.isCollected = true;
+        this.collectedBy = player;
+        if(player === player1){
+            player2.inputModule.invert();
+            super.applyEffect(player2);
+        }else{
+            player1.inputModule.invert();
+            super.applyEffect(player1);
+        }
     }
 }
 
