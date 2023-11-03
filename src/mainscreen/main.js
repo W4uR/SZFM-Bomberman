@@ -5,7 +5,7 @@ function redirectToGame(){
 document.getElementById('goToGame').addEventListener('click',redirectToGame);
 
 function redirectToScoreboard(){
-    window.location.href = "../scoreboard/scoreboard.html";
+    window.location.href = "../scoreboard/scoreboard.php";
 }
 document.getElementById('goToScoreboard').addEventListener('click',redirectToScoreboard);
 
