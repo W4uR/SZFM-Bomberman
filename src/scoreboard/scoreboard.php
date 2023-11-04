@@ -11,6 +11,6 @@
     <link rel="stylesheet" type="text/css" href="scoreboard.css">
 </head>
 <body onload="showTopPlayers()">
-<input type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">
+<input title="Put a whitespace for more specific search..." type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">
 </body>
 </html>
