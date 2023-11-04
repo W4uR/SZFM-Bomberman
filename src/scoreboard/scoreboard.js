@@ -4,7 +4,7 @@ function filterUsersOrPoints() {
     // Declare variables
     var input, filter, ul, li, a, span, i, txtValue;
     input = document.getElementById('myInput');
-    filter = input.value.toUpperCase();
+    filter = input.value;
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName('li');
     let currentlyDisplayed = 0;
@@ -16,7 +16,7 @@ function filterUsersOrPoints() {
     // Loop through all list items
     for (i = 0; i < li.length && currentlyDisplayed < maxDisplay; i++) {
         // Check if the search query matches the text value
-        if (li[i].textContent.toUpperCase().indexOf(filter) > -1) {
+        if (li[i].textContent.indexOf(filter) > -1) {
             li[i].style.display = "";
             currentlyDisplayed++;
         }

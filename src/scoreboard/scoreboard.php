@@ -11,6 +11,6 @@
     <link rel="stylesheet" type="text/css" href="scoreboard.css">
 </head>
 <body onload="showTopPlayers()">
-<input type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">
+<input title="Nyomd le a szóköz billentyűt részletesebb keresésért." type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">
 </body>
 </html>
