@@ -81,10 +81,12 @@ class Shield extends PowerUp {
         super(i,j,width);
     }
     applyEffect(player){
-        player.isShielded = true;
-        this.isCollected = true;
-        this.collectedBy = player;
-        super.applyEffect(player);
+        if(player.isShielded == false){
+            player.isShielded = true;
+            this.isCollected = true;
+            this.collectedBy = player;
+            super.applyEffect(player);
+        }
     }
 }
 
