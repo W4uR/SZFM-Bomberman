@@ -1,6 +1,4 @@
-body{
-    background-color: #252525;
-}
+@import url(../main.css);
 
 body{
     display: flex;
@@ -8,29 +6,31 @@ body{
 }
 
 #P1_container, #P2_container{
-    width: 10%;
+    width: 20%;
+    margin: 2rem;
 }
 
 .health{
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 .hp{
-    background-color: red;
+    background-image: url(heart.png);
+    background-size: cover;
     aspect-ratio: 1;
-    height: 1rem;
-    border: 1px solid #252525;
+    height: 3rem;
 }
 
 .powers{
     display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
 }
 .powers img{
     aspect-ratio: 1;
-    width: 20%;
-}
-.name{
-    color: aliceblue;
+    width: 18%;
+    margin: 2%;
 }
 
 .newGame, .mainMenu {
@@ -46,4 +46,23 @@ body{
     height: 400px;
     width: 400px;
     position: absolute;
+}
+
+canvas{
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.name{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+#P1_container > img, #P2_container > img{
+    display: block;
+    width: 34%;
+    margin: auto;
+    aspect-ratio: 1;
+}
+h4{
+    text-align: center;
 }

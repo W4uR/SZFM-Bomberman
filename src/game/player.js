@@ -3,7 +3,7 @@ class Player{
         [this.x,this.y] = toPixelCoords(i,j);
 		this.width = width;
         this.maxHealth = maxHealth;
-        this.health = 1;//need back to maxHealth
+        this.health = maxHealth;
 		this.speed = speed;
 		this.inputModule = inputModule;
 		this.velocity = createVector(0,0);
@@ -17,6 +17,7 @@ class Player{
         this.invincible = 0;
 
         display.getElementsByClassName("name")[0].innerText = playerName;
+        display.getElementsByTagName("img")[0].src = spriteData;
     }
 
     update(){
@@ -116,7 +117,6 @@ class Player{
         });
     }
 
-    //BUG: If a player has at least 1 shield picked up the player is invincible for every incoming attack
     takeDamage(damage){
         this.health -= damage;
     }
