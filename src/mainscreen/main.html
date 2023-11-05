@@ -12,13 +12,23 @@
         <h1>Bomberman the Clone</h1>
     </div>
     <div class="game">
-        <button class="gameButton" id="goToGame">Jatek</button>
+        <button class="gameButton" id="goToGame" onclick="redirectToGame()">Jatek</button>
     </div>
     <div class="scoreboard">
-        <button class="scoreboardButton" id="goToScoreboard">Ranglista</button>
+        <button class="scoreboardButton" id="goToScoreboard" onclick="redirectToScoreboard()">Ranglista</button>
     </div>
     <div class="bug">
-        <img id="goToBugreport" src="./bug/bug.png">
+        <img id="bugReport" src="./bug.png" onclick="showAndHideBugReport()">
+    </div>
+    <div class="bugReportContainer" id="bugContainer" hidden>
+        <h1 class="bugTitle">Hiba leiras</h1>
+        <form class="textAreaContainer" action="../../php/send_bugreport.php" method="post" onsubmit="return validateForm()">
+          <textarea id="textArea" class="textArea" name="bug_description" rows="25" cols="105" title="Írd ide a milyen hibát tapasztalsz!"></textarea>
+          <div class="buttonContainer">
+              <input class="sendButton" type="submit" id="submit_button" value="Kuldes">
+              <input class="closeButton" type="button" id="close_button" value="Megse" onclick="hideBugContainer()">
+          </div>
+        </form>
     </div>
     <script src="main.js"></script>
 </body>

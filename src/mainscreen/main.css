@@ -54,3 +54,25 @@ img{
     bottom: 0;
     right: 0;
 }
+.bugReportContainer{
+    text-align: center;
+}
+.textArea{
+    resize: none;
+}
+.sendButton {
+    font-family: "Pixel-Art Regular";   
+    font-size: 2rem;  
+}
+.closeButton {
+    font-family: "Pixel-Art Regular";   
+    font-size: 1rem;  
+}
+.bugTitle{
+    font-size: 3rem;
+    -webkit-text-stroke: 1px rgb(193, 125, 42);
+    color: rgb(178, 190, 21);
+    text-shadow: 4px 4px 4px black;
+    user-select: none;
+    font-family: "Pixel-Art Regular";   
+}

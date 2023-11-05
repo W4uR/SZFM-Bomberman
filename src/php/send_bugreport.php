@@ -35,5 +35,4 @@ $db->close();
 // Redirect the user to the current page
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 exit();
-
 ?>

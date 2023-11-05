@@ -1,25 +1,39 @@
 function redirectToGame(){ 
-    //TODO: needs to bring the person the character picker screen
     window.location.href = "../character_selection/character_selection.html";
 }
-document.getElementById('goToGame').addEventListener('click',redirectToGame);
 
 function redirectToScoreboard(){
     window.location.href = "../scoreboard/scoreboard.php";
 }
-document.getElementById('goToScoreboard').addEventListener('click',redirectToScoreboard);
 
-function openBugReport(){
-    var url = "./bug/bug.html";
-    var screenWidth = window.screen.width;
-    var screenHeight = window.screen.height;
-    var windowWidth = 800;
-    var windowHeight = 600;
-    var left = (screenWidth - windowWidth) / 2;
-    var top = (screenHeight - windowHeight) / 2;
-    var windowName = "Bug Reports";
-    var windowFeatures = "width=" + windowWidth + ",height=" + windowHeight + ",left=" + left + ",top=" + top + ",toolbar=no,location=no,status=no,menubar=no,scrollbars=yes";
-    var newWindow = window.open(url, windowName, windowFeatures);
+function showBugReport(){
+    document.getElementById("bugContainer").removeAttribute("hidden");
 }
 
-document.getElementById('goToBugreport').addEventListener('click',openBugReport);
+function hideBugReport(){
+    document.getElementById("bugContainer").setAttribute("hidden",true);
+}
+
+function showAndHideBugReport(){
+    if(document.getElementById('bugContainer').hasAttribute("hidden")){
+        showBugReport();
+    }else{
+        hideBugReport();
+    }    
+}
+
+function validateForm() {
+    // Get the bug description text area
+    var bugDescriptionTextarea = document.getElementById('textArea');
+    // Check if the bug description text area is empty
+    if (bugDescriptionTextarea.value === '') {
+      // The bug description text area is empty, so display an error message
+      alert('The bug description cannot be empty.');
+      // Return false to prevent the form from being submitted
+      return false;
+    }
+    alert('Sending data is successfull.');
+    // The bug description text area is not empty, so return true to allow the form to be submitted
+    return true;
+}
+
