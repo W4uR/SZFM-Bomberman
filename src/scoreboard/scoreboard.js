@@ -34,6 +34,10 @@ function showTopPlayers() {
         }
     }
     li[0].style.setProperty('--text',"rgb(255, 215, 0)")//gold
+    //li[2].style.textShadow = "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff";
     li[1].style.setProperty('--text',"rgb(168, 163, 163)");//silver
     li[2].style.setProperty('--text',"rgb(158, 84, 13)");//bronze
+    li[0].style.fontSize = "50px";
+    li[1].style.fontSize = "45px";
+    li[2].style.fontSize = "40px";
 }
