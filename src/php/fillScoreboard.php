@@ -17,19 +17,25 @@ while($row = $result->fetch_assoc()){
 
 $html = '';
 
+$html .= '<div class="scoreboardContainer">';
 // Start the HTML list
+$html .= '<div class="titleContainer">';
+$html .= '<span class="player">Játékos Neve</span>';
+$html .= '<span class="point">Játékos Pontszáma</span>';
+$html .= '</div>';
 $html .= '<ul id="myUL">';
-
 // Iterate over the dataArray and add each row to the list
 foreach ($dataArray as $row) {
     $html .= '<li>';
-    $html .= '<span class="playerName">' . $row['nameID'] . '</span>' . ' - ' .  '<span class="playerPoint">' . $row['point'] . '</span>';
+    $html .= '<span class="playerName">' . $row['nameID'] . '</span>' . '<span class="hyphen"> - </span>' .  '<span class="playerPoint">' . $row['point'] . '</span>';
     $html .= '</li>';
 }
 
 // End the HTML list
 $html .= '</ul>';
-
+$html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
+type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">';
+$html .= '</div>';
 // Echo the HTML
 echo $html;
 
