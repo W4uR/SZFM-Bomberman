@@ -11,31 +11,31 @@
 </head>
 <body>
     <div class="sidepane">
-        Egy játékos neve
-        <input type="text" class="player1" onkeyup="updateStart()">
+        Játékos 1
+        <input type="text" class="player1" onkeyup="updateStart()" placeholder="Az egyes játékos neve">
         <div class="skinSelector">
-            <button class="player1 left skin" onclick="changeSkin('player1','left')">&lt;</button>
+            <button class="player1 stepper skin" onclick="changeSkin('player1','left')">&lt;</button>
             <img class="player1 skin" alt="Az egyes játékos kinézete.">
-            <button class="player1 right skin" onclick="changeSkin('player1','right')">&gt;</button>
+            <button class="player1 stepper skin" onclick="changeSkin('player1','right')">&gt;</button>
         </div>
     </div>
     <div class="centerpane">
         <div class="mapContainer">
-            <button class="map left" onclick="changeMap(true)">&lt;</button>
+            <button class="map stepper" onclick="changeMap(true)">&lt;</button>
             <img class="map" alt="A map kinézete.">
-            <button class="map right" onclick="changeMap(true)">&gt;</button>
+            <button class="map stepper" onclick="changeMap(true)">&gt;</button>
         </div>
         <button class="loadPlayerSkins" onclick="loadPlayerSkins()">Tárolt kinézetek betöltése</button>
         <button class="startGame" onclick="startGame()" disabled>Rajta!</button>
         
     </div>
     <div class="sidepane">
-        Egy másik játékos neve
-        <input type="text" class="player2" onkeyup="updateStart()">
+        Játékos 2
+        <input type="text" class="player2" onkeyup="updateStart()" placeholder="Az kettes játékos neve">
         <div class="skinSelector">
-            <button class="player2 left skin" onclick="changeSkin('player2','left')">&lt;</button>
+            <button class="player2 stepper skin" onclick="changeSkin('player2','left')">&lt;</button>
             <img class="player2 skin" alt="A kettes játékos kinézete.">
-            <button class="player2 right skin" onclick="changeSkin('player2','right')">&gt;</button>
+            <button class="player2 stepper skin" onclick="changeSkin('player2','right')">&gt;</button>
         </div>
     </div>
     

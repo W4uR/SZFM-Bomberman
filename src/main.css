@@ -18,8 +18,10 @@
 
 button{
   background-color: var(--accent);
+  border-color: var(--accent-dark);
   color: var(--text);
   user-select: none;
+  border-radius: 1rem;
 }
 input{
   background-color: var(--background);
