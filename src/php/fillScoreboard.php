@@ -36,6 +36,7 @@ $html .= '</ul>';
 $html .= '</div>';
 $html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
 type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Keress a játékos nevére vagy pontjaira!">';
+$html .= '<button id="mainMenuButton" onclick="goToMainScreen()">Főmenü</button>';
 // Echo the HTML
 echo $html;
 

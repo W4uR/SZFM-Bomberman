@@ -58,6 +58,11 @@ ul{
     text-align: center;
     font-size: 5rem;
 }
+
+.mainMenuButton{
+    font-size: 15rem;
+}
+
 @media (max-width: 1280px) {
     .searchBar{
         height: 2rem;

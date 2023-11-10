@@ -41,3 +41,8 @@ function showTopPlayers() {
     li[1].style.fontSize = "45px";
     li[2].style.fontSize = "40px";
 }
+
+function goToMainScreen(){
+    window.location.href = "../mainscreen/main.html";
+}
+//Format button to main menu
