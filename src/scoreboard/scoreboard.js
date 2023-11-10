@@ -36,4 +36,7 @@ function showTopPlayers() {
             li[i].style.display = "none";
         }
     }
+    li[0].style.setProperty('--text',"rgb(255, 215, 0)")//gold
+    li[1].style.setProperty('--text',"rgb(168, 163, 163)");//silver
+    li[2].style.setProperty('--text',"rgb(158, 84, 13)");//bronze
 }

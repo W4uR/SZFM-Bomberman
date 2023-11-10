@@ -16,13 +16,13 @@ while($row = $result->fetch_assoc()){
 }
 
 $html = '';
-
-$html .= '<div class="scoreboardContainer">';
-// Start the HTML list
+$html .= '<h1 class="titleOfPage">Ranglista</h1>';
 $html .= '<div class="titleContainer">';
 $html .= '<span class="player">Játékos Neve</span>';
 $html .= '<span class="point">Játékos Pontszáma</span>';
 $html .= '</div>';
+$html .= '<div class="scoreboardContainer">';
+// Start the HTML list
 $html .= '<ul id="myUL">';
 // Iterate over the dataArray and add each row to the list
 foreach ($dataArray as $row) {
@@ -33,9 +33,9 @@ foreach ($dataArray as $row) {
 
 // End the HTML list
 $html .= '</ul>';
-$html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
-type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">';
 $html .= '</div>';
+$html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
+type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Keress a játékos nevére vagy pontjaira!">';
 // Echo the HTML
 echo $html;
 
