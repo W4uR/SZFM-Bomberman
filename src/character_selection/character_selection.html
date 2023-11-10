@@ -4,37 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="character_selection.css">
     <link href="https://db.onlinewebfonts.com/c/5766327dd1b3e158a9e2942da70d2ebf?family=Pixel-Art+Regular" rel="stylesheet"> 
     <title>Előkészületek</title>
 </head>
 <body>
-    <div>
-        <input type="text" class="player1" onchange="onNameChanged(this)">
-        <div>
-            <button class="player1 left skin">-</button>
+    <div class="sidepane">
+        Egy játékos neve
+        <input type="text" class="player1" onkeyup="updateStart()">
+        <div class="skinSelector">
+            <button class="player1 left skin" onclick="changeSkin('player1','left')">&lt;</button>
             <img class="player1 skin" alt="Az egyes játékos kinézete.">
-            <button class="player1 right skin">+</button>
+            <button class="player1 right skin" onclick="changeSkin('player1','right')">&gt;</button>
         </div>
-
     </div>
-    <div>
-        <div>
-            <button class="map left">-</button>
+    <div class="centerpane">
+        <div class="mapContainer">
+            <button class="map left" onclick="changeMap(true)">&lt;</button>
             <img class="map" alt="A map kinézete.">
-            <button class="map right">+</button>
+            <button class="map right" onclick="changeMap(true)">&gt;</button>
         </div>
+        <button class="loadPlayerSkins" onclick="loadPlayerSkins()">Tárolt kinézetek betöltése</button>
+        <button class="startGame" onclick="startGame()" disabled>Rajta!</button>
+        
     </div>
-    <div>
-        <input type="text" class="player2" onchange="onNameChanged(this)">
-        <div>
-            <button class="player2 left skin">-</button>
-            <img class="player2 skin" alt="Az kettes játékos kinézete.">
-            <button class="player2 right skin">+</button>
+    <div class="sidepane">
+        Egy másik játékos neve
+        <input type="text" class="player2" onkeyup="updateStart()">
+        <div class="skinSelector">
+            <button class="player2 left skin" onclick="changeSkin('player2','left')">&lt;</button>
+            <img class="player2 skin" alt="A kettes játékos kinézete.">
+            <button class="player2 right skin" onclick="changeSkin('player2','right')">&gt;</button>
         </div>
     </div>
     
-    <button id="go">Rajta!</button>
     <script src="character_selection.js"></script>
 </body>
 </html>
