@@ -4,29 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bomberman the Clone</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link href="https://db.onlinewebfonts.com/c/5766327dd1b3e158a9e2942da70d2ebf?family=Pixel-Art+Regular" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    <link rel="stylesheet" type="text/css" href="mainScreen.css">
 </head>
 <body>
-    <div class="gametitle">
-        <h1>Bomberman the Clone</h1>
-    </div>
-    <div class="game">
-        <button class="gameButton" id="goToGame" onclick="redirectToGame()">Jatek</button>
-    </div>
-    <div class="scoreboard">
-        <button class="scoreboardButton" id="goToScoreboard" onclick="redirectToScoreboard()">Ranglista</button>
+    <div id="mainComponents">
+        <div class="gametitle">
+            <h1>Bomberman the Clone</h1>
+        </div>
+        <div class="game">
+            <button class="gameButton" id="goToGame" onclick="redirectToGame()">Játék</button>
+        </div>
+        <div class="scoreboard">
+            <button class="scoreboardButton" id="goToScoreboard" onclick="redirectToScoreboard()">Ranglista</button>
+        </div>
     </div>
     <div class="bug">
         <img id="bugReport" src="./bug.png" onclick="showAndHideBugReport()">
     </div>
     <div class="bugReportContainer" id="bugContainer" hidden>
-        <h1 class="bugTitle">Hiba leiras</h1>
+        <h1 class="bugTitle">Hiba leírás</h1>
         <form class="textAreaContainer" action="../../php/send_bugreport.php" method="post" onsubmit="return validateForm()">
-          <textarea id="textArea" class="textArea" name="bug_description" rows="25" cols="105" title="Írd ide a milyen hibát tapasztalsz!"></textarea>
+          <textarea id="textArea" class="textArea" name="bug_description" rows="25" cols="150" title="Írd ide a milyen hibát tapasztalsz!"></textarea>
           <div class="buttonContainer">
-              <input class="sendButton" type="submit" id="submit_button" value="Kuldes">
-              <input class="closeButton" type="button" id="close_button" value="Megse" onclick="showAndHideBugReport()">
+              <input class="sendButton" type="submit" id="submit_button" value="Küldés">
+              <input class="closeButton" type="button" id="close_button" value="Mégse" onclick="showAndHideBugReport()">
           </div>
         </form>
     </div>

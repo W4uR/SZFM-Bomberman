@@ -16,7 +16,7 @@
   color: var(--text);
 }
 
-button{
+button {
   background-color: var(--accent);
   border-color: var(--accent-dark);
   color: var(--text);

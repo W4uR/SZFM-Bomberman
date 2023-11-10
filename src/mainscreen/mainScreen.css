@@ -1,17 +1,16 @@
-body{
-    background-image: url("background.png");
-    background-repeat: no-repeat;
+body {
+    background: url("bg.jpg") center center fixed;
     background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    margin: 0;
 }
 .gametitle{
     text-align: center;
-    margin-top: 5rem;
-    font-size: 3rem;
-    -webkit-text-stroke: 1px rgb(193, 125, 42);
-    color: rgb(178, 190, 21);
+    margin-top: 20rem;
+    font-size: 4rem;
     text-shadow: 4px 4px 4px black;
     user-select: none;
-    font-family: "Pixel-Art Regular";   
 }
 .game,.scoreboard{
     width: fit-content;
@@ -23,18 +22,14 @@ body{
     margin-top: 0.2rem;
 }
 .scoreboardButton{
-    background: transparent;
     width: 35rem;
     height: 7rem;
     cursor: pointer;
-    border-radius: 1rem;
 }
 .gameButton{
-    background: transparent;
     width: 35rem;
     height: 7rem;
     cursor: pointer;
-    border-radius: 1rem;
 }
 .game:hover,.scoreboard:hover{
     position: relative;
@@ -43,7 +38,6 @@ body{
     text-shadow: 4px 4px 4px rgb(177, 204, 57);
 }
 button{
-    font-family: "Pixel-Art Regular";   
     font-size: 4rem;                                  
 }
 
@@ -53,26 +47,30 @@ img{
     position: absolute;
     bottom: 0;
     right: 0;
+    background-color: var(--accent);
+    border-radius: 20%;
 }
 .bugReportContainer{
     text-align: center;
 }
 .textArea{
     resize: none;
+    background-color: rgb(221, 216, 216);
+    color: black;
+    font-size: 1.5rem;
 }
 .sendButton {
-    font-family: "Pixel-Art Regular";   
-    font-size: 2rem;  
+    font-size: 3rem;  
 }
 .closeButton {
-    font-family: "Pixel-Art Regular";   
-    font-size: 1rem;  
+    font-size: 2rem;  
 }
 .bugTitle{
-    font-size: 3rem;
-    -webkit-text-stroke: 1px rgb(193, 125, 42);
-    color: rgb(178, 190, 21);
+    font-size: 5rem;
     text-shadow: 4px 4px 4px black;
     user-select: none;
-    font-family: "Pixel-Art Regular";   
+    margin-bottom: 1rem;
+}
+.sendButton,.closeButton{
+    border-radius: 1rem;
 }

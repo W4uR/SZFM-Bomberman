@@ -6,19 +6,13 @@ function redirectToScoreboard(){
     window.location.href = "../scoreboard/scoreboard.php";
 }
 
-function showBugReport(){
-    document.getElementById("bugContainer").removeAttribute("hidden");
-}
-
-function hideBugReport(){
-    document.getElementById("bugContainer").setAttribute("hidden",true);
-}
-
 function showAndHideBugReport(){
     if(document.getElementById('bugContainer').hasAttribute("hidden")){
-        showBugReport();
+        document.getElementById("bugContainer").removeAttribute("hidden");
+        document.getElementById("mainComponents").setAttribute("hidden",true);
     }else{
-        hideBugReport();
+        document.getElementById("bugContainer").setAttribute("hidden",true);
+        document.getElementById("mainComponents").removeAttribute("hidden");
     }    
 }
 
