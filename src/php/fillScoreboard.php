@@ -36,7 +36,7 @@ foreach ($dataArray as $row) {
 $html .= '</ul>';
 $html .= '</div>';
 $html .= '<div class="topScoreSkinConatiner">';
-$html .= '<h1>Legtöbb pontall rendelkező játékos skinje:</h1>';
+$html .= '<h1>Legtöbb pontall rendelkező játékos:</h1>';
 $html .= '<img id="highest" class="playerSkinWithHighestScore"></img>';
 $html .= '</div>';
 $html .= '</div>';
