@@ -22,9 +22,6 @@ function filterUsersOrPoints() {
         }
     }
 }
-//TODO: Van egy olyan bug, hogy mikor alapból belépek az oldalra csak a top 10 játékos látszódik.
-//Ha ilyenkor az alapból üres kereső mezőbe ütök egy törlést vagy ha keresés után üresre vissza törlöm a keresőmezőt
-//akkor valamiért minden játékos látszódni fog tehát valamiért megjelennek a top10-en kívüliek is.
 function showTopPlayers() {
     var ul = document.getElementById("myUL");
     var li = ul.getElementsByTagName('li');
