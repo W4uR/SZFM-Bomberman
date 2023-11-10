@@ -95,19 +95,25 @@ function checkGameOver(){
     if(player1.health <= 0 || player2.health <=0){
         tint(120,70,70);
         determineWinner();
-        sendWinnerToPHP();
+        if(winner){
+            sendWinnerToPHP();
+        }
         document.getElementById("endGameContainer").removeAttribute("hidden");
         noLoop();
     }
 }
 
 function determineWinner(){
-    if(player1.health === 0){
+    if(player1.health === 0 && player2.health === 0){
+        console.log("Its a tie!")
+    }
+    else if(player1.health === 0){
         winner = player2;
     }else{
         winner = player1;
     }
 }
+
 
 function sendWinnerToPHP(){
     fetch("../php/updatePoints.php", {
