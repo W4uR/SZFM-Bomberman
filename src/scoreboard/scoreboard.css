@@ -5,12 +5,13 @@ body {
     overflow: hidden;
     margin: 0;
 }
-.searchBar{
+
+.searchBar {
     height: 4rem;
     width: 35rem;
     text-align: center;
     font-family: inherit;
-    outline: none; 
+    outline: none;
     font-size: 2rem;
     display: flex;
     margin: auto;
@@ -22,51 +23,112 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50vh;    
+    height: 50vh;
     font-size: 2rem;
 }
 
-ul{
+ul {
     user-select: none;
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
+
 .titleContainer {
     width: 100%;
     text-align: center;
     font-size: 2.5rem;
 }
+
 .player {
-    margin-right: 5rem;
-    margin-left: 5rem;
+    margin: 0 2rem; /* Adjust margin as needed */
 }
-.hyphen{
-    margin-left: 2rem;
-    margin-right: 2rem;
+
+.hyphen {
+    margin: 0 1rem; /* Adjust margin as needed */
 }
 
 .playerName,
 .playerPoint {
-    width: 8rem; /* Set the desired width */
-    display: inline-block; /* Make them inline-block to respect the width */
-    text-align: center; /* Center the text within the element */
+    width: 8rem;
+    display: inline-block;
+    text-align: center;
 }
 
-.titleOfPage{
+.titleOfPage {
     padding-top: 1rem;
     text-align: center;
     font-size: 5rem;
 }
 
-.mainMenuButton{
-    font-size: 15rem;
+.goToMainMenuButton {
+    font-family: inherit;
+    outline: none;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 15rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-left: 41rem;
+}
+
+.topScoreSkinConatiner {
+    margin-top: 2.5rem;
+    padding-left: 10rem;
+}
+
+.playerSkinWithHighestScore {
+    height: 100px;
+    width: 100px;
 }
 
 @media (max-width: 1280px) {
-    .searchBar{
+    .searchBar {
         height: 2rem;
         width: 30rem;
         font-size: 1.5rem;
+    }
+    .playerName,
+    .playerPoint {
+        width: 4rem;
+    }
+    .goToMainMenuButton {
+        height: 3rem;
+        width: 15rem;
+        font-size: 1.5rem;
+    }
+    .scoreboardContainer{
+        height: 40vh;
+    }
+    .topScoreSkinConatiner{
+        width: 15rem;
+        margin-left: 5rem;
+    }
+    .container{
+        margin-left: 27rem;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    li:nth-child(1){
+        font-size: 2.4rem !important;
+    }
+    li:nth-child(2){
+        font-size: 2.2rem !important;
+    }
+    li:nth-child(3){
+        font-size: 2rem !important;
+    }
+    ul li{
+        font-size: 1.8rem !important;
     }
 }

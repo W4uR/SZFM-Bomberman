@@ -1,4 +1,8 @@
 const maxDisplay = 10;
+let topScorer = "";
+let skins = new Map();
+const map_img = document.querySelector("img.playerSkinWithHighestScore");
+loadAllSkins()
 
 function filterUsersOrPoints() {
     // Declare variables
@@ -34,15 +38,58 @@ function showTopPlayers() {
         }
     }
     li[0].style.setProperty('--text',"rgb(255, 215, 0)")//gold
-    //li[2].style.textShadow = "-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff";
     li[1].style.setProperty('--text',"rgb(168, 163, 163)");//silver
     li[2].style.setProperty('--text',"rgb(158, 84, 13)");//bronze
     li[0].style.fontSize = "50px";
     li[1].style.fontSize = "45px";
     li[2].style.fontSize = "40px";
+    topScorer = li[0].textContent.split('-')[0].trim();
 }
 
 function goToMainScreen(){
     window.location.href = "../mainscreen/main.html";
 }
-//Format button to main menu
+
+function getSkinIDbyPlayerName(playerName){
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: '../php/getSkinIDbyPlayerName.php',
+            method: 'GET',
+            dataType: 'text',
+            data: {
+                PlayerName: playerName
+            },
+            success: function(skinId) {
+                resolve(skinId);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Error:', errorThrown);
+            }
+        })
+    });
+}
+
+function loadAllSkins(){
+    $.ajax({
+        url: '../php/loadAllSkins.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            response.forEach(d => { 
+                skins.set(d.ResourceID,"data:image/png;base64," + d.Sprite);
+            });
+            document.querySelectorAll("img.skin").forEach(e =>{e.src = skins.get(numbericSkins[0])});
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error:', errorThrown);
+        }
+    })
+}
+function loadHighestScorerSkin(){
+    getSkinIDbyPlayerName(topScorer).then((skinId)=>{
+        if(skinId != undefined){
+            map_img.src = skins.get(skinId);
+        }
+    });
+}
+

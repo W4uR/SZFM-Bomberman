@@ -21,6 +21,7 @@ $html .= '<div class="titleContainer">';
 $html .= '<span class="player">Játékos Neve</span>';
 $html .= '<span class="point">Játékos Pontszáma</span>';
 $html .= '</div>';
+$html .= '<div class="container">';
 $html .= '<div class="scoreboardContainer">';
 // Start the HTML list
 $html .= '<ul id="myUL">';
@@ -34,9 +35,14 @@ foreach ($dataArray as $row) {
 // End the HTML list
 $html .= '</ul>';
 $html .= '</div>';
+$html .= '<div class="topScoreSkinConatiner">';
+$html .= '<h1>Legtöbb pontall rendelkező játékos skinje:</h1>';
+$html .= '<img id="highest" class="playerSkinWithHighestScore"></img>';
+$html .= '</div>';
+$html .= '</div>';
 $html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
 type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Keress a játékos nevére vagy pontjaira!">';
-$html .= '<button id="mainMenuButton" onclick="goToMainScreen()">Főmenü</button>';
+$html .= '<button class="goToMainMenuButton" id="mainMenuButton" onclick="goToMainScreen()">Főmenü</button>';
 // Echo the HTML
 echo $html;
 

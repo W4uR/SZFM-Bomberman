@@ -11,6 +11,6 @@
     <link rel="stylesheet" type="text/css" href="scoreboard.css">
     <link rel="stylesheet" type="text/css" href="../../main.css">
 </head>
-<body onload="showTopPlayers()">
+<body onload="showTopPlayers(); loadHighestScorerSkin();">
 </body>
 </html>
