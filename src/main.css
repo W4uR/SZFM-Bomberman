@@ -19,6 +19,7 @@
 button{
   background-color: var(--accent);
   color: var(--text);
+  user-select: none;
 }
 input{
   background-color: var(--background);
