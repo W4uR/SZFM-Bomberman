@@ -9,8 +9,8 @@
     <?php include '../php/fillScoreboard.php'; ?>
     <script src="scoreboard.js"></script>
     <link rel="stylesheet" type="text/css" href="scoreboard.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
 </head>
 <body onload="showTopPlayers()">
-<input title="Nyomd le a szóköz billentyűt részletesebb keresésért." type="text" id="myInput" onkeyup="filterUsersOrPoints()" placeholder="Search for Names or Points">
 </body>
 </html>

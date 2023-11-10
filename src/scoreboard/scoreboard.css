@@ -1,14 +1,52 @@
-ul {
+body{
+    background: url("bg.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+.searchBar{
+    height: 1.8rem;
+    width: 22rem;
+    text-align: center;
+    font-family: inherit;
+    background-color: greenyellow;
+    outline: none; 
+    color: rgb(0, 0, 0);    
+    font-size: 2rem;
+}
+
+.scoreboardContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;    
+    font-size: 2rem;
+}
+
+ul{
+    user-select: none;
     list-style-type: none;
+    padding: 0;
+    text-align: center;
 }
-a {
-    text-decoration: none;
-    color: black;
-    pointer-events: none;
-  }
-span {
-    pointer-events: none;
+.titleContainer {
+    width: 100%;
+    text-align: center;
 }
-input {
-    width: 10rem;
+.player {
+    margin-right: 3rem;
+    margin-left: 4rem;
+}
+.hyphen{
+    margin-left: 4rem;
+    margin-right: 5rem;
+}
+.playerName,
+.playerPoint {
+    color: red;
+    border: 2px solid green;
+    width: 10rem; /* Set the desired width */
+    display: inline-block; /* Make them inline-block to respect the width */
+    text-align: center; /* Center the text within the element */
 }
