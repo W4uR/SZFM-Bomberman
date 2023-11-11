@@ -74,3 +74,18 @@ img{
 .sendButton,.closeButton{
     border-radius: 1rem;
 }
+
+@media (max-width: 1280px) {
+    .gametitle {
+        font-size: 3rem;
+    }
+    .gameButton, .scoreboardButton{
+        width: 20rem;
+        height: 5rem;
+        font-size: 2rem;
+    }
+    .textArea{
+        width: 50rem;
+        height: 30rem;
+    }
+}
