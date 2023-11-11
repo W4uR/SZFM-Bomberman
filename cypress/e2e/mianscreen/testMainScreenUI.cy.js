@@ -12,7 +12,7 @@ context('Fő képernyő megjelenési tesztek.', () => {
     it("A 'Játék' és 'Ranglista' gombok megjelennek.", () => {
         const startGameButton = cy.get(".gameButton");
         startGameButton.should("be.visible");
-        startGameButton.contains("Jatek");
+        startGameButton.contains("Játék");
     })
 
     it("A bug beküldés felület megjelenítésre szolgáló gomb megjelenik.", () => {
