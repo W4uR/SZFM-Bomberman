@@ -6,7 +6,7 @@ class PowerUp{
         this.isCollected = false;
     }
 
-    // Ezt akkor kell meghívni, ha szeretnénk, hogy a felvett erősítés megjelenjen a játékos statjainál (Pl.L Healnál talán elhagyható)
+    // Ezt akkor kell meghívni, ha szeretnénk, hogy a felvett erősítés megjelenjen a játékos statjainál (Pl. Healnél talán elhagyható)
     applyEffect(player){
         let imgElement = document.createElement("img");
         imgElement.src = sprites.get(this.getSpriteKey()).canvas.toDataURL();
@@ -105,18 +105,20 @@ class MoreDamage extends PowerUp {
 class InverseMovement extends PowerUp{
     constructor(i,j,width){
         super(i,j,width);
+        this.duration = 3;
     }
     applyEffect(player){
+        let playerToEffect = player === player1 ? player2:player1;
+        if(playerToEffect.inputModule.inverted){
+            return;
+        }
         this.isCollected = true;
         this.collectedBy = player;
-        if(player === player1){
-            player2.inputModule.invert();
-            super.applyEffect(player2);
-        }else{
-            player1.inputModule.invert();
-            super.applyEffect(player1);
-        }
+        playerToEffect.inputModule.invert();
+        super.applyEffect(playerToEffect);
+        setTimeout(() => this.resetInputModule(playerToEffect.inputModule), this.duration*1000);
+    }
+    resetInputModule(module) {
+        module.invert();
     }
 }
-
-//TODO: make the necessary changes in bomberman js and the others
