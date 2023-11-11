@@ -1,7 +1,7 @@
 const maxDisplay = 10;
 let topScorer = "";
 let skins = new Map();
-const map_img = document.querySelector("img.playerSkinWithHighestScore");
+const top_player_img = document.querySelector("img.playerSkinWithHighestScore");
 loadAllSkins()
 
 function filterUsersOrPoints() {
@@ -88,7 +88,7 @@ function loadAllSkins(){
 function loadHighestScorerSkin(){
     getSkinIDbyPlayerName(topScorer).then((skinId)=>{
         if(skinId != undefined){
-            map_img.src = skins.get(skinId);
+            top_player_img.src = skins.get(skinId);
         }
     });
 }

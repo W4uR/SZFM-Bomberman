@@ -1,7 +1,4 @@
 body {
-    background: url("bg.jpg") center center fixed;
-    background-size: cover;
-    background-position: center;
     overflow: hidden;
     margin: 0;
 }

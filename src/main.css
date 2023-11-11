@@ -10,6 +10,12 @@
     --accent-dark: #344263;
 }
 
+body{
+  background: url("../images/bg.jpg") center center fixed;
+  background-size: cover;
+  background-position: center;
+}
+
 * {
   font-family: 'VT323';
   font-weight: 400;
@@ -23,6 +29,10 @@ button {
   user-select: none;
   border-radius: 1rem;
 }
+button:hover{
+  cursor: pointer;
+}
+
 input{
   background-color: var(--background);
   color: var(--text);
