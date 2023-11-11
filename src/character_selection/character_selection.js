@@ -21,7 +21,7 @@ const startButton = document.querySelector("button.startGame");
 function loadPlayerSkins(){
     if(isEmpty(player1_name.value) == false){
         getSkinIDbyPlayerName(player1_name.value).then((skinId)=>{
-            if(skinId != undefined){
+            if(skinId){
                 player1_img.src = skins.get(skinId);
                 player1_index = numbericSkins.indexOf(skinId);
             }
@@ -29,7 +29,7 @@ function loadPlayerSkins(){
     }
     if(isEmpty(player2_name.value) == false){
         getSkinIDbyPlayerName(player2_name.value).then((skinId)=>{
-            if(skinId != undefined){
+            if(skinId){
                 player2_img.src = skins.get(skinId);
                 player2_index = numbericSkins.indexOf(skinId);
             }
