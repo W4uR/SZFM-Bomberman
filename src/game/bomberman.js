@@ -98,7 +98,7 @@ function checkGameOver(){
         if(winner){
             sendWinnerToPHP();
         }
-        document.getElementById("endGameContainer").removeAttribute("hidden");
+        document.getElementById("endGameContainer").style.display = 'flex';
         noLoop();
     }
 }
