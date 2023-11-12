@@ -41,8 +41,9 @@ body{
     display: flex;
     justify-content: space-evenly;
 }
-.map{
+#mapImg{
     flex-basis: 60%;
+    aspect-ratio: 1;
 }
 
 .sidepane{
