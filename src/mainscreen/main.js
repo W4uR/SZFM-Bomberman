@@ -1,4 +1,5 @@
 function redirectToGame(){ 
+    localStorage.clear();
     window.location.href = "../character_selection/character_selection.html";
 }
 

@@ -99,6 +99,8 @@ function checkGameOver(){
             sendWinnerToPHP();
         }
         document.getElementById("endGameContainer").style.display = 'flex';
+        localStorage.setItem('player1',player1.playerName);
+        localStorage.setItem('player2',player2.playerName);
         noLoop();
     }
 }
@@ -234,7 +236,7 @@ function initializeMap(){
                     break;
                 case "0,255,0,255":
                     wall = WallType.EMPTY;
-                    player1 = new Player(i,j,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
+                    player1 = new Player(i,j,0.75*SCALE,0,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
                     break;
                 case "0,0,255,255":
                     wall = WallType.EMPTY;

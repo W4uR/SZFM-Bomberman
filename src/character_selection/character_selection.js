@@ -172,3 +172,12 @@ function isEmpty(string){
 function updateStart(){
     startButton.disabled = isEmpty(player1_name.value)||isEmpty(player2_name.value)||numbericMaps[map_index]==undefined;
 }
+
+function loadPreviousPlayers() {
+    if (localStorage.length > 0) {
+        player1_name.value = localStorage.getItem('player1');
+        player2_name.value = localStorage.getItem('player2');
+        loadPlayerSkins();
+        startButton.disabled = false;
+    }
+  }
