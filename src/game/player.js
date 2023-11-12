@@ -109,6 +109,7 @@ class Player{
                 if(this.isShielded){
                     // Pajzs "eltörése"
                     this.isShielded = false
+                    this.powerUpsDisplay.getElementsByClassName("PU_Shield")[0].remove();
                 }else{
                     this.takeDamage(e.damage);
                 }

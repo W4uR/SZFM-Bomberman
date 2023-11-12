@@ -9,6 +9,7 @@ class PowerUp{
     // Ezt akkor kell meghívni, ha szeretnénk, hogy a felvett erősítés megjelenjen a játékos statjainál (Pl. Healnél talán elhagyható)
     applyEffect(player){
         let imgElement = document.createElement("img");
+        imgElement.classList.add(this.getSpriteKey());
         imgElement.src = sprites.get(this.getSpriteKey()).canvas.toDataURL();
         player.powerUpsDisplay.appendChild(imgElement);
     }
@@ -116,9 +117,10 @@ class InverseMovement extends PowerUp{
         this.collectedBy = player;
         playerToEffect.inputModule.invert();
         super.applyEffect(playerToEffect);
-        setTimeout(() => this.resetInputModule(playerToEffect.inputModule), this.duration*1000);
+        setTimeout(() => this.resetInputModule(playerToEffect), this.duration*1000);
     }
-    resetInputModule(module) {
-        module.invert();
+    resetInputModule(player) {
+        player.inputModule.invert();
+        player.powerUpsDisplay.getElementsByClassName(this.getSpriteKey())[0].remove();
     }
 }
