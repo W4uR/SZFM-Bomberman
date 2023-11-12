@@ -109,10 +109,10 @@ function checkGameOver(){
 }
 
 function determineWinner(){
-    if(player1.health === 0 && player2.health === 0){
+    if(player1.health <= 0 && player2.health <= 0){
         console.log("Its a tie!")
     }
-    else if(player1.health === 0){
+    else if(player1.health <= 0){
         winner = player2;
     }else{
         winner = player1;
