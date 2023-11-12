@@ -1,9 +1,10 @@
 let skins = new Map();
 let numbericSkins = [];
+loadAllSkins()
 let maps = new Map();
 let numbericMaps = [];
-loadAllSkins()
-loadAllMaps()
+let mapSprites = new Map();
+
 
 let player1_index = 0;
 let player2_index = 0;
@@ -13,7 +14,7 @@ const player1_img = document.querySelector("img.player1");
 const player2_img = document.querySelector("img.player2");
 const player1_name = document.querySelector("input.player1");
 const player2_name = document.querySelector("input.player2");
-const map_img = document.querySelector("img.map");
+const map_img = document.getElementById('mapImg');
 
 const startButton = document.querySelector("button.startGame");
 
@@ -56,13 +57,54 @@ function changeSkin(player, direction){
 
 }
 
+let bufferGraphics;
+let img;
 function changeMap(direction){
     if(direction == "left"){
         map_index = (--map_index+numbericMaps.length)%numbericMaps.length
     }else{
         map_index = (++map_index+numbericMaps.length)%numbericMaps.length
     }
-    map_img.src = maps.get(numbericMaps[map_index]);
+    img = loadImage(maps.get(numbericMaps[map_index]),renderMap)
+}
+function preload(){
+    loadMapSprites();
+    loadAllMaps();
+}
+function setup(){
+    bufferGraphics = createGraphics(map_img.width, map_img.height);
+}
+
+function renderMap(){
+    bufferGraphics.background(255);
+    let scale = map_img.width/img.width;
+    //TODO: Use loadPixels and img.pixels array insted of img.get()
+    for (let i = 0; i < img.width; i++) {
+        for (let j = 0; j < img.height; j++) {
+            let color = img.get(i,j).toString();
+            switch(color){
+                case "0,0,0,255":
+                    bufferGraphics.image(mapSprites.get("CELL_barrier"),i*scale,j*scale,scale,scale);
+                break;
+                case "255,0,0,255":
+                    bufferGraphics.image(mapSprites.get("CELL_wall"),i*scale,j*scale,scale,scale);
+                    break;
+                case "0,255,0,255":
+                    bufferGraphics.fill(0,255,0);
+                    bufferGraphics.rect(i*scale,j*scale,scale,scale)
+                    break;
+                case "0,0,255,255":
+                    bufferGraphics.fill(0,0,255);
+                    bufferGraphics.rect(i*scale,j*scale,scale,scale)
+                    break;
+                case "255,255,255,255": 
+                    bufferGraphics.image(mapSprites.get("BACKGROUND"),i*scale,j*scale,scale,scale);
+                    break;
+            }
+        }
+    }
+    // Set the src attribute of the img element to the data URL of the buffer
+    map_img.src = bufferGraphics.canvas.toDataURL();
 }
 
 
@@ -94,7 +136,25 @@ function loadAllMaps(){
                 maps.set(d.MapID,"data:image/png;base64," + d.Sprite);
                 numbericMaps.push(d.MapID);
             });
-            document.querySelectorAll("img.map").forEach(e =>{e.src = maps.get(numbericMaps[0])});
+            img = loadImage(maps.get(numbericMaps[map_index]),renderMap)
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error:', errorThrown);
+        }
+    })
+}
+function loadMapSprites(){
+    $.ajax({
+        url: '../php/loadMapSprites.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+
+            response.forEach(d => {
+                loadImage("data:image/png;base64," + d.Sprite, img => {
+                    mapSprites.set(d.ResourceID,img);
+                });
+            });
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
