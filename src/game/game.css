@@ -86,7 +86,18 @@ h4{
     font-weight:400;
     font-size: 1.5em;
 }
-
+.controls{
+    position: absolute;
+    bottom: 0;
+    width: 30%; /* Make the image take up 100% of the container's width */
+    object-fit: cover; /* Maintain the aspect ratio while covering the container */
+}
+.controls.player1{
+    left: 2em;
+}
+.controls.player2{
+    right: 2em;
+}
 @media (max-width: 1280px) {
     .endGame{
         top: 41%;
