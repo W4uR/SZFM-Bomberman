@@ -97,6 +97,9 @@ function checkGameOver(){
         determineWinner();
         if(winner){
             sendWinnerToPHP();
+            document.getElementById("endGameText").innerHTML = "A Győztes:<br><span class=\"highlight\">"+winner.playerName+"</span>";
+        }else{
+            document.getElementById("endGameText").innerText = "Döntetlen :(";
         }
         document.getElementById("endGameContainer").style.display = 'flex';
         localStorage.setItem('player1',player1.playerName);
