@@ -35,9 +35,9 @@ foreach ($dataArray as $row) {
 // End the HTML list
 $html .= '</ul>';
 $html .= '</div>';
-$html .= '<div class="topScoreSkinConatiner">';
+$html .= '<div class="topScoreSkinConatiner" hidden>';
 $html .= '<h1>Legtöbb pontall rendelkező játékos:</h1>';
-$html .= '<img id="highest" class="playerSkinWithHighestScore"></img>';
+$html .= '<img id="highest" class="playerSkinWithHighestScore" src="../images/noPlayer.png"></img>';
 $html .= '</div>';
 $html .= '</div>';
 $html .= '<input class="searchBar" title="Nyomd le a szóköz billentyűt részletesebb keresésért." 
