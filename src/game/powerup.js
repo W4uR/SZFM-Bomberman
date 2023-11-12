@@ -60,7 +60,6 @@ class Heal extends PowerUp {
             player.health += 1;
             this.isCollected = true;
             this.collectedBy = player;
-            super.applyEffect(player);
         }
     }
 }
@@ -70,7 +69,7 @@ class SpeedBoost extends PowerUp {
         super(i,j,width);
     }
     applyEffect(player){
-        player.speed += 0.25;
+        player.speed += 0.36*SCALE;
         this.isCollected = true;
         this.collectedBy = player;
         super.applyEffect(player);

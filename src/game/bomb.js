@@ -23,7 +23,11 @@ class Bomb{
 
     show(){ 
         if(sprites.has(this.getSpriteKey())){
+            if(this.lifetime < 1){
+                tint("red");
+            }
             image(sprites.get(this.getSpriteKey()),this.x,this.y,this.width,this.width);
+            noTint();
         }
     }
 
