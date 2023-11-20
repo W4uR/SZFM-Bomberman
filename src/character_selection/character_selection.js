@@ -65,19 +65,21 @@ function changeMap(direction){
     }else{
         map_index = (++map_index+numbericMaps.length)%numbericMaps.length
     }
-    img = loadImage(maps.get(numbericMaps[map_index]),renderMap)
+    img = loadImage(maps.get(numbericMaps[map_index]),renderMap);
 }
 function preload(){
     loadMapSprites();
-    loadAllMaps();
+    
 }
 function setup(){
-    bufferGraphics = createGraphics(map_img.width, map_img.height);
+    
 }
 
 function renderMap(){
+    bufferGraphics = createGraphics(map_img.width, map_img.height);
     bufferGraphics.background(255);
     let scale = map_img.width/img.width;
+    console.log(scale);
     //TODO: Use loadPixels and img.pixels array insted of img.get()
     for (let i = 0; i < img.width; i++) {
         for (let j = 0; j < img.height; j++) {
@@ -136,7 +138,7 @@ function loadAllMaps(){
                 maps.set(d.MapID,"data:image/png;base64," + d.Sprite);
                 numbericMaps.push(d.MapID);
             });
-            img = loadImage(maps.get(numbericMaps[map_index]),renderMap)
+            img = loadImage(maps.get(numbericMaps[map_index]),renderMap);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);
@@ -149,12 +151,12 @@ function loadMapSprites(){
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-
             response.forEach(d => {
                 loadImage("data:image/png;base64," + d.Sprite, img => {
                     mapSprites.set(d.ResourceID,img);
                 });
             });
+            loadAllMaps();
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error:', errorThrown);

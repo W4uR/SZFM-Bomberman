@@ -17,7 +17,7 @@ img{
 body{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    justify-content: center;
     background-image: url("../images/blured_dark.png");
     background-size: cover;
     margin: 0;
@@ -44,6 +44,7 @@ body{
 #mapImg{
     flex-basis: 60%;
     aspect-ratio: 1;
+    background-size: cover;
 }
 
 .sidepane{
@@ -125,3 +126,7 @@ body::before {
     background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 80%);
 }
 
+
+#defaultCanvas0{
+    display: none;
+}
