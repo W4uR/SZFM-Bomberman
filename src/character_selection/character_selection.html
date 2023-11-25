@@ -13,7 +13,7 @@
     <body onload="loadPreviousPlayers()">
         <div class="sidepane">
             Játékos 1
-            <input type="text" class="player1" onkeyup="updateStart()" placeholder="Az egyes játékos neve">
+            <input maxlength="10" type="text" class="player1" onkeyup="updateStart()" placeholder="Az egyes játékos neve">
             <div class="skinSelector">
                 <button class="player1 stepper skin" onclick="changeSkin('player1','left')">&lt;</button>
                 <img class="player1 skin" alt="Az egyes játékos kinézete.">
@@ -32,7 +32,7 @@
     </div>
     <div class="sidepane">
         Játékos 2
-        <input type="text" class="player2" onkeyup="updateStart()" placeholder="Az kettes játékos neve">
+        <input maxlength="10" type="text" class="player2" onkeyup="updateStart()" placeholder="Az kettes játékos neve">
         <div class="skinSelector">
             <button class="player2 stepper skin" onclick="changeSkin('player2','left')">&lt;</button>
             <img class="player2 skin" alt="A kettes játékos kinézete.">
