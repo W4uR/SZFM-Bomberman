@@ -1,4 +1,4 @@
-context('asd', () => {
+context('End game', () => {
     beforeEach(() => {
         cy.visit("localhost/mainscreen/main.html");
         cy.get("#goToGame").click();
@@ -10,7 +10,7 @@ context('asd', () => {
         player2Input.type(player2);
         cy.get('.startGame').click();
     })
-    it("A játék címe megfelelően megjelenik.", () => {
+    it("A játékos pontszáma növekszik a játék végén.", () => {
         let playerPoints;
         let playerPointsAfterGame;
         cy.wait(1000);
