@@ -11,11 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.4.0",
-    "cypress-image-diff-js": "^1.32.0",
     "fs": "^0.0.1-security",
-    "jest": "^29.7.0",
-    "mysql": "^2.18.1",
-    "pixelmatch": "^5.3.0"
+    "mysql": "^2.18.1"
   },
   "dependencies": {
     "require-from-string": "^2.0.2"
