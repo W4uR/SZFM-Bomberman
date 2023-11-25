@@ -1,4 +1,4 @@
-context('A karakter választó képernyő funckió tesztek.', () => {
+context('A karakter választó képernyő funckió teszjei.', () => {
   beforeEach(() => {
       cy.visit("localhost/mainscreen/main.html");
       cy.get("#goToGame").click();
@@ -101,7 +101,7 @@ context('A karakter választó képernyő funckió tesztek.', () => {
     cy.get('.name').eq(1).should("have.text",player2);
   })
 
-  it("Az 1-es játékos skinje megfelelően betöltődik", () => {
+  it("A játékosok skinje megfelelően betöltődik a játékba.", () => {
     let player1 = "TestPlayer1";
     let player2 = "TestPlayer2";
     let player1Input = cy.get('input.player1');
@@ -110,54 +110,40 @@ context('A karakter választó képernyő funckió tesztek.', () => {
     player1Input.type(player1);
     player2Input.type(player2);
     
-    cy.get('button.player1.stepper.skin').eq(0).click().click().click();
-    
-    cy.get('img.player1.skin').invoke('attr', 'src').then(imageSrc1 => {
-      const image1Base64 = imageSrc1.split(';base64,')[1];
-      cy.get('.startGame').click();
-      cy.get('img[alt="Egyes játékos ikonja."]').should('have.attr', 'src').then(imageSrc2 => {
-        const image2Base64 = imageSrc2.split(';base64,')[1];
-        
-        compareImages(image1Base64, image2Base64)
-          .then((differenceValue) => {
-            expect(differenceValue).to.equal(0);
-          })
-          .catch((error) => {
-            cy.log('Error comparing images:', error);
-          });
-      });
-    });
-  });
-
-  it("Az 2-es játékos skinje megfelelően betöltődik", () => {
-    let player1 = "TestPlayer1";
-    let player2 = "TestPlayer2";
-    let player1Input = cy.get('input.player1');
-    let player2Input = cy.get('input.player2');
-    
-    player1Input.type(player1);
-    player2Input.type(player2);
-  
+    cy.get('button.player1.stepper.skin').eq(1).click().click().click();
     cy.get('button.player2.stepper.skin').eq(1).click().click();
-    
-    cy.get('img.player2.skin').invoke('attr', 'src').then(imageSrc1 => {
-      const image1Base64 = imageSrc1.split(';base64,')[1];
-      cy.get('.startGame').click();
-      cy.get('img[alt="Kettes játékos ikonja."]').should('have.attr', 'src').then(imageSrc2 => {
+
+    cy.get('img.player1.skin').invoke('attr', 'src').then(imageSrc1 => {
+      cy.get('img.player2.skin').invoke('attr', 'src').then(imageSrc2 => {
+        const image1Base64 = imageSrc1.split(';base64,')[1];
         const image2Base64 = imageSrc2.split(';base64,')[1];
-        
-        compareImages(image1Base64, image2Base64)
-          .then((differenceValue) => {
-            expect(differenceValue).to.equal(0);
-          })
-          .catch((error) => {
-            cy.log('Error comparing images:', error);
+        cy.get('.startGame').click();
+        cy.wait(200);
+        cy.get('img[alt="Egyes játékos ikonja."]').should('have.attr', 'src').then(imageSrc3 => {
+          cy.get('img[alt="Kettes játékos ikonja."]').should('have.attr', 'src').then(imageSrc4 => {
+            const image3Base64 = imageSrc3.split(';base64,')[1];
+            const image4Base64 = imageSrc4.split(';base64,')[1];
+            compareImages(image1Base64, image3Base64)
+            .then((differenceValue) => {
+              expect(differenceValue).to.equal(0);
+            })
+            .catch((error) => {
+              cy.log('Error comparing images:', error);
+            });
+            compareImages(image2Base64, image4Base64)
+            .then((differenceValue) => {
+              expect(differenceValue).to.equal(0);
+            })
+            .catch((error) => {
+              cy.log('Error comparing images:', error);
+            });
           });
+        });
       });
     });
   });
   
-  it("A karater skin-ek megfelelően betöltődnek.", () => {
+  it("A karater skin-ek megfelelően betöltődnek az adatbázisból.", () => {
     let player1 = "TestPlayer1";
     let player2 = "TestPlayer2";
     let player1Input = cy.get('input.player1');
@@ -196,6 +182,30 @@ context('A karakter választó képernyő funckió tesztek.', () => {
           });
         });
       });
-    })
+    });
+
+    it("A 'Rajta!' gomb csak akkor működik, ha a játékosok beírták a nevüket.", () => {
+      const startButton = cy.get('button.startGame');
+      const player1 = "TestPlayer1";
+      const player2 = "TestPlayer2";
+      const player1Input = cy.get('input.player1');
+      const player2Input = cy.get('input.player2');
+  
+      cy.wait(100);
+      startButton.should('be.disabled');
+  
+      player2Input.type(player2);
+      cy.wait(100);
+      startButton.should('be.disabled');
+  
+      player1Input.type(player1);
+      player2Input.clear();
+      cy.wait(100);
+      startButton.should('be.disabled');
+  
+      player2Input.type(player2);
+      startButton.should('be.enabled');
+  });
+  
 })
   
