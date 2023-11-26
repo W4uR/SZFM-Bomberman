@@ -144,7 +144,7 @@ Lásd kövspec.
 - **#6** - Erre a gombra kattintva indul a játék. Megnyílik a Játéktér.
 - **#7** - Pálya előnézete.
 - **#8** - Pálya választó nyilak.
-- **#9** - Dobókocka ikon. Kattintásra véletlen választ egy pályát.
+- **#9** - Kinézetek betöltése gomb.
 ![Karakterválasztó](https://github.com/W4uR/SZFM-Bomberman/assets/37939001/1f8263ed-ef4b-4fea-8889-a1e86621ef12)
 
 
