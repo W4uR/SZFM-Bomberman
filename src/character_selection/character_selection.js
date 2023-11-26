@@ -72,7 +72,7 @@ function preload(){
     
 }
 function setup(){
-    
+    //DON'T DELETE ME OR EVERYTHING BREAKS
 }
 
 function renderMap(){
@@ -80,7 +80,7 @@ function renderMap(){
     bufferGraphics.background(255);
     let scale = map_img.width/img.width;
     console.log(scale);
-    //TODO: Use loadPixels and img.pixels array insted of img.get()
+    //TODO: Use loadPixels and img.pixels array insted of img.get() for better performance
     for (let i = 0; i < img.width; i++) {
         for (let j = 0; j < img.height; j++) {
             let color = img.get(i,j).toString();
@@ -232,7 +232,7 @@ function isEmpty(string){
 }
 
 function updateStart(){
-    startButton.disabled = isEmpty(player1_name.value)||isEmpty(player2_name.value)||numbericMaps[map_index]==undefined;
+    startButton.disabled = player1_name.value == player2_name.value||isEmpty(player1_name.value)||isEmpty(player2_name.value)||numbericMaps[map_index]==undefined;
 }
 
 function loadPreviousPlayers() {
