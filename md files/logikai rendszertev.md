@@ -138,12 +138,24 @@ Mivel a játéklogikáért JavaScript felel így könnyen elhetséges csalni a j
 
 ### Funkcionális Felépítés:
 
-- **Komponensek:** TODO
+- **Komponensek:** 
+    - **Játékmotor:** A játékmenet vezérlése, beleértve a karakterek mozgását, robbanásokat, és a pálya állapotának frissítését.
+    - **Grafikai Motor:** A vizuális elemek megjelenítése, mint karakterek, pálya, és egyéb grafikai elemek.
+    - **Felhasználói Interfész Kezelő:** A felhasználóval való interakciókat kezeli, beleértve a menük, beállítások, és karakterválasztás kezelését.
 
-- **Adatszótár és Logikai Adatmodell:** TODO
+- **Adatszótár:**  
+    - **Játékos Információk:** Tartalmazza a játékosok karaktereivel kapcsolatos adatokat, például nevet, pontszámot stb.
+    - **Pálya Információk:** Az aktuális pálya adatait tartalmazza, például falak helyét, erősítéseket, és egyéb pálya-specifikus információkat.
+    - **Játékállapot:** A játék aktuális állapotát reprezentáló adatok, beleértve a karakterek és bombák pozícióit, életerejüket stb.
 
-- **Adatszótár:**  TODO
+- **Logikai Adatmodell:**  
+    - **Karakterek:** Az összes játékos karaktere és azok tulajdonságai.
+    - **Pályaelemek:** Falak, erősítések, és egyéb pályaelemek.
+    - **Játékállapot:** A játék aktuális állapotát tároló logikai modell.
 
-- **Logikai Adatmodell:**  TODO
+- **Felhasználói Felületek és Menük:**  
+    - **Főmenü:** A játék indításakor látható, lehetőséget biztosít a játék indítására, beállítások módosítására, és esetlegesen bug jelentésre.
+    - **Karakterválasztó:** A karakterek és pályák kiválasztására szolgáló felület.
+    - **Játékmenet:** A játék tényleges folyamata, amely magában foglalja a játékteret és a játékhoz kapcsolódó információkat.
 
-- **Adatfolyam Diagramok:** TODO
+
