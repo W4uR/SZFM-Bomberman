@@ -87,8 +87,8 @@ context('A karakter választó képernyő funckió teszjei.', () => {
   
   
   it("A játékos nevek megfelelően betöltődnek", () => {
-    let player1 = "TestPlayer1";
-    let player2 = "TestPlayer2";
+    let player1 = "TestP1";
+    let player2 = "TestP2";
     let player1Input = cy.get('input.player1');
     let player2Input = cy.get('input.player2');
     player1Input.type(player1);
@@ -102,8 +102,8 @@ context('A karakter választó képernyő funckió teszjei.', () => {
   })
 
   it("A játékosok skinje megfelelően betöltődik a játékba.", () => {
-    let player1 = "TestPlayer1";
-    let player2 = "TestPlayer2";
+    let player1 = "TestP1";
+    let player2 = "TestP2";
     let player1Input = cy.get('input.player1');
     let player2Input = cy.get('input.player2');
     
@@ -144,8 +144,8 @@ context('A karakter választó képernyő funckió teszjei.', () => {
   });
   
   it("A karater skin-ek megfelelően betöltődnek az adatbázisból.", () => {
-    let player1 = "TestPlayer1";
-    let player2 = "TestPlayer2";
+    let player1 = "TestP1";
+    let player2 = "TestP2";
     let player1Input = cy.get('input.player1');
     let player2Input = cy.get('input.player2');
     
@@ -186,8 +186,8 @@ context('A karakter választó képernyő funckió teszjei.', () => {
 
     it("A 'Rajta!' gomb csak akkor működik, ha a játékosok beírták a nevüket.", () => {
       const startButton = cy.get('button.startGame');
-      const player1 = "TestPlayer1";
-      const player2 = "TestPlayer2";
+      const player1 = "TestP1";
+      const player2 = "TestP2";
       const player1Input = cy.get('input.player1');
       const player2Input = cy.get('input.player2');
   
