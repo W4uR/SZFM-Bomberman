@@ -24,20 +24,9 @@ let powerUps = [];
 let player1;
 let player2;
 
-let imagesLoaded = 0;
-let totalImages = -1;
-
 function preload(){
-    loadSprites();
     mapImage = loadImage(gameDatas.mapData);
-}
-
-// Akkor indul a játék ha az összes sprite betöltött
-function imageLoaded() {
-    imagesLoaded++;
-    if (imagesLoaded === totalImages) {
-      loop();
-    }
+    loadSprites();
 }
 
 function setup() {
@@ -55,7 +44,6 @@ function setup() {
     grid = make2DArray(cols,rows);
     initializeMap();
     initializePowerUps();
-    noLoop();
 }
   
 function draw() {
@@ -260,9 +248,8 @@ function loadSprites(){
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-            totalImages = response.length;
             response.forEach(d => { 
-                sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite,imageLoaded));
+                sprites.set(d.ResourceID,loadImage("data:image/png;base64," + d.Sprite));
             });
         },
         error: function(jqXHR, textStatus, errorThrown) {
