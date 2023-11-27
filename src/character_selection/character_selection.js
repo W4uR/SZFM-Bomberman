@@ -91,16 +91,17 @@ function renderMap(){
                 case "255,0,0,255":
                     bufferGraphics.image(mapSprites.get("CELL_wall"),i*scale,j*scale,scale,scale);
                     break;
-                case "0,255,0,255":
-                    bufferGraphics.fill(0,255,0);
-                    bufferGraphics.rect(i*scale,j*scale,scale,scale)
-                    break;
                 case "0,0,255,255":
                     bufferGraphics.fill(0,0,255);
                     bufferGraphics.rect(i*scale,j*scale,scale,scale)
                     break;
                 case "255,255,255,255": 
                     bufferGraphics.image(mapSprites.get("BACKGROUND"),i*scale,j*scale,scale,scale);
+                    break;
+                default:
+                case "0,255,0,255":
+                    bufferGraphics.fill(0,255,0);
+                    bufferGraphics.rect(i*scale,j*scale,scale,scale)
                     break;
             }
         }
