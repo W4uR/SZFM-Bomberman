@@ -244,3 +244,7 @@ function loadPreviousPlayers() {
         startButton.disabled = false;
     }
   }
+
+  function mainMenu(){
+    window.location.href = "../mainscreen/main.html";
+  }
