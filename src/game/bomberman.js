@@ -221,13 +221,9 @@ function initializeMap(){
             switch(color){
                 case "0,0,0,255":
                     wall = WallType.BARRIER;
-                break;
+                    break;
                 case "255,0,0,255":
                     wall = WallType.WALL;
-                    break;
-                case "0,255,0,255":
-                    wall = WallType.EMPTY;
-                    player1 = new Player(i,j,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
                     break;
                 case "0,0,255,255":
                     wall = WallType.EMPTY;
@@ -235,6 +231,11 @@ function initializeMap(){
                     break;
                 case "255,255,255,255": 
                     wall = WallType.EMPTY;
+                    break;
+                default:
+                case "0,255,0,255":
+                    wall = WallType.EMPTY;
+                    player1 = new Player(i,j,0.75*SCALE,3,2.8*SCALE,new InputModule(87,65, 83, 68, 32),gameDatas.player1_name,document.getElementById("P1_container"),gameDatas.player1_skindData);
                     break;
             }
             grid[i][j] = new Cell(i,j,wall);
